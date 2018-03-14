@@ -4,8 +4,8 @@ import SponsorData from '../config/sponsors'
 import { Conference as IConference } from './types'
 import venue from './venue'
 
-const name = 'DDD Perth'
-const tagLine = `${name} is an inclusive non-profit conference for the Perth software community`
+const name = "DDD Sydney"
+const tagLine = `${name} is an inclusive non-profit conference for the Sydney software community`
 
 const hideDate = false
 const isSoldOut = false
@@ -68,62 +68,59 @@ if (!hideDate) {
   })
 }
 
-// tslint:disable:object-literal-sort-keys
 const Conference: IConference = {
-  Name: name,
-  Instance: currentInstance.toString(),
-  PreviousInstance: (currentInstance - 1).toString(),
-  PreviousInstances: [...Array(currentInstance - firstInstance).keys()].map((_, i) => (firstInstance + i).toString()),
-  Organiser: 'DDD WA Inc.',
-  TagLine: tagLine,
-  SiteDescription: `${tagLine}.`,
-  Goal:
-    "Our goal is to create an approachable conference that anyone can attend or speak at, especially people that don't normally get to attend / speak at conferences.",
-  GoogleAnalyticsId: 'UA-60040308-1',
-  TicketPrice: '$50',
-  EventbriteId: '34127818223',
-  IsSoldOut: isSoldOut,
-  HashTag: 'dddperth',
-  SellingPoints: ['One day', 'Fully catered', 'Inclusive atmosphere', 'Interesting presentations', 'Awesome people'],
-  Handbook: null,
-  SessionizeUrl: 'https://sessionize.com/demo-91ce3752/',
-  PreviouslySubmittedTopics:
-    'Agile, building great teams, UI design, software testing, virtual reality, open source software, bots, IoT, machine learning, automated deployments, mobile development, architecture, microservices, APIs, actors, JavaScript, authentication, React, UWP, HTTP protocol, Git, Docker and pointers',
-
-  ContactEmail: 'info@dddperth.com',
-  SponsorshipEmail: 'sponsorship@dddperth.com',
-  MentoringEmail: 'mentors@dddperth.com',
-  EmergencyPhoneNumber: '0400 777 763',
-
+  AgendaPublishedFrom: agendaPublishedFrom,
+  ContactEmail : "team@dddsydney.com.au",
   Date: date,
   DoorsOpenTime: '8:10am',
-  FinishTime: '5:10pm',
-  RegistrationOpenFrom: registrationOpenFrom,
-  RegistrationOpenUntil: registrationOpenUntil,
-  PresentationSubmissionsOpenFrom: presentationSubmissionsOpenFrom,
-  PresentationSubmissionsOpenUntil: presentationSubmissionsOpenUntil,
-  VotingOpenFrom: votingOpenFrom,
-  VotingOpenUntil: votingOpenUntil,
-  AgendaPublishedFrom: agendaPublishedFrom,
+  EmergencyPhoneNumber : "0439 878 200",
+  EventbriteId : "34127818223",
   FeedbackOpenFrom: feedbackOpenFrom,
   FeedbackOpenUntil: feedbackOpenUntil,
+  FinishTime: '5:10pm',
+  Goal : "Our goal is to create an approachable conference that anyone can attend or speak at, especially people that don't normally get to attend / speak at conferences.",
+  GoogleAnalyticsId : "UA-60040308-1",
+  Handbook: null,
+  HashTag: 'dddperth',
+  Instance : currentInstance.toString(),
+  IsSoldOut: isSoldOut,
+  MentoringEmail : "team@dddsydney.com.au",
+  Name : name,
+  Organiser : "SydDev Inc.",
+  PreviousInstance : (currentInstance - 1).toString(),
+  PreviousInstances : [... Array(currentInstance - firstInstance).keys()].map((_,i) => (firstInstance + i).toString()),
+  PreviouslySubmittedTopics:
+  'Agile, building great teams, UI design, software testing, virtual reality, open source software, bots, IoT, machine learning, automated deployments, mobile development, architecture, microservices, APIs, actors, JavaScript, authentication, React, UWP, HTTP protocol, Git, Docker and pointers',
+  SellingPoints: ['One day', 'Fully catered', 'Inclusive atmosphere', 'Interesting presentations', 'Awesome people'],
+  SessionizeUrl: 'https://sessionize.com/demo-91ce3752/',
+  SiteDescription : `${tagLine}.`,
+  SponsorshipEmail : "sponsorship@dddsydney.com.au",
+  TagLine : tagLine,
+  TicketPrice : "$50",
 
+  PresentationSubmissionsOpenFrom: presentationSubmissionsOpenFrom,
+  PresentationSubmissionsOpenUntil: presentationSubmissionsOpenUntil,
+  RegistrationOpenFrom: registrationOpenFrom,
+  RegistrationOpenUntil: registrationOpenUntil,
+  VotingOpenFrom: votingOpenFrom,
+  VotingOpenUntil: votingOpenUntil,
+
+  HideAfterpartyVenue: venue === null || venue.Afterparty === null,
   HideDate: hideDate,
   HideSponsors: false,
   HideVenue: venue === null,
-  HideAfterpartyVenue: venue === null || venue.Afterparty === null,
 
   Venue: venue,
 
   Socials: {
-    Twitter: 'DDDPerth',
-    Facebook: 'DDDPerth',
-    Flickr: 'https://www.flickr.com/photos/135003652@N08/albums',
-    Youtube: 'https://www.youtube.com/channel/UCj4UnNYakbLAh2xTWTjeoAQ',
-    Blog: 'https://blog.dddperth.com/',
-    Email: 'info@dddperth.com',
-    MailingList: 'http://eepurl.com/cRvaSf',
-    GitHub: 'dddwa',
+    Blog: "",
+    Email: "team@dddsydney.com.au",
+    Facebook: "",
+    Flickr: "",
+    GitHub: "",
+    MailingList: "",
+    Twitter: "dddsydney",
+    Youtube: "",
   },
 
   ImageStrip: [

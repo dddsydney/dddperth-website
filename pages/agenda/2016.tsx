@@ -217,4 +217,8 @@ class Agenda2016 extends React.Component<AgendaPageProps> {
   }
 }
 
+<<<<<<< aa59f405c6184b35c70616de8952863d2103057a
 export default withPageMetadata(dddAgendaPage(Agenda2016, Agenda2016.getAgendaPageParams()))
+=======
+export default withPageMetadata(dddAgendaPage(Agenda2016, Agenda2016.getAgendaPageParams()));
+>>>>>>> Getting ddd sydney historical stuff started

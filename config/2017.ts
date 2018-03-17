@@ -10,26 +10,28 @@ interface From2017 {
 }
 
 const From2017: From2017 = {
-  YouTubePlaylistUrl: 'https://www.youtube.com/watch?v=tlA_4-dnDyk&list=PLkLJSte3oodQ_7JG0iRdZS7P4TdlFSzYy',
-  // tslint:disable-next-line:object-literal-sort-keys
-  YouTubeKeynoteEmbedUrl: 'https://www.youtube.com/embed/tlA_4-dnDyk',
-  YouTubeLocknoteEmbedUrl: 'https://www.youtube.com/embed/zMReShyytQA',
-  FlickrAlbumUrl: 'https://www.flickr.com/photos/135003652@N08/albums/72157686384858370',
-  HandbookUrl: '/static/docs/handbook2017.pdf',
+  FlickrAlbumUrl: '',
+  HandbookUrl: '',
   Sponsors: [
     // Platinum
     {
-      imageUrl: '/static/images/sponsors/bankwest.png',
-      name: 'Bankwest',
+      imageUrl: '/static/images/sponsors/ndc-sydney.png',
+      name: 'NDC Sydney',
       type: SponsorType.Platinum,
-      url: 'https://www.bankwest.com.au/',
+      url: 'https://www.ndcsydney.com/',
     },
-    // Gold
     {
       imageUrl: '/static/images/sponsors/readify.png',
       name: 'Readify',
-      type: SponsorType.Gold,
+      type: SponsorType.Platinum,
       url: 'https://readify.net/',
+    },
+    // Gold
+    {
+      imageUrl: '/static/images/sponsors/auth0.png',
+      name: 'Auth0',
+      type: SponsorType.Gold,
+      url: 'https://auth0.com/',
     },
     {
       imageUrl: '/static/images/sponsors/microsoft.png',
@@ -38,77 +40,36 @@ const From2017: From2017 = {
       url: 'https://www.microsoft.com/en-au',
     },
     {
-      imageUrl: '/static/images/sponsors/livehire.png',
-      name: 'LiveHire',
-      type: SponsorType.Gold,
-      url: 'https://www.livehire.com/',
-    },
-    {
-      imageUrl: '/static/images/sponsors/lateral.png',
-      name: 'Lateral Solutions',
-      type: SponsorType.Gold,
-      url: 'http://www.lateral.com.au/',
-    },
-    {
-      imageUrl: '/static/images/sponsors/vgw.png',
-      name: 'Virtual Gaming Worlds',
-      type: SponsorType.Gold,
-      url: 'https://www.vgw.co/',
-    },
-    // Silver
-    {
-      imageUrl: '/static/images/sponsors/ndc-sydney.png',
-      name: 'NDC Sydney',
-      type: SponsorType.Silver,
-      url: 'http://ndcsydney.com/',
-    },
-    {
       imageUrl: '/static/images/sponsors/octopus-deploy.png',
       name: 'Octopus Deploy',
+      type: SponsorType.Gold,
+      url: 'https://www.octopus.com/',
+    },
+    {
+      imageUrl: '/static/images/sponsors/particular.png',
+      name: 'Progress',
       type: SponsorType.Silver,
-      url: 'https://octopus.com/',
-    },
-    // Services
-    {
-      imageUrl: '/static/images/sponsors/vgw.png',
-      name: 'Virtual Gaming Worlds',
-      serviceProvided: 'Afterparty',
-      type: SponsorType.Service,
-      url: 'https://www.vgw.co/',
-    },
-    {
-      imageUrl: '/static/images/sponsors/mechanical-rock.png',
-      name: 'Mechanical Rock',
-      serviceProvided: 'Coffee Cart',
-      type: SponsorType.Service,
-      url: 'https://mechanicalrock.io/',
+      url: 'http://telerik.com/',
     },
     // Standard
-    {
-      imageUrl: '/static/images/sponsors/jetbrains.png',
-      name: 'Jetbrains',
-      type: SponsorType.Standard,
-      url: 'https://www.jetbrains.com/',
-    },
-    {
-      imageUrl: '/static/images/sponsors/thales.png',
-      name: 'Thales',
-      type: SponsorType.Standard,
-      url: 'https://www.thalesgroup.com/en/career',
-    },
     {
       imageUrl: '/static/images/sponsors/aspose.png',
       name: 'Aspose',
       type: SponsorType.Standard,
-      url: 'http://www.aspose.com/',
+      url: 'http://aspose.com/',
     },
+    // Services
     {
-      imageUrl: '/static/images/sponsors/seq.png',
-      name: 'Seq',
-      type: SponsorType.Standard,
-      url: 'https://www.getseq.net/',
+      imageUrl: '/static/images/sponsors/ssw.png',
+      name: 'SSW TV',
+      serviceProvided: 'Media Partner',
+      type: SponsorType.Service,
+      url: 'https://ssw.tv',
     },
   ],
+  YouTubeKeynoteEmbedUrl: '',
+  YouTubeLocknoteEmbedUrl: '',
+  YouTubePlaylistUrl: '',
 }
 
 export default From2017

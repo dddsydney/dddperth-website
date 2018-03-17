@@ -10,34 +10,92 @@ interface From2016 {
 }
 
 const From2016: From2016 = {
-  YouTubePlaylistUrl: 'https://www.youtube.com/watch?v=E55ts7kffHc&list=PLkLJSte3oodROGrLanQPm2KrVZEA0NlTl',
-  // tslint:disable-next-line:object-literal-sort-keys
-  YouTubeKeynoteEmbedUrl: 'https://www.youtube.com/embed/E55ts7kffHc',
-  YouTubeLocknoteEmbedUrl: 'https://www.youtube.com/embed/GFF9PlL5KPk',
-  FlickrAlbumUrl: 'https://www.flickr.com/photos/135003652@N08/albums/72157669907469743',
-  HandbookUrl: '/static/docs/handbook2016.pdf',
+  FlickrAlbumUrl: "",
+  HandbookUrl: "",
   Sponsors: [
     // Platinum
     {
-      imageUrl: '/static/images/sponsors/bankwest.png',
-      name: 'Bankwest',
+      imageUrl: "/static/images/sponsors/ndc-sydney.png",
+      name: "NDC Sydney",
       type: SponsorType.Platinum,
-      url: 'https://www.bankwest.com.au/',
+      url: "https://www.ndcsydney.com/"
     },
     // Gold
     {
-      imageUrl: '/static/images/sponsors/gooroo.png',
-      name: 'Gooroo',
+      imageUrl: "/static/images/sponsors/readify.png",
+      name: "Readify",
       type: SponsorType.Gold,
-      url: 'https://gooroo.io/',
+      url: "https://readify.net/"
     },
     {
-      imageUrl: '/static/images/sponsors/microsoft.png',
+      imageUrl: "/static/images/sponsors/microsoft.png",
       name: 'Microsoft',
       type: SponsorType.Gold,
-      url: 'https://www.microsoft.com/en-au',
+      url: "https://www.microsoft.com/en-au"
+    },
+    {
+      imageUrl: "/static/images/sponsors/campaignmonitor.png",
+      name: "Campaign Monitor",
+      type: SponsorType.Gold,
+      url: "https://www.campaignmonitor.com/careers/"
+    },
+    {
+      imageUrl: "/static/images/sponsors/cba.png",
+      name: "CBA",
+      type: SponsorType.Gold,
+      url: "https://www.cba.com.au"
+    },
+    // Silver
+    {
+      imageUrl: "/static/images/sponsors/particular.png",
+      name: "Particular Software",
+      type: SponsorType.Silver,
+      url: "http://particular.net/"
+    },
+    {
+      imageUrl: "/static/images/sponsors/particular.png",
+      name: "Progress",
+      type: SponsorType.Silver,
+      url: "http://telerik.com/"
+    },
+    {
+      imageUrl: '/static/images/sponsors/web-directions.svg',
+      name: 'Web Directions',
+      type: SponsorType.Silver,
+      url: 'https://webdirections.com',
+    },
+    // Standard
+    {
+      imageUrl: '/static/images/sponsors/aspose.png',
+      name: 'Aspose',
+      type: SponsorType.Standard,
+      url: 'http://aspose.com/',
+    },
+    {
+      imageUrl: '/static/images/sponsors/pluralsight.png',
+      name: 'Pluralsight',
+      type: SponsorType.Standard,
+      url: 'https://pluralsight.com',
+    },
+    // Services
+    {
+      imageUrl: '/static/images/sponsors/xamconsulting.png',
+      name: 'XAM Consulting',
+      serviceProvided: 'Popcorn Machine',
+      type: SponsorType.Service,
+      url: 'http://www.xam-consulting.com/',
+    },
+    {
+      imageUrl: '/static/images/sponsors/ssw.png',
+      name: 'SSW TV',
+      serviceProvided: 'Media Partner',
+      type: SponsorType.Service,
+      url: 'https://ssw.tv',
     },
   ],
+  YouTubeKeynoteEmbedUrl: "",
+  YouTubeLocknoteEmbedUrl: "",
+  YouTubePlaylistUrl: "",
 }
 
 export default From2016

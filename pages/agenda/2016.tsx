@@ -11,7 +11,7 @@ class Agenda2016 extends React.Component<AgendaPageProps> {
     return {
       conferenceInstance: '2016',
       numTracks: 3,
-      sessionsUrl: 'https://dddperth.com/Session/Sessions/?year=2016',
+      sessionsUrl: 'https://dddsydney-api.azurewebsites.net/api/Get-Sessions?code=kbmszJp7okUb7Oc0fVgrNDy33mi4/5UG21pIjB9wZEhK/zREBBYQfQ==&year=2016',
     }
   }
 
@@ -24,36 +24,36 @@ class Agenda2016 extends React.Component<AgendaPageProps> {
             <tr>
               <th style={{ width: '4%' }} />
               <th style={{ width: '32%' }}>
-                <strong className="dark-green">Main Room</strong>
+                <strong className="dark-green">Green</strong>
                 <br />
-                <em>Caroline</em>
+                <em>CB06.03.28 - GUTHRIE THEATRE</em>
               </th>
               <th style={{ width: '32%' }}>
-                <strong className="light-green">Side Room 1</strong>
+                <strong className="light-green">Blue</strong>
                 <br />
-                <em>Orelia</em>
+                <em>CB06.03.022 - LECTURE THEATRE</em>
               </th>
               <th style={{ width: '32%' }}>
-                <strong className="green">Side Room 2</strong>
+                <strong className="green">Red</strong>
                 <br />
-                <em>Georgiana</em>
+                <em>CB06.03.056 - COLLABORATIVE THEATRE</em>
               </th>
             </tr>
           </thead>
           <tbody>
             <tr className="breadth-row">
-              <td className="time">8:30</td>
+              <td className="time">8:20</td>
               <td colSpan={3} className="breadth">
                 Registration
                 <br />
-                <em>Mercure Perth</em>
+                <em>UTS CBD Campus</em>
                 <br />
-                10 Irwin St, Perth
+                Level 3 of the Peter Johnson Building
               </td>
             </tr>
 
             <tr className="breadth-row">
-              <td className="time">9:00</td>
+              <td className="time">8:50</td>
               <td colSpan={3} className="breadth">
                 <strong>Welcome and house-keeping</strong>
                 <br />
@@ -61,8 +61,8 @@ class Agenda2016 extends React.Component<AgendaPageProps> {
             </tr>
 
             <tr className="breadth-row keynote">
-              <td className="time">9:15</td>
-              <SessionCell isKeynote={true} sessionId="aa9f3fc0-8d47-404d-ba3e-2e5e058a00be" />
+              <td className="time">9:00</td>
+              <SessionCell isKeynote={true} sessionId="4668ed8a-f26b-407b-b78e-70942ce6eb69" />
             </tr>
 
             <tr className="breadth-row">
@@ -74,140 +74,83 @@ class Agenda2016 extends React.Component<AgendaPageProps> {
             </tr>
 
             <tr>
-              <td className="time">10:05</td>
-              <SessionCell sessionId="0cb4d75e-2183-4733-af35-2a01395b9315" />
-              <SessionCell sessionId="14fe62d5-b37b-4cf3-8a3d-aa1ba116e83e" />
-              <SessionCell sessionId="abedcd4e-b0a3-42df-9d5b-26e5d566b50e" />
+              <td className="time">10:10</td>
+              <SessionCell sessionId="7b15bfb2-aad9-4c01-8832-9f81cd13e76d" />
+              <SessionCell sessionId="1368bbce-067f-4a99-9348-f8149914bb72" />
+              <SessionCell sessionId="81cc1e1e-4fcb-47c9-b4f0-cc60776dab52" />
             </tr>
 
             <tr className="breadth-row">
-              <td className="time">10:50</td>
+              <td className="time">11:00</td>
               <td colSpan={3} className="breadth">
                 Morning tea
               </td>
             </tr>
 
             <tr>
-              <td className="time">11:10</td>
-              <SessionCell sessionId="13178167-2124-44ce-a07e-c796449652e2" />
-              <SessionCell sessionId="27557018-3caa-44fd-bd77-d6061d36b04d" />
-              <SessionCell sessionId="f34f4325-bdba-4798-8f53-7a5d8a3bbf96" />
+              <td className="time">11:20</td>
+              <SessionCell sessionId="3f2d7eda-640a-45b1-946f-7e1323a8d0b9" />
+              <SessionCell sessionId="3d9173c6-9309-4336-9cf6-89ae999eba5e" />
+              <SessionCell sessionId="967e4966-af08-4b0d-b6d0-0683ed61d52f" />
             </tr>
 
             <tr className="breadth-row">
-              <td className="time">11:55</td>
+              <td className="time">12:10</td>
               <td colSpan={3} className="breadth">
-                Changeover
+                Lunch
               </td>
             </tr>
 
             <tr>
-              <td className="time">12:00</td>
-              <SessionCell sessionId="ec6e7098-4615-4cf3-88b5-fb92ff5a20b4" />
-              <SessionCell sessionId="852827dd-a467-4c66-b2a6-a60b2dba34cc" />
-              <SessionCell sessionId="453f9406-3c72-4009-92bd-4c0afe65e1e2" />
+              <td className="time">13:10</td>
+              <SessionCell sessionId="4a650045-2f77-4439-bf03-8009fb947444" />
+              <SessionCell sessionId="43c98752-0898-4654-9bd6-486707f36e13" />
+              <SessionCell sessionId="20312f80-bd26-4aa2-8c55-75a781613744" />
             </tr>
 
             <tr className="breadth-row">
-              <td className="time">12:45</td>
-              <td colSpan={2} className="breadth">
-                Lunch<br />
-                <em>Ground floor (downstairs)</em>
-              </td>
-              <SessionCell sessionId="ccbb469f-5406-48dc-8e70-d20a84dd2044" />
-            </tr>
-
-            <tr>
-              <td className="time">13:45</td>
-              <SessionCell sessionId="477cabb8-4ca8-4f72-8e64-1cd11f6b2602" />
-              <SessionCell sessionId="ffc49099-c8d9-4262-9e00-82ea414dc083" />
-              <SessionCell sessionId="8c3f3aaa-02a1-45ed-81f3-91233575c687" />
-            </tr>
-
-            <tr className="breadth-row">
-              <td className="time">14:30</td>
+              <td className="time">14:00</td>
               <td colSpan={3} className="breadth">
-                Changeover
+                Break
               </td>
             </tr>
 
             <tr>
-              <td className="time">14:35</td>
-              <SessionCell sessionId="24a69d28-172d-4e77-90d3-190e221b7c60" />
-              <SessionCell sessionId="1403740b-48d9-4674-9eed-e2af035831dc" />
-              <SessionCell sessionId="174d8338-0201-4711-b1f7-f3a0cca60d29" />
+              <td className="time">14:20</td>
+              <SessionCell sessionId="6f34e04d-991c-44d7-8242-165848e796b1" />
+              <SessionCell sessionId="259be528-26cd-4a62-b1ae-af7c534e6865" />
+              <SessionCell sessionId="747d3437-1d1a-483e-8e88-72a04a9c3b57" />
             </tr>
 
             <tr className="breadth-row">
               <td className="time">15:20</td>
-              <td colSpan={3} className="breadth">
-                Afternoon tea
-              </td>
-            </tr>
-
-            <tr className="breadth-row">
-              <td className="time">15:35</td>
-              <td colSpan={3} className="breadth">
-                Sponsor announcements and PRIZE DRAW!!!
-              </td>
+              <SessionCell sessionId="b302ca29-6f72-47b8-adb1-282708ff92d8" />
+              <SessionCell sessionId="46844720-f562-4b0b-83ed-1b43c27ba580" />
+              <SessionCell sessionId="9cfc37a2-e2de-4675-8cac-a8208d1e3668" />
             </tr>
 
             <tr className="breadth-row keynote">
-              <td className="time">16:10</td>
-              <SessionCell isLocknote={true} sessionId="82988c58-8d9c-4518-a4f7-94cf7739299d" />
-            </tr>
-
-            <tr className="breadth-row">
-              <td className="time">16:55</td>
-              <td colSpan={3} className="breadth">
-                <strong>Thank yous and wrap up</strong>
-              </td>
+              <td className="time">16:20</td>
+              <SessionCell isLocknote={true} sessionId="e1e865dd-73c4-4494-a4a3-d63ef481d3e5" />
             </tr>
 
             <tr className="breadth-row">
               <td className="time">17:00</td>
               <td colSpan={3} className="breadth">
+                <strong>Giveaways and wrap up</strong>
+              </td>
+            </tr>
+
+            <tr className="breadth-row">
+              <td className="time">16:00</td>
+              <td colSpan={3} className="breadth">
                 <strong>Afterparty</strong>
                 <br />
-                <em>My Place Bar & Restaurant</em>
-                <br />
-                70 Pier Street, Perth
+                <em><a href="http://www.lordgladstone.com.au/">Lord Gladstone</a></em>
               </td>
             </tr>
           </tbody>
         </table>
-        <h2>Handbook</h2>
-        <p>
-          <a href={From2016.HandbookUrl} className="btn">
-            Download 2016 handbook
-          </a>
-        </p>
-        <h2>Media</h2>
-        <iframe
-          width="560"
-          height="315"
-          src={From2016.YouTubeKeynoteEmbedUrl}
-          frameBorder="0"
-          allowFullScreen
-          style={{ display: 'inline-block', marginRight: '20px' }}
-        />
-        <iframe
-          width="560"
-          height="315"
-          src={From2016.YouTubeLocknoteEmbedUrl}
-          frameBorder="0"
-          allowFullScreen
-          style={{ display: 'inline-block' }}
-        />
-        <p>
-          <a href={From2016.YouTubePlaylistUrl} target="_blank">
-            YouTube Playlist
-          </a>{' '}
-          |{' '}
-          <a href={From2016.FlickrAlbumUrl} target="_blank">
-            Flickr Album
-          </a>
-        </p>
         <Sponsors
           show={true}
           sponsors={From2016.Sponsors.filter(s => s.type === SponsorType.Gold || s.type === SponsorType.Platinum)}
@@ -217,8 +160,4 @@ class Agenda2016 extends React.Component<AgendaPageProps> {
   }
 }
 
-<<<<<<< aa59f405c6184b35c70616de8952863d2103057a
 export default withPageMetadata(dddAgendaPage(Agenda2016, Agenda2016.getAgendaPageParams()))
-=======
-export default withPageMetadata(dddAgendaPage(Agenda2016, Agenda2016.getAgendaPageParams()));
->>>>>>> Getting ddd sydney historical stuff started

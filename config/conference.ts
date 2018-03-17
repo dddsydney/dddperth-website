@@ -9,17 +9,17 @@ const tagLine = `${name} is an inclusive non-profit conference for the Sydney so
 
 const hideDate = false
 const isSoldOut = false
-const date = moment('2018-08-04T08:00+08:00')
+const date = moment('2018-08-18T08:00+08:00')
 const currentInstance = parseInt(date.format('YYYY'), 10)
-const firstInstance = 2015
+const firstInstance = 2016
 const registrationOpenFrom = moment('2018-04-30T08:00:00+08:00')
 const registrationOpenUntil = hideDate
   ? null
   : date
-      .clone()
-      .add(-1, 'd')
-      .startOf('day')
-      .add(17, 'h')
+    .clone()
+    .add(-1, 'd')
+    .startOf('day')
+    .add(17, 'h')
 const presentationSubmissionsOpenFrom = moment('2018-04-30T08:00:00+08:00')
 const presentationSubmissionsOpenUntil = moment('2018-06-03T23:59:59+08:00')
 const votingOpenFrom = moment('2018-06-06T08:00:00+08:00')
@@ -70,33 +70,33 @@ if (!hideDate) {
 
 const Conference: IConference = {
   AgendaPublishedFrom: agendaPublishedFrom,
-  ContactEmail : "team@dddsydney.com.au",
+  ContactEmail: "team@dddsydney.com.au",
   Date: date,
   DoorsOpenTime: '8:10am',
-  EmergencyPhoneNumber : "0439 878 200",
-  EventbriteId : "34127818223",
+  EmergencyPhoneNumber: "0439 878 200",
+  EventbriteId: "34127818223",
   FeedbackOpenFrom: feedbackOpenFrom,
   FeedbackOpenUntil: feedbackOpenUntil,
   FinishTime: '5:10pm',
-  Goal : "Our goal is to create an approachable conference that anyone can attend or speak at, especially people that don't normally get to attend / speak at conferences.",
-  GoogleAnalyticsId : "UA-60040308-1",
+  Goal: "Our goal is to create an approachable conference that anyone can attend or speak at, especially people that don't normally get to attend / speak at conferences.",
+  GoogleAnalyticsId: "UA-60040308-1",
   Handbook: null,
-  HashTag: 'dddperth',
-  Instance : currentInstance.toString(),
+  HashTag: 'dddsydney',
+  Instance: currentInstance.toString(),
   IsSoldOut: isSoldOut,
-  MentoringEmail : "team@dddsydney.com.au",
-  Name : name,
-  Organiser : "SydDev Inc.",
-  PreviousInstance : (currentInstance - 1).toString(),
-  PreviousInstances : [... Array(currentInstance - firstInstance).keys()].map((_,i) => (firstInstance + i).toString()),
+  MentoringEmail: "team@dddsydney.com.au",
+  Name: name,
+  Organiser: "SydDev Inc.",
+  PreviousInstance: (currentInstance - 1).toString(),
+  PreviousInstances: [...Array(currentInstance - firstInstance).keys()].map((_, i) => (firstInstance + i).toString()),
   PreviouslySubmittedTopics:
-  'Agile, building great teams, UI design, software testing, virtual reality, open source software, bots, IoT, machine learning, automated deployments, mobile development, architecture, microservices, APIs, actors, JavaScript, authentication, React, UWP, HTTP protocol, Git, Docker and pointers',
+    'Agile, building great teams, UI design, software testing, virtual reality, open source software, bots, IoT, machine learning, automated deployments, mobile development, architecture, microservices, APIs, actors, JavaScript, authentication, React, UWP, HTTP protocol, Git, Docker and pointers',
   SellingPoints: ['One day', 'Fully catered', 'Inclusive atmosphere', 'Interesting presentations', 'Awesome people'],
   SessionizeUrl: 'https://sessionize.com/demo-91ce3752/',
-  SiteDescription : `${tagLine}.`,
-  SponsorshipEmail : "sponsorship@dddsydney.com.au",
-  TagLine : tagLine,
-  TicketPrice : "$50",
+  SiteDescription: `${tagLine}.`,
+  SponsorshipEmail: "sponsorship@dddsydney.com.au",
+  TagLine: tagLine,
+  TicketPrice: "$50",
 
   PresentationSubmissionsOpenFrom: presentationSubmissionsOpenFrom,
   PresentationSubmissionsOpenUntil: presentationSubmissionsOpenUntil,

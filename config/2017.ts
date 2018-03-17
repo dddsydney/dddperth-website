@@ -67,9 +67,9 @@ const From2017: From2017 = {
       url: 'https://ssw.tv',
     },
   ],
-  YouTubeKeynoteEmbedUrl: '',
-  YouTubeLocknoteEmbedUrl: '',
-  YouTubePlaylistUrl: '',
+  YouTubeKeynoteEmbedUrl: 'https://www.youtube.com/embed/deDOdF69VLA',
+  YouTubeLocknoteEmbedUrl: 'https://www.youtube.com/embed/Yo37Wnkyzt4',
+  YouTubePlaylistUrl: 'https://www.youtube.com/watch?v=Yo37Wnkyzt4&list=PLpiOR7CBNvlq1hJIOT9iMCc2-eIIHgg9p',
 }
 
 export default From2017

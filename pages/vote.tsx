@@ -1,28 +1,16 @@
-import Router from 'next/router'
+import Error from 'next/error'
 import * as React from 'react'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
-import dateTimeProvider from '../components/utils/dateTimeProvider'
-import Conference from '../config/conference'
-import getConferenceDates from '../config/dates'
 import Page from '../layouts/main'
 
 class VotePage extends React.Component<WithPageMetadataProps> {
-  static getInitialProps({ res }) {
-    const dates = getConferenceDates(Conference, dateTimeProvider.now())
-    if (!dates.VotingOpen) {
-      if (res) {
-        res.writeHead(302, {
-          Location: '/',
-        })
-        res.end()
-        res.finished = true
-      } else {
-        Router.replace('/')
-      }
-    }
-    return {}
-  }
   render() {
+    const dates = this.props.pageMetadata.dates
+
+    if (!dates.VotingOpen) {
+      return <Error statusCode={404} />
+    }
+
     return (
       <Page
         pageMetadata={this.props.pageMetadata}
@@ -32,7 +20,7 @@ class VotePage extends React.Component<WithPageMetadataProps> {
       >
         <div className="container">
           <h1>Voting</h1>
-          <p>Voting is not yet ready; stay tuned!</p>
+          <p>Still need to build this...</p>
         </div>
       </Page>
     )

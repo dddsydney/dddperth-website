@@ -13,7 +13,19 @@ module.exports = withSass(
       },
       exportPathMap: function() {
         return {
-          '/': { page: '/' }
+          '/': { page: '/' },
+          '/about': { page: '/about' },
+          '/agenda': { page: '/agenda' },
+          '/agenda/2017': { page: '/agenda/2017' },
+          '/agenda/2016': { page: '/agenda/2016' },
+          '/cfp': { page: '/cfp' },
+          '/sponsorship': { page: '/sponsorship' },
+          '/venue': { page: '/venue' },
+          '/code-of-conduct': { page: '/code-of-conduct' },
+          '/contact': { page: '/contact' },
+          '/faq': { page: '/faq' },
+          '/tickets': { page: '/tickets' },
+          '/vote': { page: '/vote' }
         }
       },
       poweredByHeader: false,

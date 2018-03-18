@@ -4,3 +4,4 @@ out
 yarn-error.log
 npm-debug.log
 *.orig
+.next-exported

@@ -2,19 +2,10 @@ import Error from 'next/error'
 import * as React from 'react'
 import FaqList from '../components/faqList'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
-import dateTimeProvider from '../components/utils/dateTimeProvider'
-import Conference from '../config/conference'
-import getConferenceDates from '../config/dates'
 import getFaqs from '../config/faqs'
 import Page from '../layouts/main'
 
 class TicketPage extends React.Component<WithPageMetadataProps> {
-  static getInitialProps({ res }) {
-    if (!getConferenceDates(Conference, dateTimeProvider.now()).RegistrationOpen && res) {
-      res.statusCode = 404
-    }
-    return {}
-  }
   render() {
     const conference = this.props.pageMetadata.conference
     const dates = this.props.pageMetadata.dates

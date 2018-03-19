@@ -14,18 +14,18 @@ module.exports = withSass(
       exportPathMap: function() {
         return {
           '/': { page: '/' },
-          '/about': { page: '/about' },
-          '/agenda': { page: '/agenda' },
-          '/agenda/2017': { page: '/agenda/2017' },
-          '/agenda/2016': { page: '/agenda/2016' },
-          '/cfp': { page: '/cfp' },
-          '/sponsorship': { page: '/sponsorship' },
-          '/venue': { page: '/venue' },
-          '/code-of-conduct': { page: '/code-of-conduct' },
-          '/contact': { page: '/contact' },
-          '/faq': { page: '/faq' },
-          '/tickets': { page: '/tickets' },
-          '/vote': { page: '/vote' }
+          '/about.html': { page: '/about' },
+          '/agenda.html': { page: '/agenda' },
+          '/agenda/2017.html': { page: '/agenda/2017' },
+          '/agenda/2016.html': { page: '/agenda/2016' },
+          '/cfp.html': { page: '/cfp' },
+          '/sponsorship.html': { page: '/sponsorship' },
+          '/venue.html': { page: '/venue' },
+          '/code-of-conduct.html': { page: '/code-of-conduct' },
+          '/contact.html': { page: '/contact' },
+          '/faq.html': { page: '/faq' },
+          '/tickets.html': { page: '/tickets' },
+          '/vote.html': { page: '/vote' }
         }
       },
       poweredByHeader: false,

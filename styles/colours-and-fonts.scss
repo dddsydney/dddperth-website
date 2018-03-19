@@ -1,5 +1,5 @@
 // Colours and Fonts
-$primary-color: #008554;
+$primary-color: #dd4876;
 $light-grey: #f0f0f0;
 $body-color: #292929;
 $main-font: 'Open Sans', Arial, sans-serif;
@@ -27,14 +27,22 @@ $keynote-room: #01b6ad;
 $locknote-room: #01b6ad;
 $afterparty-room: #dd4876;
 
-p.blue {color: #00a2ff}
+p.blue {
+  color: #00a2ff;
+}
 div.blue,
-section.blue {background-color: #00a2ff}
+section.blue {
+  background-color: #00a2ff;
+}
 
 p.light-grey,
-p.grey {color: #f0f0f0}
+p.grey {
+  color: #f0f0f0;
+}
 
 div.light-grey,
 div.grey,
 section.light-grey,
-section.grey {background-color:#f0f0f0}
+section.grey {
+  background-color: #f0f0f0;
+}

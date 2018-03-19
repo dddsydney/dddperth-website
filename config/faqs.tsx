@@ -176,79 +176,8 @@ export default function getFaqs(dates: Dates): FAQ[] {
     Question: 'How can I go to this kind of thing more often?',
     AnswerWithoutParagraph: (
       <Fragment>
-        <p>Perth has a very active software community. Consider attending one of the meetups/conferences such as:</p>
-        <ul>
-          <li>
-            <a href="http://www.meetup.com/PerthDotNet/" target="_blank">
-              Perth .NET
-            </a>
-          </li>
-          <li>
-            <a href="http://www.meetup.com/Perth-Cloud/" target="_blank">
-              Perth MS Cloud Computing User Group
-            </a>
-          </li>
-          <li>
-            <a href="http://www.meetup.com/PerthFP/" target="_blank">
-              Perth Functional Programmers
-            </a>
-          </li>
-          <li>
-            <a href="http://www.meetup.com/Agile-Perth/" target="_blank">
-              Agile Perth
-            </a>
-          </li>
-          <li>
-            <a href="http://www.meetup.com/Perth-Agile-Meetup-Group/" target="_blank">
-              Perth Agile Meetup
-            </a>
-          </li>
-          <li>
-            <a href="http://www.meetup.com/DevOps-Perth/" target="_blank">
-              DevOps Perth
-            </a>
-          </li>
-          <li>
-            <a href="http://www.meetup.com/Front-End-Web-Developers-Perth/" target="_blank">
-              Front End Web Developers Perth (Fenders)
-            </a>
-          </li>
-          <li>
-            <a href="http://www.meetup.com/Perth-Agile-Testing/" target="_blank">
-              Perth Agile Testing
-            </a>
-          </li>
-          <li>
-            <a href="http://www.meetup.com/Perth-Code-Dojo/" target="_blank">
-              Perth Code Dojo
-            </a>
-          </li>
-          <li>
-            <a href="https://www.meetup.com/Perth-mobile-dot-net-developers/" target="_blank">
-              Perth Mobile .NET Developers
-            </a>
-          </li>
-          <li>
-            <a href="http://www.witwa.org.au/" target="_blank">
-              Women in Technology, WA
-            </a>
-          </li>
-          <li>
-            <a href="https://localhost.events/" target="_blank">
-              Localhost
-            </a>
-          </li>
-          <li>
-            <a href="http://mixinconf.com/" target="_blank">
-              Mixin conference
-            </a>
-          </li>
-          <li>
-            <a href="http://west.yowconference.com.au/" target="_blank">
-              Yow! West conference
-            </a>
-          </li>
-        </ul>
+        <p>Sydney has a very active software community. Consider attending one of the meetups/conferences such as:</p>
+        <ul />
         <p>
           Furthermore, you can see an up to date list of Australian conferences at{' '}
           <a href="https://github.com/readify/devevents" target="_blank">
@@ -264,68 +193,18 @@ export default function getFaqs(dates: Dates): FAQ[] {
     AnswerWithoutParagraph: (
       <Fragment>
         <p>
-          {Conference.Name} is organised by DDD WA Inc. a non-profit organisation set up to create inclusive events for
-          the WA software community. {Conference.Name} {Conference.Instance} is organised by:
+          {Conference.Name} is organised by SydDev Inc. a non-profit organisation set up to create inclusive events for
+          the NSW software community. {Conference.Name} {Conference.Instance} is organised by:
         </p>
         <ul>
           <li>
-            <a href="https://twitter.com/robdmoore" target="_blank">
-              Rob Moore
+            <a href="https://twitter.com/slace" target="_blank">
+              Aaron Powell
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/JakeGinnivan" target="_blank">
-              Jake Ginnivan
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/LeeRyanCampbell" target="_blank">
-              Lee Campbell
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/ian_hughes" target="_blank">
-              Ian Hughes
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/rebeccacwaters/" target="_blank">
-              Rebecca Waters
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/AshleyAitken" target="_blank">
-              Ashley Aitken
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/robdcrowley" target="_blank">
-              Rob Crowley
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/mattyjward" target="_blank">
-              Matt Ward
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/zia_marjan" target="_blank">
-              Marjan Zia Khodadadian
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/aidanjmorgan" target="_blank">
-              Aidan Morgan
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/andrealchagas" target="_blank">
-              Andrea Chagas
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/deekob" target="_blank">
-              Derek bingham
+            <a href="https://twitter.com/stevegodbold" target="_blank">
+              Steve Godbold
             </a>
           </li>
         </ul>

@@ -4,7 +4,11 @@ import withPageMetadata, { WithPageMetadataProps } from '../components/global/wi
 import Page from '../layouts/withSidebar'
 
 export default withPageMetadata((props: WithPageMetadataProps) => (
-  <Page pageMetadata={props.pageMetadata} title="Sponsorship" description="Sponsorship opportunities for DDD Perth.">
+  <Page
+    pageMetadata={props.pageMetadata}
+    title="Sponsorship"
+    description={'Sponsorship opportunities for ' + props.pageMetadata.conference.Name}
+  >
     <h1>Sponsorship</h1>
 
     <p>
@@ -20,7 +24,7 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     </p>
     <ul>
       <li>
-        Making the ticket price as low as possible ($50); people don't need to request PD budget from their employer to
+        Making the ticket price as low as possible ($50); people don't need to request budget from their employer to
         attend and it's accessible to most people regardless of financial circumstance
       </li>
       <li>
@@ -50,8 +54,8 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     </p>
 
     <p>
-      In 2017 DDD Perth had 330 attendees from 360 sold tickets; this makes us the biggest software conference in
-      Western Australia.
+      In 2017 {props.pageMetadata.conference.Name} had 230 attendees from 250 sold tickets; with a 15% growth on the
+      2016 event.
     </p>
 
     <p>

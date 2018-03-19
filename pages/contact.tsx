@@ -31,13 +31,16 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
         </li>
       )}
     </ul>
-    <h2>DDD WA Inc.</h2>
+    <h2>SydDev Inc.</h2>
     <ul>
       <li>
-        <strong>ABN:</strong> 61 201 381 758
+        <strong>ABN:</strong>{' '}
+        <a href="http://www.abr.business.gov.au/SearchByAbn.aspx?abn=33255978565" target="_blank">
+          33 255 978 565
+        </a>
       </li>
       <li>
-        <strong>Postal Address:</strong> PO Box 7550, Perth WA 6000
+        <strong>Postal Address:</strong> Att: Readify, 1 Castlereagh St, Sydney, 2044
       </li>
     </ul>
   </Page>

@@ -15,9 +15,12 @@ export default function getFaqs(dates: Dates): FAQ[] {
       }.
           Doors ${dates.IsComplete ? 'opened' : 'will open'} at ${Conference.DoorsOpenTime} and ${
         dates.IsComplete ? 'we finished' : "we'll finish"
-      } at ${Conference.FinishTime} followed by the afterparty${
-        Conference.HideAfterpartyVenue ? '' : ' at ' + Conference.Venue.Afterparty
-      }.`,
+      } at ${Conference.FinishTime}.`,
+    })
+
+    Faqs.push({
+      Question: "Where's the after party?",
+      Answer: `We won't be having a sponsored afterparty this year, unfortunately the cost of doing so exceeds our available funds. We will be heading somewhere after the event though so keep an eye out for the details as to where (you'll just have to buy your own beer).`,
     })
   }
 

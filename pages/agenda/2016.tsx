@@ -153,6 +153,7 @@ class Agenda2016 extends React.Component<AgendaPageProps> {
         </table>
         <Sponsors
           show={true}
+          hideUpsell={true}
           sponsors={From2016.Sponsors.filter(s => s.type === SponsorType.Gold || s.type === SponsorType.Platinum)}
         />
       </Fragment>

@@ -3,9 +3,9 @@ import { Conference, Dates as IDates } from './types'
 
 export default function getConferenceDates(conference: Conference, currentDate: CurrentDate): IDates {
   const now = currentDate.Value
-  const isComplete = now > conference.Date.clone().add(1, 'd')
+  const isComplete = now > conference.EndDate
   const isInProgress = now > conference.Date
-  const dateDisplayFormat = 'ddd Do MMM YYYY'
+  const dateDisplayFormat = 'dddd Do MMMM YYYY'
   const registrationClosed = conference.RegistrationOpenUntil !== null && now > conference.RegistrationOpenUntil
 
   // tslint:disable:object-literal-sort-keys

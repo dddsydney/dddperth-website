@@ -52,7 +52,7 @@ const dddAgendaPage = <TOriginalProps extends {}>(
     static displayName = `PageWithDDDAgenda(${WrappedComponent.displayName || WrappedComponent.name})`
 
     static async getInitialProps({ req }) {
-      if (req) {
+      if (req && (req.connection || req.headers)) {
         const secure = (req.connection as any).encrypted || req.headers['x-forwarded-proto'] === 'https'
         const url = externalProps.sessionsUrl.startsWith('/')
           ? 'http' + (secure ? 's' : '') + '://' + req.headers.host + externalProps.sessionsUrl

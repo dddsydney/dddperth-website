@@ -4,7 +4,7 @@ import SponsorData from '../config/sponsors'
 import { Conference as IConference } from './types'
 import venue from './venue'
 
-const name = "DDD Sydney"
+const name = 'DDD Sydney'
 const tagLine = `${name} is an inclusive non-profit conference for the Sydney software community`
 
 const hideDate = false
@@ -16,10 +16,10 @@ const registrationOpenFrom = moment('2018-04-30T08:00:00+08:00')
 const registrationOpenUntil = hideDate
   ? null
   : date
-    .clone()
-    .add(-1, 'd')
-    .startOf('day')
-    .add(17, 'h')
+      .clone()
+      .add(-1, 'd')
+      .startOf('day')
+      .add(17, 'h')
 const presentationSubmissionsOpenFrom = moment('2018-04-30T08:00:00+08:00')
 const presentationSubmissionsOpenUntil = moment('2018-06-03T23:59:59+08:00')
 const votingOpenFrom = moment('2018-06-06T08:00:00+08:00')
@@ -70,23 +70,24 @@ if (!hideDate) {
 
 const Conference: IConference = {
   AgendaPublishedFrom: agendaPublishedFrom,
-  ContactEmail: "team@dddsydney.com.au",
+  ContactEmail: 'team@dddsydney.com.au',
   Date: date,
   DoorsOpenTime: '8:10am',
-  EmergencyPhoneNumber: "0439 878 200",
-  EventbriteId: "34127818223",
+  EmergencyPhoneNumber: '0439 878 200',
+  EventbriteId: '34127818223',
   FeedbackOpenFrom: feedbackOpenFrom,
   FeedbackOpenUntil: feedbackOpenUntil,
   FinishTime: '5:10pm',
-  Goal: "Our goal is to create an approachable conference that anyone can attend or speak at, especially people that don't normally get to attend / speak at conferences.",
-  GoogleAnalyticsId: "UA-60040308-1",
+  Goal:
+    "Our goal is to create an approachable conference that anyone can attend or speak at, especially people that don't normally get to attend / speak at conferences.",
+  GoogleAnalyticsId: 'UA-60040308-1',
   Handbook: null,
   HashTag: 'dddsydney',
   Instance: currentInstance.toString(),
   IsSoldOut: isSoldOut,
-  MentoringEmail: "team@dddsydney.com.au",
+  MentoringEmail: 'team@dddsydney.com.au',
   Name: name,
-  Organiser: "SydDev Inc.",
+  Organiser: 'SydDev Inc.',
   PreviousInstance: (currentInstance - 1).toString(),
   PreviousInstances: [...Array(currentInstance - firstInstance).keys()].map((_, i) => (firstInstance + i).toString()),
   PreviouslySubmittedTopics:
@@ -94,9 +95,9 @@ const Conference: IConference = {
   SellingPoints: ['One day', 'Fully catered', 'Inclusive atmosphere', 'Interesting presentations', 'Awesome people'],
   SessionizeUrl: 'https://sessionize.com/demo-91ce3752/',
   SiteDescription: `${tagLine}.`,
-  SponsorshipEmail: "sponsorship@dddsydney.com.au",
+  SponsorshipEmail: 'sponsorship@dddsydney.com.au',
   TagLine: tagLine,
-  TicketPrice: "$50",
+  TicketPrice: '~$60 (save $10 on early bird!)',
 
   PresentationSubmissionsOpenFrom: presentationSubmissionsOpenFrom,
   PresentationSubmissionsOpenUntil: presentationSubmissionsOpenUntil,
@@ -113,14 +114,14 @@ const Conference: IConference = {
   Venue: venue,
 
   Socials: {
-    Blog: "",
-    Email: "team@dddsydney.com.au",
-    Facebook: "",
-    Flickr: "",
-    GitHub: "",
-    MailingList: "",
-    Twitter: "dddsydney",
-    Youtube: "",
+    Blog: '',
+    Email: 'team@dddsydney.com.au',
+    Facebook: '',
+    Flickr: '',
+    GitHub: '',
+    MailingList: '',
+    Twitter: 'dddsydney',
+    Youtube: '',
   },
 
   ImageStrip: [

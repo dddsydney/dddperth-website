@@ -1,56 +1,51 @@
 import { Conference, Dates, MenuItem } from './types'
 
 export default function Menu(conference: Conference, dates: Dates) {
-  let extension = ''
-  if ((global as any).__NEXT_DATA__ && (global as any).__NEXT_DATA__.nextExport) {
-    extension = '.html'
-  }
-
   const topMenu: MenuItem[] = [
     {
       href: '/',
       name: 'Home',
     },
     {
-      href: '/about' + extension,
+      href: '/about',
       name: 'About',
     },
     {
-      href: '/sponsorship' + extension,
+      href: '/sponsorship',
       name: 'Sponsorship',
     },
   ]
 
   if (dates.RegistrationOpen) {
     topMenu.push({
-      href: '/tickets' + extension,
+      href: '/tickets',
       name: 'Tickets',
     })
   }
 
   if (!conference.HideVenue) {
     topMenu.push({
-      href: '/venue' + extension,
+      href: '/venue',
       name: 'Venue',
     })
   }
 
   if (dates.AcceptingPresentations) {
     topMenu.push({
-      href: '/cfp' + extension,
+      href: '/cfp',
       name: 'CFP',
     })
   }
 
   if (dates.VotingOpen) {
     topMenu.push({
-      href: '/vote' + extension,
+      href: '/vote',
       name: 'Vote',
     })
   }
 
   topMenu.push({
-    href: '/agenda' + extension,
+    href: '/agenda',
     name: 'Agenda',
   })
 
@@ -62,7 +57,7 @@ export default function Menu(conference: Conference, dates: Dates) {
   }
 
   topMenu.push({
-    href: '/faq' + extension,
+    href: '/faq',
     name: 'FAQs',
   })
 
@@ -71,15 +66,15 @@ export default function Menu(conference: Conference, dates: Dates) {
     // tslint:disable-next-line:object-literal-sort-keys
     Footer: [
       {
-        href: '/about' + extension,
+        href: '/about',
         name: 'About Us',
       },
       {
-        href: '/code-of-conduct' + extension,
+        href: '/code-of-conduct',
         name: 'Code of Conduct',
       },
       {
-        href: '/contact' + extension,
+        href: '/contact',
         name: 'Contact',
       },
     ] as MenuItem[],

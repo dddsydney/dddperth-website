@@ -24,7 +24,7 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     </p>
     <ul>
       <li>
-        Making the ticket price as low as possible ($50); people don't need to request budget from their employer to
+        Making the ticket price as low as possible ($60); people don't need to request budget from their employer to
         attend and it's accessible to most people regardless of financial circumstance
       </li>
       <li>

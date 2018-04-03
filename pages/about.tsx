@@ -8,7 +8,7 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     <h1>About {props.pageMetadata.conference.Name}</h1>
     <p>{props.pageMetadata.conference.SiteDescription}. We do this by:</p>
     <ul>
-      <li>Making the ticket price as low as possible ($50)</li>
+      <li>Making the ticket price as low as possible ($60)</li>
       <li>Running the event on a Saturday</li>
       <li>Allowing anyone to submit about any software industry related topic</li>
       <li>Having a democratically chosen agenda</li>

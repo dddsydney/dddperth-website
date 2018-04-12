@@ -121,7 +121,7 @@ const Conference: IConference = {
     Email: 'team@dddsydney.com.au',
     Facebook: '',
     Flickr: '',
-    GitHub: 'https://github.com/dddsydney',
+    GitHub: 'dddsydney',
     MailingList: '',
     Twitter: 'dddsydney',
     Youtube: '',

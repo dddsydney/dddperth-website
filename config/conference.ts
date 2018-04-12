@@ -117,11 +117,11 @@ const Conference: IConference = {
   Venue: venue,
 
   Socials: {
-    Blog: '',
+    Blog: 'https://blog.dddsydney.com.au',
     Email: 'team@dddsydney.com.au',
     Facebook: '',
     Flickr: '',
-    GitHub: '',
+    GitHub: 'https://github.com/dddsydney',
     MailingList: '',
     Twitter: 'dddsydney',
     Youtube: '',

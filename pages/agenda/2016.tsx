@@ -11,7 +11,7 @@ class Agenda2016 extends React.Component<AgendaPageProps> {
     return {
       conferenceInstance: '2016',
       numTracks: 3,
-      sessionsUrl: 'https://api.dddsydney.com.au/api/sessions/2016',
+      sessionsUrl: 'https://api.dddsydney.com.au/v1/sessions/2016',
     }
   }
 
@@ -146,7 +146,9 @@ class Agenda2016 extends React.Component<AgendaPageProps> {
               <td colSpan={3} className="breadth">
                 <strong>Afterparty</strong>
                 <br />
-                <em><a href="http://www.lordgladstone.com.au/">Lord Gladstone</a></em>
+                <em>
+                  <a href="http://www.lordgladstone.com.au/">Lord Gladstone</a>
+                </em>
               </td>
             </tr>
           </tbody>

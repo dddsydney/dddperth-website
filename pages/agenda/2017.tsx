@@ -11,8 +11,7 @@ class Agenda2017 extends React.Component<AgendaPageProps> {
     return {
       conferenceInstance: '2017',
       numTracks: 3,
-      sessionsUrl:
-        'https://dddsydney-api.azurewebsites.net/api/Get-Sessions?code=kbmszJp7okUb7Oc0fVgrNDy33mi4/5UG21pIjB9wZEhK/zREBBYQfQ==&year=2017',
+      sessionsUrl: 'https://api.dddsydney.com.au/api/sessions/2017',
     }
   }
 

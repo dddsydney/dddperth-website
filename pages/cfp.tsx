@@ -40,9 +40,6 @@ class CFPPage extends React.Component<WithPageMetadataProps> {
             voters to remove unconscious bias
           </li>
           <li>
-            Having a <strong>long (45 mins) and short (20 mins)</strong> talk option
-          </li>
-          <li>
             Accepting a <strong>broad range of technical and non-technical topics</strong> related to the software
             industry; if voters think you're talk is relevant, it's in!
           </li>

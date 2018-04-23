@@ -96,7 +96,7 @@ const Conference: IConference = {
   PreviouslySubmittedTopics:
     'Agile, building great teams, UI design, software testing, virtual reality, open source software, bots, IoT, machine learning, automated deployments, mobile development, architecture, microservices, APIs, actors, JavaScript, authentication, React, UWP, HTTP protocol, Git, Docker and pointers',
   SellingPoints: ['One day', 'Fully catered', 'Inclusive atmosphere', 'Interesting presentations', 'Awesome people'],
-  SessionizeUrl: 'https://sessionize.com/demo-91ce3752/',
+  SessionizeUrl: 'https://sessionize.com/dddsydney-2018/',
   SiteDescription: `${tagLine}.`,
   SponsorshipEmail: 'sponsorship@dddsydney.com.au',
   TagLine: tagLine,

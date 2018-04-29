@@ -77,7 +77,7 @@ const Conference: IConference = {
   EmergencyContactName: 'Aaron Powell',
   EmergencyContactPhoneNumber: '0439 878 200',
   EndDate: endDate,
-  EventbriteId: '34127818223',
+  EventbriteId: '44976613261',
   FeedbackOpenFrom: feedbackOpenFrom,
   FeedbackOpenUntil: feedbackOpenUntil,
   FinishTime: '5:10pm',

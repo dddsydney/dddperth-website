@@ -6,13 +6,14 @@ import Page from '../layouts/withSidebar'
 export default withPageMetadata((props: WithPageMetadataProps) => (
   <Page pageMetadata={props.pageMetadata} title="About" description="The goal and history of DDD Perth and DDD WA Inc.">
     <h1>About {props.pageMetadata.conference.Name}</h1>
-    <p>{props.pageMetadata.conference.SiteDescription}. We do this by:</p>
+    <p>{props.pageMetadata.conference.SiteDescription} We do this by:</p>
     <ul>
       <li>Making the ticket price as low as possible ($60)</li>
       <li>Running the event on a Saturday</li>
       <li>Allowing anyone to submit about any software industry related topic</li>
       <li>Having a democratically chosen agenda</li>
       <li>Focussing on creating a safe and inclusive environment where everyone is welcome</li>
+      <li>Having a track specifically for junior developers</li>
     </ul>
     <p className="text-center">
       <img

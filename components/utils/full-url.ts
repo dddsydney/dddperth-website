@@ -5,7 +5,9 @@ export function getUrlFromNodeRequest(request: http.IncomingMessage) {
     (request.connection && (request.connection as any).encrypted) ||
     (request.headers && request.headers['x-forwarded-proto'] === 'https') ||
     false
-  return 'http' + (secure ? 's' : '') + '://' + (request.headers ? request.headers.host : 'localhost') + request.url
+  return (
+    'http' + (secure ? 's' : '') + '://' + (request.headers ? request.headers.host : 'dddsydney.com.au') + request.url
+  )
 }
 
 export function getUrlFromWindow(window: Window) {

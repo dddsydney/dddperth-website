@@ -98,7 +98,7 @@ const Conference: IConference = {
   SellingPoints: ['One day', 'Fully catered', 'Inclusive atmosphere', 'Interesting presentations', 'Awesome people'],
   SessionizeUrl: 'https://sessionize.com/dddsydney-2018/',
   SiteDescription: `${tagLine}.`,
-  SponsorshipEmail: 'sponsorship@dddsydney.com.au',
+  SponsorshipEmail: 'sponsors@dddsydney.com.au',
   TagLine: tagLine,
   TicketPrice: '~$60 (save $10 on early bird!)',
 

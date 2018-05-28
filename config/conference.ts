@@ -22,10 +22,10 @@ const registrationOpenUntil = hideDate
       .startOf('day')
       .add(17, 'h')
 const presentationSubmissionsOpenFrom = moment('2018-04-30T08:00:00')
-const presentationSubmissionsOpenUntil = moment('2018-06-03T23:59:59')
-const votingOpenFrom = moment('2018-06-06T08:00:00')
-const votingOpenUntil = moment('2018-06-14T23:59:59')
-const agendaPublishedFrom = moment('2018-06-25T08:00:00')
+const presentationSubmissionsOpenUntil = moment('2018-06-12T23:59:59')
+const votingOpenFrom = moment('2018-06-14T08:00:00')
+const votingOpenUntil = moment('2018-06-26T23:59:59')
+const agendaPublishedFrom = moment('2018-07-04T08:00:00')
 const feedbackOpenFrom = date.clone()
 const feedbackOpenUntil = endDate
 const importantDates = [

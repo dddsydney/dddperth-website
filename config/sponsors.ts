@@ -15,6 +15,11 @@ const Sponsors: Sponsor[] = [{
   name: 'Aspose',
   type: SponsorType.Standard,
   url: 'http://aspose.com/',
+}, {
+  imageUrl: '/static/images/sponsors/devexpress.png',
+  name: 'DevExpress',
+  type: SponsorType.Silver,
+  url: 'https://devexpress.com'
 }]
 
 export default Sponsors

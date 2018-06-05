@@ -12,7 +12,11 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     <h1>Sponsorship</h1>
 
     <p>
-      <a className="btn" href={'mailto:' + props.pageMetadata.conference.SponsorshipEmail}>
+      <a
+        className="btn btn-mail"
+        href={'mailto:' + props.pageMetadata.conference.SponsorshipEmail}
+        title="Opens in your mail program of choice"
+      >
         Explore sponsorship opportunities
       </a>
     </p>
@@ -61,11 +65,17 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     <p>
       We have a sponsorship prospectus that will be provided on request that explains detailed benefits and impact of
       sponsorship and the difference between the various levels; if you would like a copy{' '}
-      <a href={'mailto:' + props.pageMetadata.conference.SponsorshipEmail}>please contact us</a>!
+      <a className="maillink" href={'mailto:' + props.pageMetadata.conference.SponsorshipEmail}>
+        please contact us
+      </a>!
     </p>
 
     <p>
-      <a className="btn" href={'mailto:' + props.pageMetadata.conference.SponsorshipEmail}>
+      <a
+        className="btn btn-mail"
+        href={'mailto:' + props.pageMetadata.conference.SponsorshipEmail}
+        title="Opens in your mail program of choice"
+      >
         Explore sponsorship opportunities
       </a>
     </p>

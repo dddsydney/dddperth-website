@@ -37,6 +37,31 @@ export default function getFaqs(dates: Dates): FAQ[] {
   })
 
   Faqs.push({
+    Question: "[Financial Assistance] What if I can't afford to attend?",
+    Answer: (
+      <div>
+        <p>
+          If you can't afford the ticket price then we have Sponsored (Financial Assistance) tickets available. DDD
+          Perth is donating 10 such tickets and we also have an option for people within the community to donate further
+          tickets. The only requirement for eligibility is that you can't afford the ticket; you can access the
+          Financial Assistance tickets by entering the promotional code of{' '}
+          <code>{Conference.FinancialAssistanceEventbriteCode}</code>.
+        </p>
+        <ul>
+          <li>Already attended a conference in the past? That's ok.</li>
+          <li>Already received a sponsored ticket in the past? Still ok.</li>
+          <li>
+            Don't have much (or any) experience with the technology featured at {Conference.Name}? That’s ok, too.
+          </li>
+          <li>Don't want to take money away from someone else? Really, it’s ok, everyone says that!</li>
+          <li>Don't feel like you deserve this? That’s also ok: you do.</li>
+        </ul>
+      </div>
+    ),
+    Category: 'tickets',
+  })
+
+  Faqs.push({
     Question: 'Is this just for software developers?',
     Answer:
       'No! While our name implies we are just about devs, our events are aimed at all professionals in the software industry - developers, testers, designers, analysts, managers, etc.',
@@ -60,6 +85,12 @@ export default function getFaqs(dates: Dates): FAQ[] {
       Answer: Conference.Venue.Wifi,
     })
   }
+
+  Faqs.push({
+    Question: 'Will childcare be available?',
+    Answer:
+      'Yes! We will be providing childcare at this year’s conference. It will be available for the duration of the main conference (not including the afterparty) and will cost $50. For this year we are limiting it to children 3 years and above, and to a maximum of 20 places. You will be required to provide food for your child for the day. If you would like to book your child in then please purchase an additional ‘Childcare’ ticket when purchasing your ticket.',
+  })
 
   Faqs.push({
     Question: 'When does registration open?',
@@ -88,7 +119,10 @@ export default function getFaqs(dates: Dates): FAQ[] {
     Answer: (
       <Fragment>
         Payments can be made with credit card using Eventbrite via our tickets page when registrations are open.
-        Companies that want to buy bulk tickets (> 5) can <a href={'mailto:' + Conference.ContactEmail}>contact us</a>{' '}
+        Companies that want to buy bulk tickets (> 5) can{' '}
+        <a className="maillink" href={'mailto:' + Conference.ContactEmail}>
+          contact us
+        </a>{' '}
         to pay by invoice (EFT or credit card).
       </Fragment>
     ),
@@ -125,8 +159,12 @@ export default function getFaqs(dates: Dates): FAQ[] {
 
   Faqs.push({
     Question: 'Will I be photographed or filmed?',
-    Answer: `Attendees may be photographed or filmed by media personnel authorised by ${Conference.Name}.
-      Attendees must inform said media personnel if they do not wish to be photographed or filmed.`,
+    Answer: (
+      <Fragment>
+        Media personnel authorised by {Conference.Name} will be in attendance. These media personnel will respect the
+        photo policy as defined in the <a href="/code-of-conduct#photo-policy">Code of Conduct</a>.
+      </Fragment>
+    ),
   })
 
   Faqs.push({
@@ -135,8 +173,10 @@ export default function getFaqs(dates: Dates): FAQ[] {
       <Fragment>
         We are always looking for volunteers and sometimes looking for organisers! It takes a lot of effort to organise
         a volunteer-run conference like {Conference.Name}. Shoot us an email at{' '}
-        <a href={'mailto:' + Conference.ContactEmail}>{Conference.ContactEmail}</a> and we can work with you to figure
-        out the best way to assist.
+        <a className="maillink" href={'mailto:' + Conference.ContactEmail}>
+          {Conference.ContactEmail}
+        </a>{' '}
+        and we can work with you to figure out the best way to assist.
       </Fragment>
     ),
   })
@@ -145,13 +185,16 @@ export default function getFaqs(dates: Dates): FAQ[] {
     Question: 'How can I contact the organisers?',
     Answer: (
       <Fragment>
-        We can be contacted via email at <a href={'mailto:' + Conference.ContactEmail}>{Conference.ContactEmail}</a>
-        {Conference.Socials.Twitter !== null ? (
+        We can be contacted via email at{' '}
+        <a className="maillink" href={'mailto:' + Conference.ContactEmail}>
+          {Conference.ContactEmail}
+        </a>
+        {Conference.Socials.Twitter.Name !== null ? (
           <Fragment>
             {' '}
             and Twitter at{' '}
-            <a href={'https://twitter.com/' + Conference.Socials.Twitter} target="_blank">
-              @{Conference.Socials.Twitter}
+            <a href={'https://twitter.com/' + Conference.Socials.Twitter.Name} target="_blank">
+              @{Conference.Socials.Twitter.Name}
             </a>. See also the other Social Media accounts at the footer of this page.
           </Fragment>
         ) : (
@@ -170,7 +213,10 @@ export default function getFaqs(dates: Dates): FAQ[] {
         a great chance to give back and support the local software community. We have various levels of sponsorship
         available with various benefits and price points. We have a sponsorship prospectus that will be provided on
         request that explains detailed benefits and impact of sponsorship and the difference between the various levels;
-        if you would like a copy <a href={'mailto:' + Conference.SponsorshipEmail}>please contact us</a>.
+        if you would like a copy{' '}
+        <a className="maillink" href={'mailto:' + Conference.SponsorshipEmail}>
+          please contact us
+        </a>.
       </Fragment>
     ),
   })

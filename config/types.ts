@@ -5,18 +5,20 @@ export interface Conference {
   Instance: string
   PreviousInstance: string
   PreviousInstances: string[]
-  Organiser: string
+  Organiser: Organiser
   TagLine: string
   SiteDescription: string
   Goal: string
   GoogleAnalyticsId: string
   TicketPrice: string
   EventbriteId: string
+  FinancialAssistanceEventbriteCode: string
   IsSoldOut: boolean
   HashTag: string
   SellingPoints: string[]
   Handbook: string | null
   SessionizeUrl: string | null
+  SessionizeEditUrl: string | null
   PreviouslySubmittedTopics: string
 
   Venue: Venue
@@ -26,6 +28,13 @@ export interface Conference {
   MentoringEmail: string
   EmergencyContactName: string
   EmergencyContactPhoneNumber: string
+  MediaOfficerName: string
+
+  AnonymousReportFormUrl: string
+
+  AnonymousVoting: boolean
+  MinVotes: number
+  MaxVotes: number
 
   Date: Moment
   EndDate: Moment
@@ -48,7 +57,9 @@ export interface Conference {
 
   Socials: Socials
 
-  ImageStrip: string[]
+  ImageStrip: Image[]
+
+  ImportantContacts: ImportantContacts
 
   ImportantDates: ImportantDate[]
 
@@ -92,7 +103,7 @@ export interface Dates {
 }
 
 export interface Socials {
-  Twitter?: string
+  Twitter?: Twitter
   Facebook?: string
   GitHub?: string
   Instagram?: string
@@ -101,6 +112,18 @@ export interface Socials {
   Blog?: string
   Email?: string
   MailingList?: string
+}
+
+export interface ImportantContacts {
+  Police?: Contact
+  CentreAgainstSexualAssault?: Contact
+  EmergencyMedical?: Contact
+  NonEmergencyMedical?: Contact
+}
+
+export interface Contact {
+  Details: string
+  MapUrl?: string
 }
 
 export enum SponsorType {
@@ -123,6 +146,7 @@ export interface Sponsor {
 export interface MenuItem {
   href: string
   name: string
+  external?: boolean
 }
 
 export interface FAQ {
@@ -136,4 +160,40 @@ export interface Action {
   Title: string
   Url: string
   Category: string
+}
+
+export interface Image {
+  Url: string
+  Alternate: string
+}
+
+export interface Organiser {
+  Name: string
+  Url: string
+  ShirtColour: string
+}
+
+export interface Twitter {
+  Id?: string
+  Name: string
+}
+
+export interface Session {
+  Id: string
+  Title: string
+  Abstract: string
+  Presenters: Presenter[]
+  Format: string
+  Level: string
+  Tags: string[]
+}
+
+export interface Presenter {
+  Id: string
+  Name: string
+  Tagline: string
+  Bio: string
+  ProfilePhotoUrl: string
+  TwitterHandle?: string
+  WebsiteUrl?: string
 }

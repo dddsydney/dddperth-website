@@ -12,21 +12,21 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     <ul>
       <li>
         <strong>General enquiries:</strong>{' '}
-        <a href={'mailto:' + props.pageMetadata.conference.ContactEmail}>
+        <a className="maillink" href={'mailto:' + props.pageMetadata.conference.ContactEmail}>
           {props.pageMetadata.conference.ContactEmail}
         </a>
       </li>
       <li>
         <strong>Sponsorship Enquiries:</strong>{' '}
-        <a href={'mailto:' + props.pageMetadata.conference.SponsorshipEmail}>
+        <a className="maillink" href={'mailto:' + props.pageMetadata.conference.SponsorshipEmail}>
           {props.pageMetadata.conference.SponsorshipEmail}
         </a>
       </li>
-      {props.pageMetadata.conference.Socials.Twitter && (
+      {props.pageMetadata.conference.Socials.Twitter.Name && (
         <li>
           <strong>Twitter:</strong>{' '}
-          <a href={'https://twitter.com/' + props.pageMetadata.conference.Socials.Twitter} target="_blank">
-            @{props.pageMetadata.conference.Socials.Twitter}
+          <a href={'https://twitter.com/' + props.pageMetadata.conference.Socials.Twitter.Name} target="_blank">
+            @{props.pageMetadata.conference.Socials.Twitter.Name}
           </a>
         </li>
       )}

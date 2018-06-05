@@ -71,6 +71,8 @@ if (!hideDate) {
 
 const Conference: IConference = {
   AgendaPublishedFrom: agendaPublishedFrom,
+  AnonymousReportFormUrl: '',
+  AnonymousVoting: true,
   ContactEmail: 'team@dddsydney.com.au',
   Date: date,
   DoorsOpenTime: '8:10am',
@@ -80,6 +82,7 @@ const Conference: IConference = {
   EventbriteId: '44976613261',
   FeedbackOpenFrom: feedbackOpenFrom,
   FeedbackOpenUntil: feedbackOpenUntil,
+  FinancialAssistanceEventbriteCode: '',
   FinishTime: '5:10pm',
   Goal:
     "Our goal is to create an approachable event that appeals to the whole community, especially people that don't normally get to attend or speak at conferences.",
@@ -88,15 +91,23 @@ const Conference: IConference = {
   HashTag: 'dddsydney',
   Instance: currentInstance.toString(),
   IsSoldOut: isSoldOut,
+  MediaOfficerName: '',
   MentoringEmail: 'team@dddsydney.com.au',
+  MinVotes: 1,
+  MaxVotes: 5,
   Name: name,
-  Organiser: 'SydDev Inc.',
+  Organiser: {
+    Name: 'SydDev Inc.',
+    Url: '',
+    ShirtColour: 'black'
+  },
   PreviousInstance: (currentInstance - 1).toString(),
   PreviousInstances: [...Array(currentInstance - firstInstance).keys()].map((_, i) => (firstInstance + i).toString()),
   PreviouslySubmittedTopics:
     'Agile, building great teams, UI design, software testing, virtual reality, open source software, bots, IoT, machine learning, automated deployments, mobile development, architecture, microservices, APIs, actors, JavaScript, authentication, React, UWP, HTTP protocol, Git, Docker and pointers',
   SellingPoints: ['One day', 'Fully catered', 'Inclusive atmosphere', 'Interesting presentations', 'Awesome people'],
   SessionizeUrl: 'https://sessionize.com/dddsydney-2018/',
+  SessionizeEditUrl: 'https://sessionize.com/app/speaker/',
   SiteDescription: `${tagLine}.`,
   SponsorshipEmail: 'sponsors@dddsydney.com.au',
   TagLine: tagLine,
@@ -123,17 +134,41 @@ const Conference: IConference = {
     Flickr: '',
     GitHub: 'dddsydney',
     MailingList: '',
-    Twitter: 'dddsydney',
+    Twitter: {
+      Id: '',
+      Name: 'dddsydney',
+    },
     Youtube: '',
   },
 
   ImageStrip: [
-    '/static/images/strip/1.jpg',
-    '/static/images/strip/2.jpg',
-    '/static/images/strip/3.jpg',
-    '/static/images/strip/4.jpg',
-    '/static/images/strip/5.jpg',
+    { Url: '/static/images/strip/1.jpg', Alternate: 'Kris Howard delivering her 2017 locknote' },
+    { Url: '/static/images/strip/2.jpg', Alternate: 'Our 2017 speakers' },
+    { Url: '/static/images/strip/3.jpg', Alternate: 'Visting the readify booth' },
+    { Url: '/static/images/strip/4.jpg', Alternate: 'Early morning registration' },
+    { Url: '/static/images/strip/5.jpg', Alternate: 'Donna Edwards speaking at DDD 2017' },
   ],
+
+  ImportantContacts: {
+    Police: {
+      Details: '2 Fitzgerald St, Northbridge WA 6003 ph: (08) 9422 7111',
+      MapUrl:
+        'https://www.google.com.au/maps/place/WA+Police/@-31.9539457,115.8571227,15z/data=!4m8!1m2!2m1!1swa+police!3m4!1s0x2a32bad2aad309a9:0x132b875b4c12ce8a!8m2!3d-31.9465398!4d115.852523',
+    },
+    CentreAgainstSexualAssault: {
+      Details: '1800 806 292',
+    },
+    EmergencyMedical: {
+      Details: 'Royal Perth Hospital, 197 Wellington St, Perth WA 6000',
+      MapUrl:
+        'https://www.google.com.au/maps/place/Royal+Perth+Hospital/@-31.953946,115.8637156,17z/data=!3m1!4b1!4m5!3m4!1s0x2a32bb26d7818b2d:0x31db7aa443eb9c11!8m2!3d-31.953946!4d115.8659043',
+    },
+    NonEmergencyMedical: {
+      Details: 'Perth Medical Centre, 713 Hay St, Perth WA 6000 ph: (08) 9481 4342',
+      MapUrl:
+        'https://www.google.com.au/maps/place/Perth+Medical+Centre/@-31.9539771,115.8552714,17z/data=!3m1!4b1!4m5!3m4!1s0x2a32bad5d00fb27f:0xa93cc014867a5f8b!8m2!3d-31.9539771!4d115.8574654',
+    },
+  },
 
   ImportantDates: orderBy(importantDates, i => i.Date),
 

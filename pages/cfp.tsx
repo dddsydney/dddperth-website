@@ -1,4 +1,5 @@
 import Error from 'next/error'
+import Link from 'next/link'
 import * as React from 'react'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import Page from '../layouts/withSidebar'
@@ -39,6 +40,9 @@ class CFPPage extends React.Component<WithPageMetadataProps> {
           <li>
             Having <strong>anonymous session voting</strong>; we will only show the title, abstract and tags of a talk
             to voters to remove unconscious bias.
+          </li>
+          <li>
+            Having <strong>long (45 mins) and short (20 mins)</strong> talk options.
           </li>
           <li>
             Accepting a <strong>broad range of technical and non-technical topics</strong> related to the software

@@ -6,7 +6,7 @@ import { Modal } from 'react-bootstrap'
 import Page from '../layouts/main'
 import { WithPageMetadataProps } from './global/withPageMetadata'
 
-interface DddSession {
+export interface DddSession {
   SessionId: string
   SessionTitle: string
   SessionAbstract: string
@@ -15,6 +15,8 @@ interface DddSession {
   PresenterTwitterAlias?: string
   PresenterWebsite?: string
   PresenterBio: string
+  SessionLength: string
+  TrackType: string
 }
 
 export interface SessionCellProps {
@@ -188,10 +190,10 @@ const dddAgendaPage = <TOriginalProps extends {}>(
                   {instance === externalProps.conferenceInstance ? (
                     instance
                   ) : (
-                    <Link href={'/agenda/' + instance}>
-                      <a>{instance}</a>
-                    </Link>
-                  )}
+                      <Link href={'/agenda/' + instance}>
+                        <a>{instance}</a>
+                      </Link>
+                    )}
                 </Fragment>
               ))}
             </p>

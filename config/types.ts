@@ -35,6 +35,7 @@ export interface Conference {
   AnonymousVoting: boolean
   MinVotes: number
   MaxVotes: number
+  getSubmissionsUrl: string
 
   Date: Moment
   EndDate: Moment

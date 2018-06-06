@@ -4,7 +4,7 @@ import { Typeahead } from 'react-bootstrap-typeahead'
 import NonJumpingAffix from '../components/NonJumpingAffix'
 import SessionDetails from '../components/sessionDetails'
 import '../components/utils/arrayExtensions'
-import { Session } from '../config/types'
+import { DddSession } from './dddAgendaPage'
 
 interface VotingState {
   expandAll: boolean
@@ -22,7 +22,7 @@ interface VotingState {
 
 interface VotingProps {
   anonymousVoting: boolean
-  sessions: Session[]
+  sessions: DddSession[]
   maxVotes: number
   minVotes: number
 }
@@ -31,23 +31,20 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
   componentWillMount() {
     this.setState({
       formatFilters: [],
-      formats: (this.props.sessions as Session[])
-        .map(s => s.Format)
+      formats: (this.props.sessions as DddSession[])
+        .map(s => s.SessionLength || '45 minutes')
         .unique()
         .sort(),
       levelFilters: [],
-      levels: (this.props.sessions as Session[])
-        .map(s => s.Level)
+      levels: (this.props.sessions as DddSession[])
+        .map(s => s.TrackType || 'Developer')
         .unique()
         .sort(),
       seen: [],
       shortlist: [],
       show: 'all',
       tagFilters: [],
-      tags: (this.props.sessions as Session[])
-        .selectMany(s => s.Tags)
-        .unique()
-        .sort(),
+      tags: [],
       votes: [],
     })
   }
@@ -60,43 +57,43 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     this.setState({ show: whatToShow })
   }
 
-  isInShortlist(session: Session) {
-    return this.state.shortlist.includes(session.Id)
+  isInShortlist(session: DddSession) {
+    return this.state.shortlist.includes(session.SessionId)
   }
 
-  toggleShortlist(session: Session) {
+  toggleShortlist(session: DddSession) {
     this.setState({
       shortlist: this.isInShortlist(session)
-        ? this.state.shortlist.without(session.Id)
-        : [...this.state.shortlist, session.Id],
+        ? this.state.shortlist.without(session.SessionId)
+        : [...this.state.shortlist, session.SessionId],
     })
   }
 
-  isSeen(session: Session) {
-    return this.state.seen.includes(session.Id)
+  isSeen(session: DddSession) {
+    return this.state.seen.includes(session.SessionId)
   }
 
-  toggleSeen(session: Session) {
+  toggleSeen(session: DddSession) {
     this.setState({
-      seen: this.isSeen(session) ? this.state.seen.without(session.Id) : [...this.state.seen, session.Id],
+      seen: this.isSeen(session) ? this.state.seen.without(session.SessionId) : [...this.state.seen, session.SessionId],
     })
   }
 
-  isVotedFor(session: Session) {
-    return this.state.votes.includes(session.Id)
+  isVotedFor(session: DddSession) {
+    return this.state.votes.includes(session.SessionId)
   }
 
-  toggleVote(session: Session) {
+  toggleVote(session: DddSession) {
     this.setState({
-      votes: this.isVotedFor(session) ? this.state.votes.without(session.Id) : [...this.state.votes, session.Id],
+      votes: this.isVotedFor(session) ? this.state.votes.without(session.SessionId) : [...this.state.votes, session.SessionId],
     })
   }
 
   render() {
     const visibleSessions = (this.props.sessions || [])
-      .filter(s => this.state.tagFilters.length === 0 || this.state.tagFilters.some(t => s.Tags.includes(t)))
-      .filter(s => this.state.levelFilters.length === 0 || this.state.levelFilters.some(l => s.Level === l))
-      .filter(s => this.state.formatFilters.length === 0 || this.state.formatFilters.some(f => s.Format === f))
+      .filter(() => this.state.tagFilters.length === 0 || this.state.tagFilters.some(t => [].includes(t)))
+      .filter(s => this.state.levelFilters.length === 0 || this.state.levelFilters.some(l => s.TrackType === l))
+      .filter(s => this.state.formatFilters.length === 0 || this.state.formatFilters.some(f => s.SessionLength === f))
       .filter(s => this.state.show !== 'shortlist' || this.isInShortlist(s))
       .filter(s => this.state.show !== 'votes' || this.isVotedFor(s))
 
@@ -135,18 +132,6 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
             </Panel.Heading>
             <Panel.Body>
               <em>Filter by:</em>
-              <label className="filter">
-                Tags:{' '}
-                <Typeahead
-                  multiple
-                  options={this.state.tags}
-                  clearButton
-                  onChange={selected => {
-                    this.setState({ tagFilters: selected })
-                  }}
-                  selected={this.state.tagFilters}
-                />
-              </label>
               <label className="filter">
                 Format:{' '}
                 <Typeahead
@@ -224,7 +209,7 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
                     {this.isVotedFor(s) && (
                       <span className="fa fa-check" aria-label="Voted" role="status" title="Voted" />
                     )}
-                    {s.Title}
+                    {s.SessionTitle}
                     <br />
                     <button
                       onClick={e => {

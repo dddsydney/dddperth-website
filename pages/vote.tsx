@@ -1,36 +1,29 @@
+import fetch from 'isomorphic-fetch'
+import Error from 'next/error'
 import Link from 'next/link'
-import Router from 'next/router'
 import * as React from 'react'
+import { DddSession } from '../components/dddAgendaPage'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import dateTimeProvider from '../components/utils/dateTimeProvider'
 import Voting from '../components/voting'
 import Conference from '../config/conference'
 import getConferenceDates from '../config/dates'
-import { Session } from '../config/types'
 import Page from '../layouts/main'
 
 interface VoteState {
-  sessions?: Session[]
+  sessions?: DddSession[]
   isLoading: boolean
   isError: boolean
 }
 
 class VotePage extends React.Component<WithPageMetadataProps, VoteState> {
-  static getInitialProps({ res }) {
-    const dates = getConferenceDates(Conference, dateTimeProvider.now())
-    if (!dates.VotingOpen) {
-      return <Error statusCode={404} />
-    }
-    return {}
-  }
-
   componentWillMount() {
     const that = this
     this.setState({
       isError: false,
       isLoading: true,
     })
-    fetch(this.props.pageMetadata.appConfig.getSubmissionsUrl)
+    fetch(this.props.pageMetadata.conference.getSubmissionsUrl)
       .then(response => {
         if (response.status !== 200) {
           throw response.statusText
@@ -40,9 +33,9 @@ class VotePage extends React.Component<WithPageMetadataProps, VoteState> {
       .then(body =>
         this.setState({
           isLoading: false,
-          sessions: body as Session[],
+          sessions: body as DddSession[],
         }),
-      )
+    )
       .catch(error => {
         that.setState({ isError: true, isLoading: false })
         if (console) {
@@ -53,6 +46,11 @@ class VotePage extends React.Component<WithPageMetadataProps, VoteState> {
   }
 
   render() {
+    const dates = getConferenceDates(Conference, dateTimeProvider.now())
+    if (!dates.VotingOpen) {
+      return <Error statusCode={404} />
+    }
+
     const minVotes = this.props.pageMetadata.conference.MinVotes
     const maxVotes = this.props.pageMetadata.conference.MaxVotes
 
@@ -91,8 +89,8 @@ class VotePage extends React.Component<WithPageMetadataProps, VoteState> {
                 between {minVotes} and {maxVotes}
               </span>
             ) : (
-              <span>{minVotes}</span>
-            )}{' '}
+                <span>{minVotes}</span>
+              )}{' '}
             sessions.
           </p>
 

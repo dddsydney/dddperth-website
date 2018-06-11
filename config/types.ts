@@ -36,6 +36,7 @@ export interface Conference {
   MinVotes: number
   MaxVotes: number
   getSubmissionsUrl: string
+  submitVoteUrl: string
 
   Date: Moment
   EndDate: Moment

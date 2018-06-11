@@ -241,23 +241,6 @@ class VotePage extends React.Component<VoteProps, VoteState> {
             </p>
           )}
 
-<<<<<<< HEAD
-          <p>
-            This year we have a combination of 20 minute and 45 minutes sessions (or sessions that are designated as
-            being able to be both). You can optionally filter the sessions by tag, format and level to assist you to
-            create a shortlist. You will be required to vote for{' '}
-            {minVotes !== maxVotes ? (
-              <span>
-                between {minVotes} and {maxVotes}
-              </span>
-            ) : (
-                <span>{minVotes}</span>
-              )}{' '}
-            sessions.
-          </p>
-
-=======
->>>>>>> dddperth/master
           {!this.state.isLoading &&
             !this.state.isError && (
               <Voting
@@ -267,7 +250,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
                 minVotes={minVotes}
                 maxVotes={maxVotes}
                 anonymousVoting={this.props.pageMetadata.conference.AnonymousVoting}
-                submitVoteUrl={this.props.pageMetadata.appConfig.submitVoteUrl}
+                submitVoteUrl={this.props.pageMetadata.conference.submitVoteUrl}
               />
             )}
         </div>

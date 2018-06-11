@@ -90,7 +90,9 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
   toggleFlagged(session: DddSession) {
     this.setState(
       {
-        flagged: this.isFlagged(session) ? this.state.flagged.without(session.SessionId) : [...this.state.flagged, session.SessionId],
+        flagged: this.isFlagged(session)
+          ? this.state.flagged.without(session.SessionId)
+          : [...this.state.flagged, session.SessionId],
       },
       () => this.writeToStorage('ddd-voting-session-flagged', this.state.flagged),
     )
@@ -103,7 +105,9 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
   toggleVote(session: DddSession) {
     this.setState(
       {
-        votes: this.isVotedFor(session) ? this.state.votes.without(session.SessionId) : [...this.state.votes, session.SessionId],
+        votes: this.isVotedFor(session)
+          ? this.state.votes.without(session.SessionId)
+          : [...this.state.votes, session.SessionId],
       },
       () => this.writeToStorage('ddd-voting-session-votes', this.state.votes),
     )
@@ -135,7 +139,9 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
   async submit() {
     const vote = {
       Id: this.props.voteId,
-      Indices: this.state.votes.map(id => this.props.sessions.indexOf(this.props.sessions.find(s => s.SessionId === id)) + 1),
+      Indices: this.state.votes.map(
+        id => this.props.sessions.indexOf(this.props.sessions.find(s => s.SessionId === id)) + 1,
+      ),
       SessionIds: this.state.votes,
       TicketNumber: this.state.ticketNumber,
       VoterSessionId: getSessionId(),
@@ -307,7 +313,7 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
         </NonJumpingAffix>
         {this.state.submitted && (
           <p className="alert alert-success">
-            You've submitted your vote for this year :) Thanks! &lt;3 DDD Perth team
+            You've submitted your vote for this year 😁 Thanks! &lt;3 DDD Sydney team
           </p>
         )}
         <h2>

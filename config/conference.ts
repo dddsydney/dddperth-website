@@ -17,10 +17,10 @@ const registrationOpenFrom = moment('2018-04-30T08:00:00')
 const registrationOpenUntil = hideDate
   ? null
   : date
-    .clone()
-    .add(-1, 'd')
-    .startOf('day')
-    .add(17, 'h')
+      .clone()
+      .add(-1, 'd')
+      .startOf('day')
+      .add(17, 'h')
 const presentationSubmissionsOpenFrom = moment('2018-04-30T08:00:00')
 const presentationSubmissionsOpenUntil = moment('2018-06-12T23:59:59')
 const votingOpenFrom = moment('2018-06-14T08:00:00')
@@ -97,12 +97,13 @@ const Conference: IConference = {
   MaxVotes: 5,
   MinVotes: 1,
   getSubmissionsUrl: 'https://api.dddsydney.com.au/v1/sessions/2018',
+  submitVoteUrl: 'https://api.dddsydney.com.au/v1/vote/2018',
 
   Name: name,
   Organiser: {
     Name: 'SydDev Inc.',
     ShirtColour: 'black',
-    Url: ''
+    Url: '',
   },
   PreviousInstance: (currentInstance - 1).toString(),
   PreviousInstances: [...Array(currentInstance - firstInstance).keys()].map((_, i) => (firstInstance + i).toString()),

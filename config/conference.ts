@@ -110,8 +110,8 @@ const Conference: IConference = {
   PreviouslySubmittedTopics:
     'Agile, building great teams, UI design, software testing, virtual reality, open source software, bots, IoT, machine learning, automated deployments, mobile development, architecture, microservices, APIs, actors, JavaScript, authentication, React, UWP, HTTP protocol, Git, Docker and pointers',
   SellingPoints: ['One day', 'Fully catered', 'Inclusive atmosphere', 'Interesting presentations', 'Awesome people'],
-  SessionizeUrl: 'https://sessionize.com/dddsydney-2018/',
   SessionizeEditUrl: 'https://sessionize.com/app/speaker/',
+  SessionizeUrl: 'https://sessionize.com/dddsydney-2018/',
   SiteDescription: `${tagLine}.`,
   SponsorshipEmail: 'sponsors@dddsydney.com.au',
   TagLine: tagLine,
@@ -154,11 +154,6 @@ const Conference: IConference = {
   ],
 
   ImportantContacts: {
-    Police: {
-      Details: '2 Fitzgerald St, Northbridge WA 6003 ph: (08) 9422 7111',
-      MapUrl:
-        'https://www.google.com.au/maps/place/WA+Police/@-31.9539457,115.8571227,15z/data=!4m8!1m2!2m1!1swa+police!3m4!1s0x2a32bad2aad309a9:0x132b875b4c12ce8a!8m2!3d-31.9465398!4d115.852523',
-    },
     CentreAgainstSexualAssault: {
       Details: '1800 806 292',
     },
@@ -171,6 +166,11 @@ const Conference: IConference = {
       Details: 'Perth Medical Centre, 713 Hay St, Perth WA 6000 ph: (08) 9481 4342',
       MapUrl:
         'https://www.google.com.au/maps/place/Perth+Medical+Centre/@-31.9539771,115.8552714,17z/data=!3m1!4b1!4m5!3m4!1s0x2a32bad5d00fb27f:0xa93cc014867a5f8b!8m2!3d-31.9539771!4d115.8574654',
+    },
+    Police: {
+      Details: '2 Fitzgerald St, Northbridge WA 6003 ph: (08) 9422 7111',
+      MapUrl:
+        'https://www.google.com.au/maps/place/WA+Police/@-31.9539457,115.8571227,15z/data=!4m8!1m2!2m1!1swa+police!3m4!1s0x2a32bad2aad309a9:0x132b875b4c12ce8a!8m2!3d-31.9465398!4d115.852523',
     },
   },
 

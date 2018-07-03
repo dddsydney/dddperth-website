@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch'
 import React from 'react'
 import { Fragment } from 'react'
 import { Modal } from 'react-bootstrap'
-import { Session } from '../config/types'
+import { DddSession } from './dddAgendaPage'
 import SessionDetails from './sessionDetails'
 
 export interface SessionCellProps {
@@ -22,14 +22,14 @@ export interface AgendaParameters {
 interface ExternalProps {
   previousConferenceInstances: string[]
   sessionsUrl: string
-  sessions?: Session[]
+  sessions?: DddSession[]
 }
 interface AgendaState {
-  sessions: Session[]
+  sessions: DddSession[]
   isError: boolean
   isLoading: boolean
   showModal: boolean
-  selectedSession: Session
+  selectedSession: DddSession
 }
 
 const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProps: AgendaParameters) => {
@@ -76,7 +76,7 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
       }
     }
 
-    selectSession(session: Session) {
+    selectSession(session: DddSession) {
       this.setState({
         selectedSession: session,
         showModal: true,
@@ -92,7 +92,7 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
       const getIsLoading = () => this.state.isLoading
       const getIsError = () => this.state.isError
       const getSession = (sessionId: string) =>
-        this.state.sessions ? this.state.sessions.find(s => s.Id === sessionId) : null
+        this.state.sessions ? this.state.sessions.find(s => s.SessionId === sessionId) : null
       const onClick = this.selectSession
       const that = this
 
@@ -137,10 +137,10 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
                         : props.isLunchnote
                           ? 'LUNCHNOTE - '
                           : null}
-                    {session.Presenters.map(p => p.Name).join(', ')}
+                    {session.PresenterName}
                   </strong>
                   <br />
-                  <em>{session.Title}</em>
+                  <em>{session.SessionTitle}</em>
                 </Fragment>
               )}
           </td>
@@ -159,7 +159,7 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
             {this.state.selectedSession && (
               <Fragment>
                 <Modal.Header closeButton>
-                  <Modal.Title>{this.state.selectedSession.Title}</Modal.Title>
+                  <Modal.Title>{this.state.selectedSession.SessionTitle}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <SessionDetails

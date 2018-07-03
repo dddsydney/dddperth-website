@@ -1,22 +1,18 @@
-import Error from 'next/error'
+// import Error from 'next/error'
 import * as React from 'react'
 import AllAgendas from '../components/allAgendas'
 import CurrentAgenda from '../components/currentAgenda'
+import { DddSession } from '../components/dddAgendaPage'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
-import { Session } from '../config/types'
 import Page from '../layouts/main'
 
 interface AgendaPageProps extends WithPageMetadataProps {
-  sessions?: Session[]
+  sessions?: DddSession[]
 }
 
 class AgendaPage extends React.Component<AgendaPageProps> {
   render() {
     const dates = this.props.pageMetadata.dates
-
-    if (!dates.AgendaPublished) {
-      return <Error statusCode={404} />
-    }
 
     const conference = this.props.pageMetadata.conference
     return (
@@ -41,7 +37,7 @@ class AgendaPage extends React.Component<AgendaPageProps> {
             <CurrentAgenda
               sessions={this.props.sessions}
               previousConferenceInstances={this.props.pageMetadata.conference.PreviousInstances}
-              sessionsUrl={this.props.pageMetadata.appConfig.getAgendaUrl}
+              sessionsUrl="https://api.dddsydney.com.au/v1/sessions/2018"
             />
           )}
           <AllAgendas

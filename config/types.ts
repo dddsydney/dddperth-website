@@ -1,4 +1,5 @@
 import { Moment } from 'moment'
+import { DddSession } from '../components/dddAgendaPage'
 
 export interface Conference {
   Name: string
@@ -68,7 +69,7 @@ export interface Conference {
 
   Sponsors: Sponsor[]
 
-  Keynotes: Session[]
+  Keynotes: DddSession[]
 }
 
 export interface Venue {

@@ -20,6 +20,11 @@ const Sponsors: Sponsor[] = [{
   name: 'DevExpress',
   type: SponsorType.Silver,
   url: 'https://devexpress.com'
+}, {
+  imageUrl: '/static/images/sponsors/2018-Progress_Telerik.png',
+  name: 'Progress',
+  type: SponsorType.Gold,
+  url: 'https://www.progress.com/'
 }]
 
 export default Sponsors

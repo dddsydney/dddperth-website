@@ -1,46 +1,24 @@
-import Link from 'next/link'
+import Error from 'next/error'
 import * as React from 'react'
+import AllAgendas from '../components/allAgendas'
+import CurrentAgenda from '../components/currentAgenda'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
-import dateTimeProvider from '../components/utils/dateTimeProvider'
-import Conference from '../config/conference'
-import getConferenceDates from '../config/dates'
-import Page from '../layouts/withSidebar'
+import { Session } from '../config/types'
+import Page from '../layouts/main'
 
-const AgendaNotReady = ({ conference }) => (
-  <React.Fragment>
-    <h1>Agenda isn't ready yet!</h1>
+interface AgendaPageProps extends WithPageMetadataProps {
+  sessions?: Session[]
+}
 
-    <p>You're a bit early here, the agenda isn't available for a little bit longer.</p>
-
-    <p>If you're interested in our previous year agenda's check them out.</p>
-
-    <h2>All Agendas</h2>
-    <p>
-      {conference.PreviousInstances.map((instance, i) => (
-        <React.Fragment key={instance}>
-          {i !== 0 ? ' | ' : null}
-          <Link href={'/agenda/' + instance}>
-            <a>{instance}</a>
-          </Link>
-        </React.Fragment>
-      ))}
-    </p>
-  </React.Fragment>
-)
-
-const AgendaReady = ({ dates, conference }) => (
-  <React.Fragment>
-    <h1>{dates.IsComplete && conference.Instance} Agenda</h1>
-
-    <p>The agenda has not yet been finalised.</p>
-  </React.Fragment>
-)
-
-class AgendaPage extends React.Component<WithPageMetadataProps> {
+class AgendaPage extends React.Component<AgendaPageProps> {
   render() {
-    const conference = this.props.pageMetadata.conference
     const dates = this.props.pageMetadata.dates
-    const agendaAvailable = getConferenceDates(Conference, dateTimeProvider.now()).AgendaPublished
+
+    if (!dates.AgendaPublished) {
+      return <Error statusCode={404} />
+    }
+
+    const conference = this.props.pageMetadata.conference
     return (
       <Page
         pageMetadata={this.props.pageMetadata}
@@ -48,11 +26,30 @@ class AgendaPage extends React.Component<WithPageMetadataProps> {
         hideBanner={true}
         description={conference.Name + ' agenda.'}
       >
-        {agendaAvailable ? (
-          <AgendaReady dates={dates} conference={conference} />
-        ) : (
-          <AgendaNotReady conference={conference} />
-        )}
+        <div className="container">
+          <h1>{dates.IsComplete && conference.Instance} Agenda</h1>
+
+          {!dates.AgendaPublished && (
+            <p>
+              The agenda has not yet been finalised; please come back on{' '}
+              {conference.AgendaPublishedFrom.format(dates.DateDisplayFormat)}{' '}
+              {conference.AgendaPublishedFrom.format(dates.TimeDisplayFormat)}. In the meantime, check out our previous
+              agendas below.
+            </p>
+          )}
+          {dates.AgendaPublished && (
+            <CurrentAgenda
+              sessions={this.props.sessions}
+              previousConferenceInstances={this.props.pageMetadata.conference.PreviousInstances}
+              sessionsUrl={this.props.pageMetadata.appConfig.getAgendaUrl}
+            />
+          )}
+          <AllAgendas
+            conference={this.props.pageMetadata.conference}
+            conferenceInstance={this.props.pageMetadata.conference.Instance}
+            dates={this.props.pageMetadata.dates}
+          />
+        </div>
       </Page>
     )
   }

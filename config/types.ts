@@ -54,6 +54,7 @@ export interface Conference {
 
   HideDate: boolean
   HideSponsors: boolean
+  HideSponsorshipUpsell: boolean
   HideVenue: boolean
   HideAfterpartyVenue: boolean
 
@@ -66,6 +67,8 @@ export interface Conference {
   ImportantDates: ImportantDate[]
 
   Sponsors: Sponsor[]
+
+  Keynotes: Session[]
 }
 
 export interface Venue {
@@ -100,6 +103,7 @@ export interface Dates {
   RegistrationClosed: boolean
   AcceptingPresentations: boolean
   VotingOpen: boolean
+  VotingFinished: boolean
   AgendaPublished: boolean
   AcceptingFeedback: boolean
 }

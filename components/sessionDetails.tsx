@@ -6,6 +6,8 @@ interface SessionProps {
   session: DddSession
   showPresenter: boolean
   hideTags: boolean
+  hideLevelAndFormat: boolean
+  showBio: boolean
 }
 
 const SessionDetails: React.StatelessComponent<SessionProps> = ({ session }) => (
@@ -17,6 +19,18 @@ const SessionDetails: React.StatelessComponent<SessionProps> = ({ session }) => 
       <span className="badge badge-primary">{session.TrackType}</span>{' '}
       <span className="badge badge-secondary">{session.SessionLength}</span>{' '}
     </p>
+    {showBio &&
+      session.Presenters.map(p => (
+        <p className="preserve-whitespace">
+          {session.Presenters.length > 1 && (
+            <Fragment>
+              <strong>{p.Name}</strong>
+              <br />
+            </Fragment>
+          )}
+          <em>{p.Bio}</em>
+        </p>
+      ))}
   </Fragment>
 )
 

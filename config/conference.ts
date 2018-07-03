@@ -127,6 +127,7 @@ const Conference: IConference = {
   HideAfterpartyVenue: venue === null || venue.Afterparty === null,
   HideDate: hideDate,
   HideSponsors: false,
+  HideSponsorshipUpsell: true,
   HideVenue: venue === null,
 
   Venue: venue,
@@ -177,6 +178,8 @@ const Conference: IConference = {
   ImportantDates: orderBy(importantDates, i => i.Date),
 
   Sponsors: SponsorData,
+
+  Keynotes: [],
 }
 
 export default Conference

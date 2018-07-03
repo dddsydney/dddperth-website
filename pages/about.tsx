@@ -40,7 +40,6 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
         </Link>
       </li>
     </ul>
-    <h2>What is Developer! Developer! Developer!?</h2>
     <p>
       Developer! Developer! Developer! started in 2005 in the United Kingdom as a community conference organised by
       software developers for software developers.{' '}
@@ -55,5 +54,18 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
       <li>An open submissions process</li>
       <li>A democratically chosen agenda</li>
     </ul>
+    <h2>Sister events</h2>
+    <p>We have a number of sister events across Australia:</p>
+    <p className="text-center">
+      <a href="https://dddmelbourne.com/" target="_blank">
+        <img src="/static/images/logo-dddmelbourne.jpg" alt="DDD Melbourne logo" style={{ width: '200px' }} />
+      </a>{' '}
+      <a href="http://dddsydney.com.au/" target="_blank">
+        <img src="/static/images/logo-dddsydney.png" alt="DDD Sydney logo" style={{ width: '200px' }} />
+      </a>{' '}
+      <a href="http://dddbrisbane.com/" target="_blank">
+        <img src="/static/images/logo-dddbrisbane.png" alt="DDD Brisbane logo" style={{ width: '200px' }} />
+      </a>
+    </p>
   </Page>
 ))

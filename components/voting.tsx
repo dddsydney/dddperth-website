@@ -1,11 +1,13 @@
+import * as moment from 'moment'
 import * as React from 'react'
 import { Panel, PanelGroup } from 'react-bootstrap'
-import Select, { Option } from 'react-select'
-import { getSessionId } from '../components/global/analytics'
+import ReactResponsiveSelect from 'react-responsive-select/dist/ReactResponsiveSelect'
+import { getSessionId, logException } from '../components/global/analytics'
 import NonJumpingAffix from '../components/NonJumpingAffix'
 import SessionDetails from '../components/sessionDetails'
 import '../components/utils/arrayExtensions'
 import { DddSession } from './dddAgendaPage'
+import { logEvent } from './global/analytics'
 
 interface VotingState {
   expandAll: boolean
@@ -38,7 +40,7 @@ interface VotingProps {
 export default class Voting extends React.PureComponent<VotingProps, VotingState> {
   componentWillMount() {
     this.setState({
-      flagged: this.readFromStorage('ddd-voting-session-flagged'),
+      flagged: [],
       formatFilters: [],
       formats: (this.props.sessions as DddSession[])
         .map(s => s.SessionLength || '45 minutes')
@@ -49,13 +51,22 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
         .map(s => s.TrackType || 'Developer')
         .unique()
         .sort(),
-      shortlist: this.readFromStorage('ddd-voting-session-shortlist'),
+      shortlist: [],
       show: 'all',
       submitError: false,
       submitInProgress: false,
-      submitted: this.readFromStorage('ddd-voting-submitted') === 'true',
+      submitted: false,
       tagFilters: [],
       tags: [],
+      votes: [],
+    })
+  }
+
+  componentDidMount() {
+    this.setState({
+      flagged: this.readFromStorage('ddd-voting-session-flagged'),
+      shortlist: this.readFromStorage('ddd-voting-session-shortlist'),
+      submitted: this.readFromStorage('ddd-voting-submitted') === 'true',
       votes: this.readFromStorage('ddd-voting-session-votes'),
     })
   }
@@ -73,6 +84,10 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
   }
 
   toggleShortlist(session: DddSession) {
+    logEvent('voting', this.isInShortlist(session) ? 'unshortlist' : 'shortlist', {
+      id: this.props.voteId,
+      sessionId: session.SessionId,
+    })
     this.setState(
       {
         shortlist: this.isInShortlist(session)
@@ -88,6 +103,10 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
   }
 
   toggleFlagged(session: DddSession) {
+    logEvent('voting', this.isFlagged(session) ? 'unflag' : 'flag', {
+      sessionId: session.SessionId,
+      id: this.props.voteId,
+    })
     this.setState(
       {
         flagged: this.isFlagged(session)
@@ -103,6 +122,10 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
   }
 
   toggleVote(session: DddSession) {
+    logEvent('voting', this.isVotedFor(session) ? 'unvote' : 'vote', {
+      sessionId: session.SessionId,
+      id: this.props.voteId,
+    })
     this.setState(
       {
         votes: this.isVotedFor(session)
@@ -113,12 +136,8 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     )
   }
 
-  isRunningInBrowser() {
-    return typeof window !== 'undefined'
-  }
-
   writeToStorage(key: string, value: string | string[]) {
-    if (this.isRunningInBrowser() && localStorage) {
+    if (localStorage) {
       if (value instanceof String) {
         localStorage.setItem(key, value as string)
       }
@@ -127,7 +146,7 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
   }
 
   readFromStorage(key: string) {
-    if (this.isRunningInBrowser() && localStorage) {
+    if (localStorage) {
       const data = localStorage.getItem(key)
       if (data != null) {
         return JSON.parse(data)
@@ -157,13 +176,25 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
       })
 
       if (!response.ok) {
+        logException(
+          'Error when submitting vote',
+          new Error(`Got ${response.status} ${response.statusText} when posting vote.`),
+          { voteId: this.props.voteId },
+        )
         this.setState({ submitInProgress: false, submitError: true })
       } else {
+        logEvent(
+          'voting',
+          'submit',
+          { startTime: this.props.startTime, id: this.props.voteId },
+          { votingDurationInMins: moment().diff(moment.parseZone(this.props.startTime), 'minutes') },
+        )
         this.setState({ submitInProgress: false, submitted: true }, () =>
           this.writeToStorage('ddd-voting-submitted', 'true'),
         )
       }
     } catch (e) {
+      logException('Error when submitting vote', e, { voteId: this.props.voteId })
       this.setState({ submitInProgress: false, submitError: true })
     }
   }
@@ -190,15 +221,28 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
       </React.Fragment>
     )
 
+    const option = text => (
+      <div>
+        <span className="fa fa-check-circle-o selected-marker" />
+        <span className="fa fa-circle-o not-selected-marker" />
+        <span> {text}</span>
+      </div>
+    )
+
     return (
       <React.Fragment>
         <NonJumpingAffix>
           <Panel className="voting-control form-inline">
             <Panel.Heading>
+              {this.state.submitted && (
+                <p className="alert alert-success">
+                  You've submitted your vote for this year :) Thanks! &lt;3 DDD Perth team
+                </p>
+              )}
               {!this.state.submitted && (
                 <React.Fragment>
                   <h3>Vote</h3>
-                  <div style={{ float: 'right' }}>
+                  <div className="submit-block">
                     <label>
                       Ticket order #{' '}
                       <em>
@@ -231,7 +275,8 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
                         'Submitting...'
                       ) : (
                         <React.Fragment>
-                          Submit votes ({this.state.votes.length}/{this.props.minVotes !== this.props.maxVotes
+                          Submit <span className="remove-when-small">votes</span> ({this.state.votes.length}/{this.props
+                            .minVotes !== this.props.maxVotes
                             ? `${Math.max(this.props.minVotes, this.state.votes.length)}${
                                 this.state.votes.length < this.props.maxVotes ? '+' : ''
                               }`
@@ -279,43 +324,48 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
               </div>
               {this.state.show === 'all' && (
                 <React.Fragment>
-                  <br />
-                  <br />
-                  <em>Filter by:</em>
-                  <label className="filter">
-                    Format:{' '}
-                    <Select
-                      options={this.state.formats.map(f => ({ value: f, label: f }))}
-                      clearable={true}
-                      multi={true}
+                  <div className="filters">
+                    <em>Filter by:</em>{' '}
+                    <ReactResponsiveSelect
+                      name="formatFilter"
+                      prefix="Format:"
+                      options={[{ value: null, text: 'All', markup: option('All') }].concat(
+                        this.state.formats.map(f => ({ value: f, text: f, markup: option(f) })),
+                      )}
+                      multiselect={true}
+                      caretIcon={<span className="fa fa-caret-down" />}
                       onChange={selected => {
-                        this.setState({ formatFilters: (selected as Array<Option<string>>).map(f => f.value) })
+                        const newFilter = selected.options.map(o => o.value).filter(o => o !== null)
+                        if (newFilter.length > 0) {
+                          logEvent('voting', 'formatFilter', { filter: newFilter.join(',') })
+                        }
+                        this.setState({ formatFilters: newFilter })
                       }}
-                      value={this.state.formatFilters}
+                      selectedValues={this.state.formatFilters.length > 0 ? this.state.formatFilters : undefined}
                     />
-                  </label>
-                  <label className="filter">
-                    Level:{' '}
-                    <Select
-                      options={this.state.levels.map(l => ({ value: l, label: l }))}
-                      clearable={true}
-                      multi={true}
+                    <ReactResponsiveSelect
+                      name="levelsFilter"
+                      prefix="Level:"
+                      options={[{ value: null, text: 'All', markup: option('All') }].concat(
+                        this.state.levels.map(l => ({ value: l, text: l, markup: option(l) })),
+                      )}
+                      multiselect={true}
+                      caretIcon={<span className="fa fa-caret-down" />}
                       onChange={selected => {
-                        this.setState({ levelFilters: (selected as Array<Option<string>>).map(l => l.value) })
+                        const newFilter = selected.options.map(o => o.value).filter(o => o !== null)
+                        if (newFilter.length > 0) {
+                          logEvent('voting', 'levelFilter', { filter: newFilter.join(',') })
+                        }
+                        this.setState({ levelFilters: newFilter })
                       }}
-                      value={this.state.levelFilters}
+                      selectedValues={this.state.levelFilters.length > 0 ? this.state.levelFilters : undefined}
                     />
-                  </label>
+                  </div>
                 </React.Fragment>
               )}
             </Panel.Body>
           </Panel>
         </NonJumpingAffix>
-        {this.state.submitted && (
-          <p className="alert alert-success">
-            You've submitted your vote for this year 😁 Thanks! &lt;3 DDD Sydney team
-          </p>
-        )}
         <h2>
           {this.state.show === 'all' ? 'All sessions' : this.state.show === 'shortlist' ? 'My shortlist' : 'My votes'}{' '}
           <small>{`(showing ${visibleSessions.length}${
@@ -351,7 +401,14 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
                       <span className="fa fa-flag status" aria-label="Flag" role="status" title="Flagged" />
                     )}
                     {s.SessionTitle}
-                    <small style={{ marginTop: '10px', display: 'block' }}>
+                    <br />
+                    <small
+                      style={{
+                        display: 'block',
+                        marginTop: '10px',
+                        visibility: this.state.expandAll ? 'hidden' : 'visible',
+                      }}
+                    >
                       <span className="fa fa-plus" title="More details" /> Tap for session details
                     </small>
                     {!this.state.submitted && (
@@ -393,7 +450,13 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
                 </Panel.Title>
               </Panel.Heading>
               <Panel.Body collapsible>
-                <SessionDetails session={s} showPresenter={!this.props.anonymousVoting} hideTags={true} />
+                <SessionDetails
+                  session={s}
+                  showPresenter={!this.props.anonymousVoting}
+                  hideTags={true}
+                  showBio={false}
+                  hideLevelAndFormat={false}
+                />
               </Panel.Body>
             </Panel>
           ))}

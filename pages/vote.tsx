@@ -1,10 +1,10 @@
-import fetch from 'isomorphic-fetch'
 import moment from 'moment'
 import Error from 'next/error'
 import Link from 'next/link'
 import * as React from 'react'
 import uuid from 'uuid/v1'
 import { DddSession } from '../components/dddAgendaPage'
+import { logEvent, logException } from '../components/global/analytics'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import dateTimeProvider from '../components/utils/dateTimeProvider'
 import Voting from '../components/voting'
@@ -28,17 +28,12 @@ class VotePage extends React.Component<VoteProps, VoteState> {
   componentWillMount() {
     this.setState({
       isError: false,
-      isLoading: !this.props.sessions,
-      sessions: this.props.sessions || [],
+      isLoading: true,
+      sessions: [],
     })
   }
 
   componentDidMount() {
-    if (this.props.sessions) {
-      this.setSessions(this.props.sessions)
-      return
-    }
-
     const that = this
     this.setState({
       isError: false,
@@ -46,7 +41,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
     })
     fetch(this.props.pageMetadata.conference.getSubmissionsUrl)
       .then(response => {
-        if (response.status !== 200) {
+        if (!response.ok) {
           throw response.statusText
         }
         return response.json()
@@ -56,8 +51,11 @@ class VotePage extends React.Component<VoteProps, VoteState> {
           isLoading: false,
           sessions: body as DddSession[],
         }),
-    )
+      )
       .catch(error => {
+        logException('Error when getting sessions', error, {
+          voteId: !!localStorage ? localStorage.getItem('ddd-voting-id') : null,
+        })
         that.setState({ isError: true, isLoading: false })
         if (console) {
           // tslint:disable-next-line:no-console
@@ -82,7 +80,11 @@ class VotePage extends React.Component<VoteProps, VoteState> {
         localStorage.setItem('ddd-voting-start-time', moment().toISOString())
       }
       if (!localStorage.getItem('ddd-voting-id')) {
-        localStorage.setItem('ddd-voting-id', uuid())
+        const voteId = uuid()
+        logEvent('voting', 'voteIdGenerated', { id: voteId, startTime: localStorage.getItem('ddd-voting-start-time') })
+        localStorage.setItem('ddd-voting-id', voteId)
+      } else {
+        logEvent('voting', 'returnToVoting', { id: localStorage.getItem('ddd-voting-id') })
       }
 
       this.setState({
@@ -104,18 +106,18 @@ class VotePage extends React.Component<VoteProps, VoteState> {
         })
       } else {
         // if previous ordering data has been persisted then apply this and override API response ordering
-        const indicies = new Map<string, number>(JSON.parse(orderings).map((id, index) => [id, index]))
-        const preordered = sessions
-          .map(session => ({
-            index: indicies.get(session.SessionId) || 0,
-            session,
-          }))
-          .sort(({ index: first }, { index: second }) => first - second)
-          .map(({ session }) => session) as DddSession[]
+        const orderingsArray = JSON.parse(orderings)
+        const ordered = orderingsArray
+          .map(id => sessions.find(s => s.SessionId === id))
+          .filter(s => s)
+          .concat(sessions.filter(s => !orderingsArray.find(id => id === s.SessionId)))
+
+        const ids = JSON.stringify(ordered.map(({ Id }) => Id))
+        localStorage.setItem('ddd-voting-session-order', ids)
 
         this.setState({
           isLoading: false,
-          sessions: preordered,
+          sessions: ordered,
         })
       }
     }
@@ -129,6 +131,8 @@ class VotePage extends React.Component<VoteProps, VoteState> {
 
     const minVotes = this.props.pageMetadata.conference.MinVotes
     const maxVotes = this.props.pageMetadata.conference.MaxVotes
+
+    const isLoadingComplete = !(this.state.isLoading || this.state.isError)
 
     return (
       <Page
@@ -185,13 +189,13 @@ class VotePage extends React.Component<VoteProps, VoteState> {
             <div className="col-md-8" style={{ backgroundColor: '#f5f5f5', padding: '0 20px' }}>
               <h2 style={{ marginTop: '30px' }}>Getting the most out of voting</h2>
               <p>
-                This year we had {this.state.sessions ? this.state.sessions.length : '...'} sessions submitted! We've
-                implemented the following features to assist you to manage voting across such a large number of
-                sessions:
+                This year we had {isLoadingComplete && this.state.sessions ? this.state.sessions.length : '...'}{' '}
+                sessions submitted! We've implemented the following features to assist you to manage voting across such
+                a large number of sessions:
               </p>
               <ul>
                 <li>
-                  Any actions you take on this page (e.g. vote, shortlist) will be saved to this device -{' '}
+                  Any actions you take on this page (e.g. vote, shortlist) will be saved to this device/browser -{' '}
                   <strong>you can do the voting over a number of sittings</strong> and don't need to worry about trying
                   to complete it in one go
                 </li>
@@ -208,7 +212,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
                   When viewing all sessions you can filter by <em>tags</em>, <em>format</em> and <em>level</em>; this is{' '}
                   <strong>
                     useful if you don't have the time to review all{' '}
-                    {this.state.sessions ? this.state.sessions.length : '...'} sessions
+                    {isLoadingComplete && this.state.sessions ? this.state.sessions.length : '...'} sessions
                   </strong>{' '}
                   and instead want to narrow down on sessions that are likely to be of interest
                 </li>
@@ -233,6 +237,22 @@ class VotePage extends React.Component<VoteProps, VoteState> {
           </div>
 
           <hr />
+
+          <p className="alert alert-warning">
+            <strong>Please note:</strong> Our expectation of the community, <strong>and you as a voter</strong>, is that
+            you will only vote once and you will vote for a set of talks that make up <em>your</em> perfect agenda
+            regardless of your friends' talks.<br />
+            <br />If you know who submitted any of the sessions we ask that you do not discuss it with anyone or post it
+            on social media so we can retain a level playing field for all submitters through anonymity. We definitely
+            want you to post and talk about the conference and encourage others to vote though so spread the word.
+            <br />
+            <br /> If we follow this approach as a community then we can be fair to all the submitters who have put
+            time, effort and courage into crafting the amazing session proposals below. If you have any questions please{' '}
+            <a href={'mailto:' + this.props.pageMetadata.conference.ContactEmail}>contact us</a>.
+            <br />
+            <br />
+            Thanks!<br />&lt;3 DDD Perth team
+          </p>
 
           {this.state.isLoading && <p>Loading sessions...</p>}
           {this.state.isError && (

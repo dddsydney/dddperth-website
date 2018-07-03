@@ -3,7 +3,7 @@
 @import 'typography.scss';
 @import 'slick.scss';
 @import 'forms.scss';
-@import '../node_modules/react-select/dist/react-select.css';
+@import '../node_modules/react-responsive-select/dist/ReactResponsiveSelect.css';
 
 body,
 html {
@@ -491,6 +491,31 @@ h2 + .event-details {
   border-color: $primary-color;
 }
 
+// Keynotes
+.keynote {
+  text-align: left;
+  padding: 20px;
+
+  img {
+    margin-right: 20px;
+    float: left;
+    width: 250px;
+  }
+
+  h3 {
+    margin: 0 0 20px 0;
+    border-bottom: 1px solid #333;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+
+  .tags {
+    text-align: right;
+  }
+}
+
 // Strip of Photos
 section.image-strip {
   margin: 30px auto;
@@ -514,7 +539,6 @@ section.sponsors {
   padding-bottom: 20px;
 }
 section.sponsors.standard {
-  background: #f7f7f7;
   padding: 26px 0;
 }
 
@@ -1187,24 +1211,70 @@ section.full-width {
   input {
     font-size: 16px !important;
   }
-}
-.filter {
-  margin-left: 10px;
-  font-weight: normal;
-  font-size: 14px;
-  .Select {
+  .panel-heading .alert {
+    margin: 0;
+  }
+  .submit-block {
+    float: right;
+  }
+  .filters {
+    margin-top: 10px;
+    > div {
+      display: inline-block;
+    }
+  }
+
+  .rrs__button + .rrs__options {
     min-width: 150px;
+    font-size: 0.9em;
   }
-  .Select,
-  .Select-control {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  li:before {
+
+  .rrs__options li:before {
     display: none;
   }
-  a {
-    text-decoration: none;
+
+  .fa-caret-down {
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
+    fill: #333;
+    margin-right: -3px;
+  }
+  .rrs--options-visible .fa-caret-down {
+    transform: rotate(180deg);
+  }
+  .rrs__multiselect-label {
+    line-height: 1.2;
+  }
+
+  .rrs__option.rrs__option {
+    .selected-marker {
+      display: none;
+    }
+  }
+
+  .rrs__option.rrs__option--selected {
+    .selected-marker {
+      display: inline;
+    }
+    .not-selected-marker {
+      display: none;
+    }
+  }
+
+  .rrs__option.rrs__option--next-selection {
+    color: #333;
+    background-color: lighten($primary-color, 70%);
+  }
+
+  .rrs__option.rrs__option--next-selection:hover {
+    background-color: #f7f7f7;
+  }
+
+  .rrs__option:hover,
+  .rrs__option.rrs__option--selected,
+  .rrs--has-changed .rrs__label {
+    color: $primary-color;
   }
 }
 #voting-interface {
@@ -1245,11 +1315,6 @@ section.full-width {
 }
 @media (max-width: 770px) {
   .voting-control {
-    .Select {
-      min-width: 120px;
-      font-size: 12px;
-    }
-
     h3 {
       line-height: 35px;
     }
@@ -1258,7 +1323,9 @@ section.full-width {
 
 @media (max-width: 690px) {
   .voting-control {
-    .filter,
+    margin: 0 -15px;
+    @include border-radius(0);
+
     .form-control,
     label {
       font-size: 0.8em;
@@ -1266,13 +1333,30 @@ section.full-width {
       padding: 0 5px;
     }
 
-    .Select {
-      min-width: 90px;
-      margin-top: 5px;
+    .rrs__button {
+      height: 32px;
+      line-height: 32px;
     }
 
-    .filter:first {
-      display: block;
+    .rrs__button + .rrs__options {
+      top: 32px;
+    }
+
+    .fa-caret-down {
+      top: 1rem;
+    }
+
+    .filters {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    &.form-inline .form-control {
+      width: 80px;
+    }
+
+    h3 {
+      padding-right: 10px;
     }
 
     .panel-body em,
@@ -1283,6 +1367,50 @@ section.full-width {
     .panel-body,
     .panel-heading {
       padding: 5px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .voting-control {
+    .form-control,
+    label {
+      font-size: 0.7em;
+    }
+    .submit-block {
+      display: inline;
+    }
+
+    .filters,
+    .rrs__multiselect-label__badge {
+      font-size: 10px;
+    }
+
+    .rrs__multiselect-label__badge {
+      padding: 1px 3px;
+      lineheight: 1;
+    }
+
+    .remove-when-small {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .voting-control {
+    &.form-inline .form-control {
+      width: 60px;
+    }
+
+    .btn {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    h3 {
+      font-size: 14px;
+      padding-right: 0;
     }
   }
 }
@@ -1378,6 +1506,12 @@ section.full-width {
   padding: 3px;
 }
 
+.pink {
+  background-color: $call-content;
+  color: #000;
+  padding: 3px;
+}
+
 tr td.highlight-session {
   background: #00a2ff;
   color: #fff;
@@ -1430,7 +1564,8 @@ tr td.highlight-session {
 
 .agenda-row .breadth,
 .agenda-row .keynote,
-.agenda-row .locknote {
+.agenda-row .locknote,
+.agenda-row .lunchnote {
   text-align: center;
   font-size: 1.1em;
   font-weight: 600;
@@ -1438,7 +1573,8 @@ tr td.highlight-session {
 
 .agenda-row .breadth em,
 .agenda-row .keynote em,
-.agenda-row .locknote em {
+.agenda-row .locknote em,
+.agenda-row .lunchnote em {
   font-weight: 400;
 }
 
@@ -1447,6 +1583,10 @@ tr td.highlight-session {
   width: 33%;
   border: 1px solid #ddd;
   line-height: 1.5;
+}
+
+.agenda-row td.session-4 {
+  width: 24%;
 }
 
 .agenda-row tbody tr {

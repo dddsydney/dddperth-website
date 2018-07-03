@@ -104,8 +104,8 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
 
   toggleFlagged(session: DddSession) {
     logEvent('voting', this.isFlagged(session) ? 'unflag' : 'flag', {
-      sessionId: session.SessionId,
       id: this.props.voteId,
+      sessionId: session.SessionId,
     })
     this.setState(
       {
@@ -123,8 +123,8 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
 
   toggleVote(session: DddSession) {
     logEvent('voting', this.isVotedFor(session) ? 'unvote' : 'vote', {
-      sessionId: session.SessionId,
       id: this.props.voteId,
+      sessionId: session.SessionId,
     })
     this.setState(
       {

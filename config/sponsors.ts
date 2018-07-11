@@ -31,6 +31,12 @@ const Sponsors: Sponsor[] = [
     type: SponsorType.Gold,
     url: 'https://www.progress.com/',
   },
+  {
+    imageUrl: '/static/images/sponsors/microsoft.png',
+    name: 'Microsoft',
+    type: SponsorType.Gold,
+    url: 'https://www.microsoft.com/en-au',
+  },
 ]
 
 export default Sponsors

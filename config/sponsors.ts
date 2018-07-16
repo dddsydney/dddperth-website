@@ -37,6 +37,13 @@ const Sponsors: Sponsor[] = [
     type: SponsorType.Gold,
     url: 'https://www.microsoft.com/en-au',
   },
+  {
+    imageUrl: '/static/images/sponsors/ssw.png',
+    name: 'SSW TV',
+    serviceProvided: 'Media Partner',
+    type: SponsorType.Service,
+    url: 'https://ssw.tv',
+  },
 ]
 
 export default Sponsors

@@ -28,7 +28,7 @@ const CurrentAgenda: StatelessComponent<AgendaProps> = ({ SessionCell }) => (
             <th style={{ width: '24%' }}>
               <strong className="orange">Junior Dev - Orange</strong>
               <br />
-              <em>TBC</em>
+              <em>CB06.03 Classrooms</em>
             </th>
           </tr>
         </thead>

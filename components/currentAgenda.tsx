@@ -11,22 +11,22 @@ const CurrentAgenda: StatelessComponent<AgendaProps> = ({ SessionCell }) => (
           <tr>
             <th style={{ width: '4%' }} />
             <th style={{ width: '24%' }}>
-              <strong className="dark-green">Red</strong>
+              <strong className="dark-green">Dev - Red</strong>
               <br />
-              <em>CB06.03.28 - GUTHRIE THEATRE</em>
+              <em>CB06.03.28 - GUTHRIE</em>
             </th>
             <th style={{ width: '24%' }}>
-              <strong className="light-green">Blue</strong>
+              <strong className="light-green">Dev - Blue</strong>
               <br />
-              <em>CB06.03.022 - LECTURE THEATRE</em>
+              <em>CB06.03.022 - LECTURE</em>
             </th>
             <th style={{ width: '24%' }}>
-              <strong className="green">Green</strong>
+              <strong className="green">Data &amp; Design - Green</strong>
               <br />
-              <em>CB06.03.056 - COLLABORATIVE THEATRE</em>
+              <em>CB06.03.056 - COLLABORATIVE</em>
             </th>
             <th style={{ width: '24%' }}>
-              <strong className="pink">Pink</strong>
+              <strong className="orange">Junior Dev - Orange</strong>
               <br />
               <em>TBC</em>
             </th>

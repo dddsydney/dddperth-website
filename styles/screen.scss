@@ -4,10 +4,9 @@
 @import 'slick.scss';
 @import 'forms.scss';
 @import '../node_modules/react-responsive-select/dist/ReactResponsiveSelect.css';
-
 body,
-html {
-}
+html {}
+
 body {
   font-family: $main-font;
   line-height: 1.5;
@@ -17,15 +16,19 @@ body {
 section {
   text-align: center;
 }
+
 img {
   max-width: 100% !important;
 }
+
 hr {
   border-top: 3px solid #dcdcdc;
 }
+
 .clear {
   clear: both;
 }
+
 .btn {
   padding: 6px 12px;
   margin: 0;
@@ -41,16 +44,19 @@ hr {
   color: #fff !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
+
 .btn:focus,
 .btn:active,
 .btn-primary:active:hover {
   background: darken($primary-color, 5%);
 }
+
 .btn-sm {
   padding: 5px 10px;
   font-size: 11px;
   line-height: 1.1;
 }
+
 .btn:after,
 .maillink:after {
   content: '\f0da';
@@ -65,27 +71,32 @@ hr {
   position: relative;
   top: -1px;
 }
+
 .btn-mail:after,
 .maillink:after {
   @include opacity(1);
   content: '\f003';
   color: #fff;
 }
+
 .maillink:after {
   color: inherit;
   margin: 0 5px;
 }
+
 .btn-pdf:after {
   @include opacity(1);
   content: '\f1c1';
   color: #fff;
 }
+
 .btn:hover,
 .btn-primary:hover[disabled]:hover,
 .badge-primary {
   background: darken($primary-color, 5%);
   color: #fff;
 }
+
 .btn:focus {
   outline: 0;
 }
@@ -110,6 +121,7 @@ a.btn {
 .btn.remove-vote {
   background-color: $call-content;
 }
+
 .btn.content:hover,
 .btn.remove-vote:hover,
 .btn.content:active,
@@ -123,6 +135,7 @@ a.btn {
 .btn.voting {
   background-color: $voting;
 }
+
 .btn.voting:hover,
 .btn.voting:active,
 .btn.voting:focus,
@@ -135,6 +148,7 @@ a.btn {
 .btn.add-vote {
   background-color: darken($tickets, 5%);
 }
+
 .btn.tickets:hover,
 .btn-secondary:hover,
 .btn.add-vote:hover,
@@ -150,6 +164,7 @@ a.btn {
 .btn.agenda {
   background-color: darken($agenda, 5%);
 }
+
 .btn.agenda:hover,
 .btn.agenda:active,
 .btn.agenda:focus {
@@ -160,6 +175,7 @@ $darkGrey: lighten(#000, 30%);
 .btn.sponsors {
   background-color: $darkGrey;
 }
+
 .btn.sponsors:hover,
 .btn.sponsors:active,
 .btn.sponsors:focus {
@@ -195,6 +211,7 @@ $darkGrey: lighten(#000, 30%);
 .modal.fade.in {
   padding-right: 0 !important;
 }
+
 .modal-header {
   .close {
     font-size: 30px;
@@ -203,15 +220,18 @@ $darkGrey: lighten(#000, 30%);
     margin: 5px 0;
   }
 }
+
 h4.modal-title {
   margin-right: 30px;
 }
+
 .modal-content {
   border: 0;
   @include border-radius(1px);
   @include box-shadow(0 1px 2px rgba(20, 20, 20, 0.4));
 }
-.modal-body > p {
+
+.modal-body>p {
   margin-top: 0;
 }
 
@@ -222,8 +242,7 @@ nav.main {
   margin-bottom: 0;
   border: 0;
   @include border-radius(0);
-
-  .container > .navbar-collapse {
+  .container>.navbar-collapse {
     margin-left: 0;
     margin-right: 0;
     border: 0;
@@ -252,12 +271,10 @@ nav.main {
       }
     }
   }
-
   ul {
     float: none;
     li {
       float: none;
-
       &:before {
         display: none;
       }
@@ -341,7 +358,10 @@ header {
     background: #fff;
     padding: 20px;
     margin: -100px 15px 50px 15px;
-    @include box-shadow(0 1px 2px rgba(20, 20, 20, 0.2));
+    @include box-shadow(0 1px 2px rgba(20,
+    20,
+    20,
+    0.2));
   }
   p {
     font-weight: $light;
@@ -353,6 +373,7 @@ header {
 .countdown {
   padding-top: 0px;
 }
+
 .timer {
   margin: 20px 0;
   text-align: center;
@@ -377,7 +398,8 @@ header {
     margin-bottom: 0;
   }
 }
-.timer + hr {
+
+.timer+hr {
   width: 90%;
   max-width: 280px;
   margin: 0 auto;
@@ -394,7 +416,8 @@ header {
     float: right;
   }
 }
-h2 + .event-details {
+
+h2+.event-details {
   padding-top: 0 !important;
 }
 
@@ -402,6 +425,7 @@ h2 + .event-details {
 .important-dates {
   padding-bottom: 20px;
 }
+
 .imp-date {
   position: relative;
   margin: 23px 15px;
@@ -448,6 +472,7 @@ h2 + .event-details {
   background: #00dc24;
   text-align: center;
 }
+
 .ico-done:before {
   content: '\f00c';
   font-family: 'FontAwesome';
@@ -467,9 +492,11 @@ h2 + .event-details {
   top: 0;
   @include transform(translateY(-50%));
 }
+
 .imp-date:before {
   left: 30px;
 }
+
 .imp-date:after {
   right: 30px;
 }
@@ -478,15 +505,19 @@ h2 + .event-details {
 .imp-date.content {
   border-color: $call-content;
 }
+
 .imp-date.voting {
   border-color: $voting;
 }
+
 .imp-date.tickets {
   border-color: $tickets;
 }
+
 .imp-date.agenda {
   border-color: $agenda;
 }
+
 .imp-date.conference {
   border-color: $primary-color;
 }
@@ -495,22 +526,18 @@ h2 + .event-details {
 .keynote {
   text-align: left;
   padding: 20px;
-
   img {
     margin-right: 20px;
     float: left;
     width: 250px;
   }
-
   h3 {
     margin: 0 0 20px 0;
     border-bottom: 1px solid #333;
   }
-
   h4 {
     margin-top: 0;
   }
-
   .tags {
     text-align: right;
   }
@@ -538,6 +565,7 @@ section.image-strip {
 section.sponsors {
   padding-bottom: 20px;
 }
+
 section.sponsors.standard {
   padding: 26px 0;
 }
@@ -635,21 +663,17 @@ footer {
   a {
     display: inline-block;
   }
-
   img {
     max-width: 120px !important;
     margin: 10px 15px 10px 15px;
   }
-
   &.standard img {
     max-width: 100px !important;
   }
-
   img.platinum {
     max-width: 300px !important;
     max-height: 200px !important;
   }
-
   small {
     display: block;
     clear: both;
@@ -876,7 +900,10 @@ section.full-width {
     margin-bottom: 10px;
     padding: 0px 15px;
     background: $light-grey;
-    @include transition(max-height 0.5s cubic-bezier(0, 1, 0, 1));
+    @include transition(max-height 0.5s cubic-bezier(0,
+    1,
+    0,
+    1));
   }
   .in .panel-body {
     max-height: 9999px;
@@ -905,10 +932,12 @@ section.full-width {
   margin-left: -15px;
   z-index: 999;
 }
+
 .slick-vertical .slick-prev {
   background-position: -104px -42px;
   @include transform(translateX(-50%));
 }
+
 .slick-vertical .slick-next {
   background-position: -135px -42px;
   @include transform(translateX(50%));
@@ -965,79 +994,67 @@ section.full-width {
   a.col:hover {
     color: #fff;
     text-decoration: none;
-  }
-
-  // Border Colours
+  } // Border Colours
   .col.aqua-room {
     border-color: $aqua-room;
   }
   a.col.aqua-room:hover {
     background: $aqua-room;
   }
-
   .col.blue-room {
     border-color: $blue-room;
   }
   a.col.blue-room:hover {
     background: $blue-room;
   }
-
   .col.green-room {
     border-color: $green-room;
   }
   a.col.green-room:hover {
     background: $green-room;
   }
-
   .col.orange-room {
     border-color: $orange-room;
   }
   a.col.orange-room:hover {
     background: $orange-room;
   }
-
   .col.purple-room {
     border-color: $purple-room;
   }
   a.col.purple-room:hover {
     background: $purple-room;
   }
-
   .col.red-room {
     border-color: $red-room;
   }
   a.col.red-room:hover {
     background: $red-room;
   }
-
   .col.foyer-room {
     border-color: $foyer-room;
   }
   a.col.foyer-room:hover {
     background: $foyer-room;
   }
-
   .col.yellow-room {
     border-color: $yellow-room;
   }
   a.col.yellow-room:hover {
     background: $yellow-room;
   }
-
   .col.keynote-room {
     border-color: $keynote-room;
   }
   a.col.keynote-room:hover {
     background: $keynote-room;
   }
-
   .col.locknote-room {
     border-color: $locknote-room;
   }
   a.col.locknote-room:hover {
     background: $locknote-room;
   }
-
   .col.afterparty-room {
     border-color: $afterparty-room;
   }
@@ -1095,7 +1112,10 @@ section.full-width {
     margin: 0 0 16px 0;
     text-align: center;
     padding: 10px 20px;
-    @include box-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    @include box-shadow(0 2px 3px rgba(0,
+    0,
+    0,
+    0.2));
     h2 {
       margin-top: 10px;
       margin-bottom: 5px;
@@ -1152,21 +1172,22 @@ section.full-width {
 }
 
 //  jQuery Scrollbars
-.scrollbar-inner > .scroll-element.scroll-x {
+.scrollbar-inner>.scroll-element.scroll-x {
   bottom: 0px;
   height: 12px;
 }
-.scroll-wrapper > .scroll-content {
+
+.scroll-wrapper>.scroll-content {
   padding-bottom: 10px;
 }
 
-.scrollbar-inner > .scroll-element .scroll-bar,
-.scrollbar-inner > .scroll-element .scroll-element_outer,
-.scrollbar-inner > .scroll-element .scroll-element_track {
+.scrollbar-inner>.scroll-element .scroll-bar,
+.scrollbar-inner>.scroll-element .scroll-element_outer,
+.scrollbar-inner>.scroll-element .scroll-element_track {
   @include border-radius(1px);
 }
 
-.scrollbar-inner > .scroll-element .scroll-bar {
+.scrollbar-inner>.scroll-element .scroll-bar {
   background: $primary-color;
   @include opacity(1);
 }
@@ -1181,6 +1202,7 @@ section.full-width {
   -o-border-radius: 50%;
   border-radius: 50%;
 }
+
 .voting-control {
   z-index: 200;
   h3 {
@@ -1219,20 +1241,17 @@ section.full-width {
   }
   .filters {
     margin-top: 10px;
-    > div {
+    >div {
       display: inline-block;
     }
   }
-
-  .rrs__button + .rrs__options {
+  .rrs__button+.rrs__options {
     min-width: 150px;
     font-size: 0.9em;
   }
-
   .rrs__options li:before {
     display: none;
   }
-
   .fa-caret-down {
     position: absolute;
     right: 1rem;
@@ -1246,13 +1265,11 @@ section.full-width {
   .rrs__multiselect-label {
     line-height: 1.2;
   }
-
   .rrs__option.rrs__option {
     .selected-marker {
       display: none;
     }
   }
-
   .rrs__option.rrs__option--selected {
     .selected-marker {
       display: inline;
@@ -1261,22 +1278,20 @@ section.full-width {
       display: none;
     }
   }
-
   .rrs__option.rrs__option--next-selection {
     color: #333;
     background-color: lighten($primary-color, 70%);
   }
-
   .rrs__option.rrs__option--next-selection:hover {
     background-color: #f7f7f7;
   }
-
   .rrs__option:hover,
   .rrs__option.rrs__option--selected,
   .rrs--has-changed .rrs__label {
     color: $primary-color;
   }
 }
+
 #voting-interface {
   .panel-heading {
     .fa.status {
@@ -1292,12 +1307,11 @@ section.full-width {
   .panel-heading a,
   .panel-heading span.title {
     padding: 13px 15px;
-
     &:after {
       display: none;
     }
   }
-  .panel-default > .panel-heading .badge {
+  .panel-default>.panel-heading .badge {
     background-color: #666;
   }
   .panel-body {
@@ -1307,12 +1321,15 @@ section.full-width {
     margin-top: 10px;
   }
 }
+
 .btn.flagged {
   background-color: rgb(207, 152, 0);
 }
+
 .btn.flagged:hover {
   background-color: darken(rgb(207, 152, 0), 10%);
 }
+
 @media (max-width: 770px) {
   .voting-control {
     h3 {
@@ -1325,45 +1342,36 @@ section.full-width {
   .voting-control {
     margin: 0 -15px;
     @include border-radius(0);
-
     .form-control,
     label {
       font-size: 0.8em;
       font-weight: normal;
       padding: 0 5px;
     }
-
     .rrs__button {
       height: 32px;
       line-height: 32px;
     }
-
-    .rrs__button + .rrs__options {
+    .rrs__button+.rrs__options {
       top: 32px;
     }
-
     .fa-caret-down {
       top: 1rem;
     }
-
     .filters {
       margin-top: 5px;
       font-size: 12px;
     }
-
     &.form-inline .form-control {
       width: 80px;
     }
-
     h3 {
       padding-right: 10px;
     }
-
     .panel-body em,
-    .panel-body br + br {
+    .panel-body br+br {
       display: none;
     }
-
     .panel-body,
     .panel-heading {
       padding: 5px;
@@ -1380,17 +1388,14 @@ section.full-width {
     .submit-block {
       display: inline;
     }
-
     .filters,
     .rrs__multiselect-label__badge {
       font-size: 10px;
     }
-
     .rrs__multiselect-label__badge {
       padding: 1px 3px;
       lineheight: 1;
     }
-
     .remove-when-small {
       display: none;
     }
@@ -1402,12 +1407,10 @@ section.full-width {
     &.form-inline .form-control {
       width: 60px;
     }
-
     .btn {
       padding-left: 5px;
       padding-right: 5px;
     }
-
     h3 {
       font-size: 14px;
       padding-right: 0;
@@ -1432,12 +1435,10 @@ section.full-width {
   height: 375px;
   position: relative;
   -webkit-filter: grayscale(100%);
-
   #map-view {
     height: 375px;
     z-index: 1;
   }
-
   #map-overlay {
     position: absolute;
     text-align: center;
@@ -1448,34 +1449,30 @@ section.full-width {
     left: 0;
     margin: auto;
     background: rgba(0, 0, 0, 0.75);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#cc000000',GradientType=0 ); /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#cc000000', GradientType=0);
+    /* IE6-9 */
     color: #fff;
     z-index: 100;
   }
-
   #map-overlay h3,
   #map-overlay h4 {
     color: #fff;
     margin: 0;
   }
-
   #map-overlay h3 {
     font-size: 40px;
     font-weight: 900;
     margin-top: 140px;
   }
-
   #map-overlay h4 {
     font-size: 24px;
     font-weight: 300;
     font-style: oblique;
   }
-
   @media only screen and (max-width: 600px) {
     #map-overlay {
       padding: 0 2em;
     }
-
     #map-overlay h3 {
       margin-top: 100px;
       margin-bottom: 15px;
@@ -1484,7 +1481,6 @@ section.full-width {
 }
 
 // Agenda
-
 .session {
   cursor: pointer;
 }
@@ -1508,6 +1504,12 @@ section.full-width {
 
 .pink {
   background-color: $call-content;
+  color: #000;
+  padding: 3px;
+}
+
+.orange {
+  background-color: $orange-room;
   color: #000;
   padding: 3px;
 }
@@ -1589,8 +1591,7 @@ tr td.highlight-session {
   width: 24%;
 }
 
-.agenda-row tbody tr {
-}
+.agenda-row tbody tr {}
 
 .agenda-row .time {
   color: #888;
@@ -1603,11 +1604,9 @@ tr td.highlight-session {
   height: 315px;
   position: relative;
   display: inline-block;
-
   &:first-child {
     margin-right: 20px;
   }
-
   iframe {
     position: absolute;
     top: 0;
@@ -1661,7 +1660,7 @@ tr td.highlight-session {
     }
   }
   .event-details,
-  .timer + hr {
+  .timer+hr {
     max-width: 405px;
   }
 }
@@ -1675,8 +1674,7 @@ tr td.highlight-session {
   .blog-intro {
     width: 100% !important;
   }
-
-  #submit-votes.affix + .submitted-session {
+  #submit-votes.affix+.submitted-session {
     margin-top: 183px !important;
   }
 }
@@ -1694,26 +1692,18 @@ tr td.highlight-session {
   .btn:after {
     margin: 0 0 0 15px;
     font-size: 18px;
-  }
-
-  // Header
+  } // Header
   header {
     font-size: 25px;
-  }
-
-  // Banner
+  } // Banner
   .banner {
     height: 180px;
-  }
-
-  // Intro
+  } // Intro
   .intro {
     .container {
       padding: 25px;
     }
-  }
-
-  // Countdown
+  } // Countdown
   .timer {
     font-weight: $bold;
     margin: 30px 0;
@@ -1726,11 +1716,9 @@ tr td.highlight-session {
     }
   }
   .event-details,
-  .timer + hr {
+  .timer+hr {
     max-width: 405px;
-  }
-
-  // Strip of Photos
+  } // Strip of Photos
   section.image-strip {
     width: 100%;
     max-width: 100%;
@@ -1744,30 +1732,25 @@ tr td.highlight-session {
     img:nth-child(4n) {
       height: 100%;
     }
-  }
-
-  // Important Dates
+  } // Important Dates
   .imp-date {
     float: left;
     width: 47%;
     margin-left: 1.5%;
     margin-right: 1.5%;
     margin-bottom: 0;
-  }
-
-  // What Now? CTA's
+  } // What Now? CTA's
   .what-now {
     .btn {
       display: inline-block;
       width: 200px;
       margin: 0 5px 15px 5px;
     }
-    .btn.vote + span {
+    .btn.vote+span {
       display: block;
     }
   }
-
-  #submit-votes.affix + .submitted-session {
+  #submit-votes.affix+.submitted-session {
     margin-top: 186px !important;
   }
 }
@@ -1785,22 +1768,16 @@ tr td.highlight-session {
   .btn:after {
     margin: 0 0 0 17px;
     font-size: 19px;
-  }
-
-  // Modals
+  } // Modals
   .modal-header,
   .modal-body,
   .modal-footer {
     padding: 18px;
-  }
-
-  // Header
+  } // Header
   header .logo {
     font-size: 30px;
     line-height: 100px;
-  }
-
-  // Main Nav
+  } // Main Nav
   nav.main {
     ul {
       text-align: center;
@@ -1817,28 +1794,20 @@ tr td.highlight-session {
         }
       }
     }
-  }
-
-  // Intro
+  } // Intro
   .intro {
     .container {
       padding: 30px;
       margin-left: auto;
       margin-right: auto;
     }
-  }
-
-  // Fader
+  } // Fader
   .fader {
     height: 300px;
-  }
-
-  // Banner
+  } // Banner
   .banner {
     height: 190px;
-  }
-
-  // Countdown
+  } // Countdown
   .timer {
     margin: 40px 0;
     span {
@@ -1850,12 +1819,10 @@ tr td.highlight-session {
     }
   }
   .event-details,
-  .timer + hr {
+  .timer+hr {
     width: 81%;
     max-width: 9999px;
-  }
-
-  // Important Dates
+  } // Important Dates
   .important-dates {
     padding-bottom: 30px;
   }
@@ -1864,14 +1831,10 @@ tr td.highlight-session {
     margin-left: 1.5%;
     margin-right: 1.5%;
     margin-top: 35px;
-  }
-
-  // Strip of Photos
+  } // Strip of Photos
   section.image-strip {
     height: 200px;
-  }
-
-  // Footer
+  } // Footer
   footer {
     padding-bottom: 40px;
     nav.foot-nav {
@@ -1883,40 +1846,31 @@ tr td.highlight-session {
         padding: 0 20px;
       }
     }
-  }
-
-  // Next Event
+  } // Next Event
   .event-details {
     padding: 30px 0;
     .btn {
       margin-top: 21px;
     }
-  }
-
-  // What Now? CTA's
+  } // What Now? CTA's
   .what-now {
     .btn {
       width: auto;
     }
-    .btn.vote + span {
+    .btn.vote+span {
       display: none;
     }
-  }
-
-  // Sponsors
+  } // Sponsors
   .sponsors {
     img {
       max-width: 200px !important;
       max-height: 150px !important;
     }
-
     &.standard img {
       max-width: 120px !important;
       max-height: 80px !important;
     }
-  }
-
-  // DDD By Night
+  } // DDD By Night
   section.ddd-by-night {
     height: 300px;
     .content {
@@ -1925,9 +1879,7 @@ tr td.highlight-session {
         max-width: 275px !important;
       }
     }
-  }
-
-  // Right Sidebar Page Type
+  } // Right Sidebar Page Type
   section.right-sidebar {
     .right-col {
       .event-details {
@@ -1948,9 +1900,7 @@ tr td.highlight-session {
         }
       }
     }
-  }
-
-  // Full Width Page Type
+  } // Full Width Page Type
   section.full-width {
     .right-col {
       .event-details {
@@ -1965,9 +1915,7 @@ tr td.highlight-session {
       float: right;
       width: 48%;
     }
-  }
-
-  // Directions block and Sponsor page
+  } // Directions block and Sponsor page
   .directions,
   .sponsor {
     margin-top: 30px;
@@ -1980,16 +1928,12 @@ tr td.highlight-session {
     .col:nth-child(2n) {
       margin-right: 0;
     }
-  }
-
-  // Sponsor Page
+  } // Sponsor Page
   .sponsor {
     .col {
       padding: 20px 40px;
     }
-  }
-
-  // Blog
+  } // Blog
   .blog-list-post {
     margin: 60px 0 30px 0;
     padding-bottom: 30px;
@@ -2003,9 +1947,7 @@ tr td.highlight-session {
         font-size: 22px;
       }
     }
-  }
-
-  // Agenda
+  } // Agenda
   .agenda-list {
     .col,
     a.col {
@@ -2014,8 +1956,7 @@ tr td.highlight-session {
       margin: 0 2% 20px 0;
     }
   }
-
-  #submit-votes.affix + .submitted-session {
+  #submit-votes.affix+.submitted-session {
     margin-top: 200px !important;
   }
 }
@@ -2033,22 +1974,16 @@ tr td.highlight-session {
   .btn:after {
     margin: 0 0 0 20px;
     font-size: 19px;
-  }
-
-  // Modals
+  } // Modals
   .modal-header,
   .modal-body,
   .modal-footer {
     padding: 22px;
-  }
-
-  // Header
+  } // Header
   header .logo {
     font-size: 35px;
     line-height: 134px;
-  }
-
-  // Main Nav
+  } // Main Nav
   nav.main {
     ul {
       li {
@@ -2058,9 +1993,7 @@ tr td.highlight-session {
         }
       }
     }
-  }
-
-  // Countdown
+  } // Countdown
   .timer {
     margin: 40px 0;
     span {
@@ -2072,21 +2005,15 @@ tr td.highlight-session {
     }
   }
   .event-details,
-  .timer + hr {
+  .timer+hr {
     width: 81%;
-  }
-
-  // Fader
+  } // Fader
   .fader {
     height: 350px;
-  }
-
-  // Banner
+  } // Banner
   .banner {
     height: 195px;
-  }
-
-  // Important Dates
+  } // Important Dates
   .important-dates {
     padding-bottom: 40px;
   }
@@ -2112,16 +2039,13 @@ tr td.highlight-session {
   .imp-date:after {
     right: 27px;
   }
-
   section.right-sidebar {
     .imp-date {
       .ico-done {
         @include transform(scale(0.9));
       }
     }
-  }
-
-  // Date Done
+  } // Date Done
   .ico-done {
     right: 20px;
     top: 35px;
@@ -2131,30 +2055,22 @@ tr td.highlight-session {
   }
   .ico-done:before {
     font-size: 22px;
-  }
-
-  // Strip of Photos
+  } // Strip of Photos
   section.image-strip {
     height: 250px;
-  }
-
-  // Footer
+  } // Footer
   footer {
     padding-bottom: 50px;
     nav.foot-nav {
       padding: 35px 0;
     }
-  }
-
-  // Next Event
+  } // Next Event
   .event-details {
     padding: 40px 0;
     .btn {
       margin-top: 25px;
     }
-  }
-
-  // DDD By Night
+  } // DDD By Night
   section.ddd-by-night {
     height: 350px;
     .content {
@@ -2163,9 +2079,7 @@ tr td.highlight-session {
         max-width: 100% !important;
       }
     }
-  }
-
-  // Right Sidebar Page Type
+  } // Right Sidebar Page Type
   section.right-sidebar {
     .right-col {
       .event-details {
@@ -2173,9 +2087,7 @@ tr td.highlight-session {
         margin-top: 40px;
       }
     }
-  }
-
-  // Full Width Page Type
+  } // Full Width Page Type
   section.full-width {
     .right-col {
       .event-details {
@@ -2185,9 +2097,7 @@ tr td.highlight-session {
         }
       }
     }
-  }
-
-  // Directions Block and Sponsor Page
+  } // Directions Block and Sponsor Page
   .directions,
   .sponsor {
     margin-top: 35px;
@@ -2200,9 +2110,7 @@ tr td.highlight-session {
     .col:last-child {
       margin-right: 0;
     }
-  }
-
-  // Sponsor Page
+  } // Sponsor Page
   .sponsor {
     .col {
       padding: 20px 20px;
@@ -2210,9 +2118,7 @@ tr td.highlight-session {
         margin-top: 15px;
       }
     }
-  }
-
-  // Blog
+  } // Blog
   .blog-list-post {
     .inner {
       padding: 0 20px;
@@ -2224,9 +2130,7 @@ tr td.highlight-session {
         font-size: 23px;
       }
     }
-  }
-
-  // Agenda
+  } // Agenda
   .agenda-list {
     .col,
     a.col {
@@ -2249,21 +2153,15 @@ tr td.highlight-session {
   .btn:after {
     margin: 0 0 0 20px;
     font-size: 20px;
-  }
-
-  // Modals
+  } // Modals
   .modal-header,
   .modal-body,
   .modal-footer {
     padding: 25px;
-  }
-
-  // Header
+  } // Header
   header .logo {
     font-size: 40px;
-  }
-
-  // Main Nav
+  } // Main Nav
   nav.main {
     ul {
       li {
@@ -2273,19 +2171,13 @@ tr td.highlight-session {
         }
       }
     }
-  }
-
-  // Fader
+  } // Fader
   .fader {
     height: 398px;
-  }
-
-  // Banner
+  } // Banner
   .banner {
     height: 208px;
-  }
-
-  // Important Dates
+  } // Important Dates
   .important-dates {
     padding-bottom: 50px;
   }
@@ -2299,9 +2191,7 @@ tr td.highlight-session {
         font-size: 120%;
       }
     }
-  }
-
-  // Date Done
+  } // Date Done
   .ico-done {
     right: 20px;
     top: 37px;
@@ -2311,14 +2201,10 @@ tr td.highlight-session {
   }
   .ico-done:before {
     font-size: 23px;
-  }
-
-  // Strip of Photos
+  } // Strip of Photos
   section.image-strip {
     height: 300px;
-  }
-
-  // Footer
+  } // Footer
   footer {
     padding-bottom: 60px;
     nav.foot-nav {
@@ -2327,9 +2213,7 @@ tr td.highlight-session {
     .copyright {
       font-size: 85%;
     }
-  }
-
-  // Countdown
+  } // Countdown
   .timer {
     span {
       font-size: 115%;
@@ -2340,24 +2224,18 @@ tr td.highlight-session {
     }
   }
   .event-details,
-  .timer + hr {
+  .timer+hr {
     width: 81%;
-  }
-
-  // Next Event
+  } // Next Event
   .event-details {
     padding: 50px 0;
     .btn {
       margin-top: 30px;
     }
-  }
-
-  // DDD By Night
+  } // DDD By Night
   section.ddd-by-night {
     height: 390px;
-  }
-
-  // Right Sidebar Page Type
+  } // Right Sidebar Page Type
   section.right-sidebar {
     .right-col {
       .event-details {
@@ -2373,9 +2251,7 @@ tr td.highlight-session {
         }
       }
     }
-  }
-
-  // Full Width Page Type
+  } // Full Width Page Type
   section.full-width {
     .right-col {
       .event-details {
@@ -2394,9 +2270,7 @@ tr td.highlight-session {
         }
       }
     }
-  }
-
-  // Directions Block and Sponsor Page
+  } // Directions Block and Sponsor Page
   .directions,
   .sponsor {
     margin-top: 50px;
@@ -2409,9 +2283,7 @@ tr td.highlight-session {
     .col:last-child {
       margin-right: 0;
     }
-  }
-
-  // Agenda
+  } // Agenda
   .agenda-list {
     .col,
     a.col {
@@ -2448,9 +2320,7 @@ tr td.highlight-session {
   .btn:after {
     margin: 0 0 0 20px;
     font-size: 20px;
-  }
-
-  // Main Nav
+  } // Main Nav
   nav.main {
     ul {
       li {
@@ -2460,23 +2330,17 @@ tr td.highlight-session {
         }
       }
     }
-  }
-
-  // Header
+  } // Header
   header .logo {
     font-size: 45px;
-  }
-
-  // Fader
+  } // Fader
   .fader {
     .container {
       .intro {
         padding: 50px 70px;
       }
     }
-  }
-
-  // Countdown
+  } // Countdown
   .timer {
     span {
       font-size: 115%;
@@ -2488,19 +2352,15 @@ tr td.highlight-session {
     margin: 60px 0;
   }
   .event-details,
-  .timer + hr {
+  .timer+hr {
     width: 86%;
-  }
-
-  // Next Event
+  } // Next Event
   .event-details {
     padding: 60px 0;
     .btn {
       margin-top: 33px;
     }
-  }
-
-  // Important Dates
+  } // Important Dates
   .important-dates {
     padding-bottom: 50px;
   }
@@ -2512,8 +2372,7 @@ tr td.highlight-session {
         font-size: 120%;
       }
     }
-  }
-  // Date Done
+  } // Date Done
   .ico-done {
     right: 20px;
     top: 40px;
@@ -2523,26 +2382,18 @@ tr td.highlight-session {
   }
   .ico-done:before {
     font-size: 24px;
-  }
-
-  // Strip of Photos
+  } // Strip of Photos
   section.image-strip {
     height: 370px;
-  }
-
-  // Footer
+  } // Footer
   footer {
     nav.foot-nav {
       padding: 45px 0;
     }
-  }
-
-  // DDD By Night
+  } // DDD By Night
   section.ddd-by-night {
     height: 424px;
-  }
-
-  // Right Sidebar Page Type
+  } // Right Sidebar Page Type
   section.right-sidebar {
     .right-col {
       .event-details {
@@ -2550,15 +2401,11 @@ tr td.highlight-session {
         margin-top: 50px;
       }
     }
-  }
-
-  // Full Width Pagetype
+  } // Full Width Pagetype
   section.full-width .important-dates-right .imp-date .ico-done {
     right: 15px;
     top: 20px;
-  }
-
-  // Full Width Page Type
+  } // Full Width Page Type
   section.full-width {
     .right-col {
       .event-details {
@@ -2573,9 +2420,7 @@ tr td.highlight-session {
         padding: 18px 18px 8px 18px;
       }
     }
-  }
-
-  // Directions Block and Sponsor Page
+  } // Directions Block and Sponsor Page
   .directions,
   .sponsor {
     margin-top: 60px;
@@ -2596,9 +2441,7 @@ tr td.highlight-session {
     .col:last-child {
       margin-right: 0;
     }
-  }
-
-  // Sponsor Page
+  } // Sponsor Page
   .sponsor {
     .col {
       padding: 20px 30px;
@@ -2606,9 +2449,7 @@ tr td.highlight-session {
         margin-top: 20px;
       }
     }
-  }
-
-  // Blog
+  } // Blog
   .blog-list-post {
     margin: 60px 0 30px 0;
     padding-bottom: 30px;
@@ -2618,9 +2459,7 @@ tr td.highlight-session {
     .blog-date {
       padding: 25px 17px 12px 17px;
     }
-  }
-
-  // Agenda
+  } // Agenda
   .agenda-list {
     .col,
     a.col {

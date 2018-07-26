@@ -44,6 +44,12 @@ const Sponsors: Sponsor[] = [
     type: SponsorType.Service,
     url: 'https://ssw.tv',
   },
+  {
+    imageUrl: '/static/images/sponsors/2018-lendi.png',
+    name: 'Lendi',
+    type: SponsorType.Gold,
+    url: 'https://www.lendi.com.au',
+  }
 ]
 
 export default Sponsors

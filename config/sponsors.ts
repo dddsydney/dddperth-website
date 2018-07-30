@@ -49,7 +49,13 @@ const Sponsors: Sponsor[] = [
     name: 'Lendi',
     type: SponsorType.Gold,
     url: 'https://www.lendi.com.au',
-  }
+  },
+  {
+    imageUrl: '/static/images/sponsors/2018-nib.png',
+    name: 'nib',
+    type: SponsorType.Standard,
+    url: 'https://www.nib.com.au',
+  },
 ]
 
 export default Sponsors

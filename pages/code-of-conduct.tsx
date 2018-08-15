@@ -192,7 +192,7 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
       <a href="http://geekfeminism.wikia.com/wiki/Nonsexist_language">Geek Feminism wiki guide</a>.
     </p>
 
-    <h3 id="photo-policy">Photo Policy</h3>
+    {/* <h3 id="photo-policy">Photo Policy</h3>
 
     <p>We will have colored lanyards for attendees to indicate their comfort level with being photographed:</p>
 
@@ -203,7 +203,7 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
       <li>
         <strong>Red:</strong> do not photograph
       </li>
-    </ul>
+    </ul> */}
 
     <p>In case of any doubt, please ask before taking photographs of attendees, speakers or staff.</p>
 

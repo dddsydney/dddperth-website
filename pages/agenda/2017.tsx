@@ -165,15 +165,7 @@ class Agenda2017 extends React.Component<AgendaPageProps> {
         <p>
           <SafeLink href={From2017.YouTubePlaylistUrl} target="_blank">
             YouTube Playlist
-<<<<<<< HEAD
-          </a>{' '}
-=======
-          </SafeLink>{' '}
-          |{' '}
-          <SafeLink href={From2017.FlickrAlbumUrl} target="_blank">
-            Flickr Album
           </SafeLink>
->>>>>>> master
         </p>
         <Sponsors
           show={true}

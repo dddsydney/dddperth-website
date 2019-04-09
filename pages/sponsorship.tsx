@@ -58,8 +58,8 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     </p>
 
     <p>
-      In 2017 {props.pageMetadata.conference.Name} had 230 attendees from 250 sold tickets; with a 15% growth on the
-      2016 event.
+      In 2018 {props.pageMetadata.conference.Name} sold out for the first time, with 300 tickets sold, an increase from
+      250 tickets solid in 2017; representing a 15% growth on the year on year.
     </p>
 
     <p>

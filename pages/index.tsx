@@ -28,15 +28,15 @@ class Index extends React.Component<IndexProps & WithPageMetadataProps> {
     const actions = getConferenceActions(conference, dates)
     return (
       <Page pageMetadata={this.props.pageMetadata} isHome={true} title="Home">
-        <EventDetails conference={conference} dates={dates} primaryAction={actions[0]} />
-        <ImportantDates conference={conference} actions={actions} currentDate={this.props.pageMetadata.currentDate} />
-        {/* <Keynotes conference={conference} /> */}
-        <ImageStrip images={this.props.imageStrip} />
         <Sponsors
           show={!conference.HideSponsors}
           sponsors={conference.Sponsors}
           hideUpsell={conference.HideSponsorshipUpsell}
         />
+        {/* <EventDetails conference={conference} dates={dates} primaryAction={actions[0]} /> */}
+        {/* <ImportantDates conference={conference} actions={actions} currentDate={this.props.pageMetadata.currentDate} /> */}
+        {/* <Keynotes conference={conference} /> */}
+        <ImageStrip images={this.props.imageStrip} />
       </Page>
     )
   }

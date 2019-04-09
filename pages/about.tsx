@@ -42,7 +42,7 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
       </li>
       <li>
         <Link href="/agenda/2018">
-          <a>4 August 2018 @ Perth Convention and Exhibition Centre - 470 attendees (510 tickets sold)</a>
+          <a>18 August 2018 - 300 attendees (first time selling out!)</a>
         </Link>
       </li>
     </ul>
@@ -67,8 +67,8 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
       <SafeLink href="https://dddmelbourne.com/" target="_blank">
         <img src="/static/images/logo-dddmelbourne.jpg" alt="DDD Melbourne logo" style={{ width: '200px' }} />
       </SafeLink>{' '}
-      <SafeLink href="http://dddsydney.com.au/" target="_blank">
-        <img src="/static/images/logo-dddsydney.png" alt="DDD Sydney logo" style={{ width: '200px' }} />
+      <SafeLink href="http://dddperth.com/" target="_blank">
+        <img src="/static/images/logo-dddperth.png" alt="DDD Perth logo" style={{ width: '200px' }} />
       </SafeLink>{' '}
       <SafeLink href="http://dddbrisbane.com/" target="_blank">
         <img src="/static/images/logo-dddbrisbane.png" alt="DDD Brisbane logo" style={{ width: '200px' }} />

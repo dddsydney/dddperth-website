@@ -1,7 +1,7 @@
 // Colours and Fonts
-$primary-color: #d60f4c;
-$light-grey: #f0f0f0;
-$dark-grey: #58595b;
+$primary-color: #2491cf;
+$dark-grey: #6d6e71;
+$light-grey: lighten($dark-grey, 50%);
 $body-color: #292929;
 $main-font: 'Open Sans',
 Arial,
@@ -12,7 +12,7 @@ $semi-bold: 600;
 $bold: 700;
 
 // More Colours
-$call-content: #da459c;
+$call-content: #f58753;
 $voting: #2274a5;
 $tickets: #eac435;
 $agenda: #58595b;

@@ -261,6 +261,31 @@ export default function getFaqs(dates: Dates): FAQ[] {
               Steve Godbold
             </a>
           </li>
+          <li>
+            <a href="https://twitter.com/RaphHaddadAus" target="_blank">
+              Raphael Haddad
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/samnevers" target="_blank">
+              Sam Ki
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/_michelleerica" target="_blank">
+              Michelle Lo
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/MelleeMoo" target="_blank">
+              Mel Marshan
+            </a>
+          </li>
+          <li>
+            <a href="mailto:team@dddsyndey.com.au" target="_blank">
+              How about you!
+            </a>
+          </li>
         </ul>
       </Fragment>
     ),

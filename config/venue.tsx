@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
 import React from 'react'
-import { SafeLink } from '../components/global/safeLink'
 import { Venue } from './types'
 
 // tslint:disable:object-literal-sort-keys
@@ -23,4 +22,4 @@ const venue: Venue = {
   Bus: <Fragment>There's plenty of buses that run down Paramatta Road and stop at UTS.</Fragment>,
 }
 
-export default venue
+export default null

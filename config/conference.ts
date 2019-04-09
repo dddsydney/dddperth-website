@@ -115,7 +115,7 @@ const Conference: IConference = {
   SiteDescription: `${tagLine}.`,
   SponsorshipEmail: 'sponsors@dddsydney.com.au',
   TagLine: tagLine,
-  TicketPrice: '~$60 (save $10 on early bird!)',
+  TicketPrice: '~$60',
 
   PresentationSubmissionsOpenFrom: presentationSubmissionsOpenFrom,
   PresentationSubmissionsOpenUntil: presentationSubmissionsOpenUntil,
@@ -177,6 +177,9 @@ const Conference: IConference = {
   Sponsors: SponsorData,
 
   Keynotes: [],
+
+  ConferenceFeedbackLink: '',
+  SessionFeedbackLink: '',
 }
 
 export default Conference

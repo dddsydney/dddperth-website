@@ -59,8 +59,9 @@ class CFPPage extends React.Component<WithPageMetadataProps> {
               <a className="maillink" href={'mailto:' + conference.MentoringEmail}>
                 free mentoring service
               </a>
-            </strong>; we have a bunch of experienced speakers who are happy to have a confidential chat with you to run
-            through any ideas you have or give safe and constructive feedback.
+            </strong>
+            ; we have a bunch of experienced speakers who are happy to have a confidential chat with you to run through
+            any ideas you have or give safe and constructive feedback.
           </li>
           <li>
             There will also be free speaker training and support for all speakers, so first timers, juniors, and
@@ -79,9 +80,9 @@ class CFPPage extends React.Component<WithPageMetadataProps> {
         </p>
 
         <p className="text-center">
-          <a className="btn content" target="_blank" href={conference.SessionizeUrl}>
+          <SafeLink className="btn content" target="_blank" href={conference.SessionizeUrl}>
             Submit a session via Sessionize
-          </a>
+          </SafeLink>
         </p>
 
         <p>Other things to note for presenters:</p>
@@ -115,17 +116,17 @@ class CFPPage extends React.Component<WithPageMetadataProps> {
         </ul>
 
         <p className="text-center">
-          <a className="btn content" target="_blank" href={conference.SessionizeUrl}>
+          <SafeLink className="btn content" target="_blank" href={conference.SessionizeUrl}>
             Submit a session via Sessionize
-          </a>
+          </SafeLink>
         </p>
 
         <h2>Already submitted, but want to edit?</h2>
 
         <p className="text-center">
-          <a className="btn btn-secondary" target="_blank" href={conference.SessionizeEditUrl}>
+          <SafeLink className="btn btn-secondary" target="_blank" href={conference.SessionizeEditUrl}>
             Edit your session(s) via Sessionize
-          </a>
+          </SafeLink>
         </p>
       </Page>
     )

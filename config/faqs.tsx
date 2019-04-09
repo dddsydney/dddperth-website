@@ -1,6 +1,6 @@
 // tslint:disable:object-literal-sort-keys
-import * as React from 'react'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
+import { SafeLink } from '../components/global/safeLink'
 import Conference from './conference'
 import { Dates, FAQ } from './types'
 
@@ -76,7 +76,7 @@ export default function getFaqs(dates: Dates): FAQ[] {
   Faqs.push({
     Question: 'What about swag?',
     Answer:
-      'Yes, attendees will receive showbags with goodies. We typically prioritise the overall experience over mountains of swag though.',
+      'Yes, there will be a bunch of swag on offer on the day both from our swag table as well as with the various sponsors that will have booths. We have decided not to offer showbags this year as they often end up resulting in a lot of waste; this way attendees can choose the swag they want. We will have a small number of bags on offer if you need, but it may also be prudent to bring your own bag.',
   })
 
   if (Conference.Venue && Conference.Venue.Wifi !== null) {
@@ -89,7 +89,7 @@ export default function getFaqs(dates: Dates): FAQ[] {
   Faqs.push({
     Question: 'Will childcare be available?',
     Answer:
-      'Unfortunately this year we are unable to offer childcare facilities. If this is something you\'d like to see at a DDD Sydney event please let us know so we can understand the the demand for our future events.',
+      "Unfortunately this year we are unable to offer childcare facilities. If this is something you'd like to see at a DDD Sydney event please let us know so we can understand the the demand for our future events.",
   })
 
   Faqs.push({
@@ -134,12 +134,13 @@ export default function getFaqs(dates: Dates): FAQ[] {
     Answer: (
       <Fragment>
         You are welcome to send someone else in your place. Please do this through{' '}
-        <a
+        <SafeLink
           href="https://www.eventbrite.com/support/articles/en_US/How_To/how-to-update-your-ticket-registration-information"
           target="_blank"
         >
           Eventbrite
-        </a>.
+        </SafeLink>
+        .
       </Fragment>
     ),
     Category: 'tickets',
@@ -150,9 +151,10 @@ export default function getFaqs(dates: Dates): FAQ[] {
     Answer: (
       <Fragment>
         The Twitter hashtag is{' '}
-        <a href={'https://twitter.com/search?q=%23' + Conference.HashTag} target="_blank">
+        <SafeLink href={'https://twitter.com/search?q=%23' + Conference.HashTag} target="_blank">
           #{Conference.HashTag}
-        </a>.
+        </SafeLink>
+        .
       </Fragment>
     ),
   })
@@ -193,9 +195,10 @@ export default function getFaqs(dates: Dates): FAQ[] {
           <Fragment>
             {' '}
             and Twitter at{' '}
-            <a href={'https://twitter.com/' + Conference.Socials.Twitter.Name} target="_blank">
+            <SafeLink href={'https://twitter.com/' + Conference.Socials.Twitter.Name} target="_blank">
               @{Conference.Socials.Twitter.Name}
-            </a>. See also the other Social Media accounts at the footer of this page.
+            </SafeLink>
+            . See also the other Social Media accounts at the footer of this page.
           </Fragment>
         ) : (
           '. Also, see our various social media accounts at the footer of this page.'
@@ -216,7 +219,8 @@ export default function getFaqs(dates: Dates): FAQ[] {
         if you would like a copy{' '}
         <a className="maillink" href={'mailto:' + Conference.SponsorshipEmail}>
           please contact us
-        </a>.
+        </a>
+        .
       </Fragment>
     ),
   })
@@ -229,9 +233,10 @@ export default function getFaqs(dates: Dates): FAQ[] {
         <ul />
         <p>
           Furthermore, you can see an up to date list of Australian conferences at{' '}
-          <a href="https://github.com/readify/devevents" target="_blank">
+          <SafeLink href="https://github.com/readify/devevents" target="_blank">
             Readify's DevEvents repository
-          </a>.
+          </SafeLink>
+          .
         </p>
       </Fragment>
     ),

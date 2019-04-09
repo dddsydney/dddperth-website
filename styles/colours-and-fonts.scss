@@ -2,17 +2,19 @@
 $primary-color: #d60f4c;
 $light-grey: #f0f0f0;
 $body-color: #292929;
-$main-font: 'Open Sans', Arial, sans-serif;
+$main-font: 'Open Sans',
+Arial,
+sans-serif;
 $light: 300;
 $regular: 400;
 $semi-bold: 600;
 $bold: 700;
 
 // More Colours
-$call-content: #dd4876;
-$voting: #ff9600;
-$tickets: #00df88;
-$agenda: #bcd800;
+$call-content: #da459c;
+$voting: #2274a5;
+$tickets: #eac435;
+$agenda: #58595b;
 
 $link-hover-fg: #2a7dac;
 $link-focus-bg: #54a6d6;
@@ -33,6 +35,7 @@ $afterparty-room: #dd4876;
 p.blue {
   color: #00a2ff;
 }
+
 div.blue,
 section.blue {
   background-color: #00a2ff;

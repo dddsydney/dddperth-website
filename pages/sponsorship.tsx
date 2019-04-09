@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import * as React from 'react'
+import React from 'react'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import Page from '../layouts/withSidebar'
 
@@ -67,7 +67,8 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
       sponsorship and the difference between the various levels; if you would like a copy{' '}
       <a className="maillink" href={'mailto:' + props.pageMetadata.conference.SponsorshipEmail}>
         please contact us
-      </a>!
+      </a>
+      !
     </p>
 
     <p>

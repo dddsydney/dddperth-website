@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { StatelessComponent } from 'react'
+import React, { StatelessComponent } from 'react'
 import { Action, Conference, Dates } from '../config/types'
 import ActionButton from './actionButton'
 
@@ -21,7 +20,14 @@ const EventDetailsSummary: StatelessComponent<EventDetailsSummaryProps> = ({
       <span>{!dates.IsComplete ? 'Next event' : 'Previous event'}</span> {dates.Display}
     </h2>
     <ul>
-      {conference.SellingPoints.map((point, i) => <li key={i}>{point}</li>)}
+      {conference.IsSoldOut && (
+        <li>
+          <strong>SOLD OUT</strong>
+        </li>
+      )}
+      {conference.SellingPoints.map((point, i) => (
+        <li key={i}>{point}</li>
+      ))}
       <li>Only {conference.TicketPrice}</li>
     </ul>
     {pagePath !== primaryAction.Url && <ActionButton action={primaryAction} />}

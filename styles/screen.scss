@@ -4,6 +4,7 @@
 @import 'slick.scss';
 @import 'forms.scss';
 @import '../node_modules/react-responsive-select/dist/ReactResponsiveSelect.css';
+
 body,
 html {}
 
@@ -102,6 +103,7 @@ hr {
 }
 
 a.btn {
+
   &,
   &:hover,
   &:focus {
@@ -118,7 +120,8 @@ a.btn {
 
 // Button Colours
 .btn.content,
-.btn.remove-vote {
+.btn.remove-vote,
+.btn-secondary {
   background-color: $call-content;
 }
 
@@ -128,7 +131,10 @@ a.btn {
 .btn.remove-vote:active,
 .btn.content:focus,
 .btn.remove-vote:focus,
-.badge-secondary {
+.badge-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus {
   background-color: darken($call-content, 5%);
 }
 
@@ -144,19 +150,15 @@ a.btn {
 }
 
 .btn.tickets,
-.btn-secondary,
 .btn.add-vote {
   background-color: darken($tickets, 5%);
 }
 
 .btn.tickets:hover,
-.btn-secondary:hover,
 .btn.add-vote:hover,
 .btn.tickets:active,
-.btn-secondary:active,
 .btn.add-vote:active,
 .btn.tickets:focus,
-.btn-secondary:focus,
 .btn.add-vote:focus {
   background-color: darken($tickets, 10%);
 }
@@ -171,15 +173,14 @@ a.btn {
   background-color: darken($agenda, 10%);
 }
 
-$darkGrey: lighten(#000, 30%);
 .btn.sponsors {
-  background-color: $darkGrey;
+  background-color: $dark-grey;
 }
 
 .btn.sponsors:hover,
 .btn.sponsors:active,
 .btn.sponsors:focus {
-  background-color: darken($darkGrey, 5%);
+  background-color: darken($dark-grey, 5%);
 }
 
 .btn.add-vote:after,
@@ -216,6 +217,7 @@ $darkGrey: lighten(#000, 30%);
   .close {
     font-size: 30px;
   }
+
   p {
     margin: 5px 0;
   }
@@ -242,42 +244,54 @@ nav.main {
   margin-bottom: 0;
   border: 0;
   @include border-radius(0);
+
   .container>.navbar-collapse {
     margin-left: 0;
     margin-right: 0;
     border: 0;
   }
+
   .navbar-header {
     button {
       border: 0;
+
       .icon-bar {
         background-color: #fff;
         @include opacity(0.55);
       }
+
       &.collapsed .icon-bar {
         @include opacity(1);
       }
+
       &:focus {
         background-color: transparent;
+
         .icon-bar {
           background-color: #fff;
         }
       }
+
       &:hover {
         background-color: #ddd;
+
         .icon-bar {
           background-color: #000;
         }
       }
     }
   }
+
   ul {
     float: none;
+
     li {
       float: none;
+
       &:before {
         display: none;
       }
+
       a {
         display: block;
         padding: 0;
@@ -286,11 +300,13 @@ nav.main {
         font-weight: $bold;
         line-height: 42px;
         text-decoration: none;
+
         &:hover,
         &:focus {
           text-decoration: underline;
         }
       }
+
       a:after {
         content: '\f0da';
         font-family: 'FontAwesome';
@@ -304,6 +320,7 @@ nav.main {
         float: right;
       }
     }
+
     li.active {
       background: $primary-color;
     }
@@ -317,9 +334,11 @@ header {
   color: #fff;
   text-align: center;
   background: $primary-color;
+
   a {
     color: #fff;
   }
+
   .logo {
     font-family: 'Montserrat', sans-serif;
     line-height: 70px;
@@ -354,6 +373,7 @@ header {
   z-index: 2;
   float: left;
   width: 100%;
+
   .container {
     background: #fff;
     padding: 20px;
@@ -363,6 +383,7 @@ header {
     20,
     0.2));
   }
+
   p {
     font-weight: $light;
     margin: 0;
@@ -379,6 +400,7 @@ header {
   text-align: center;
   line-height: 1.1;
   display: block;
+
   span {
     font-size: 75%;
     text-transform: uppercase;
@@ -387,6 +409,7 @@ header {
     margin: 0 5px;
     text-indent: -10px;
   }
+
   strong {
     font-size: 250%;
     letter-spacing: -1px;
@@ -412,6 +435,7 @@ header {
   margin: 0 auto;
   text-align: left;
   padding: 20px 0;
+
   .btn {
     float: right;
   }
@@ -436,24 +460,29 @@ h2+.event-details {
   border-right-width: 0;
   border-left-width: 0;
   text-align: left;
+
   strong {
     display: block;
   }
+
   h3 {
     font-weight: $regular;
     font-size: 14px;
     margin-top: 20px;
     margin-bottom: 10px;
+
     strong {
       font-size: 120%;
     }
   }
+
   p {
     margin: 10px 0;
   }
 }
 
 .imp-date.done {
+
   h3,
   p {
     @include opacity(0.3);
@@ -469,7 +498,7 @@ h2+.event-details {
   line-height: 30px;
   @include border-radius(50%);
   overflow: hidden;
-  background: #00dc24;
+  background: $primary-color;
   text-align: center;
 }
 
@@ -526,18 +555,22 @@ h2+.event-details {
 .keynote {
   text-align: left;
   padding: 20px;
+
   img {
     margin-right: 20px;
     float: left;
     width: 250px;
   }
+
   h3 {
     margin: 0 0 20px 0;
     border-bottom: 1px solid #333;
   }
+
   h4 {
     margin-top: 0;
   }
+
   .tags {
     text-align: right;
   }
@@ -550,11 +583,13 @@ section.image-strip {
   text-align: center;
   height: 200px;
   max-width: 273px;
+
   img {
     display: inline-block;
     height: 55%;
     margin-bottom: 3px;
   }
+
   img:nth-child(3n),
   img:nth-child(4n) {
     height: 45%;
@@ -575,40 +610,50 @@ footer {
   color: #fff;
   background: darken($primary-color, 10%);
   padding: 0 0 30px 0;
+
   nav.foot-nav {
     text-align: center;
     padding: 20px 0;
+
     ul {
       margin: 0;
       padding: 0;
     }
+
     li {
       list-style: none outside;
     }
+
     li:before {
       display: none;
     }
+
     a {
       color: #fff;
       font-weight: 600;
     }
+
     a:hover {
       color: #ddd;
     }
   }
+
   ul.social {
     text-align: center;
     margin: 0;
     padding: 0 0 40px 0;
+
     li {
       list-style: none outside;
       display: inline-block;
       margin: 0 2px;
       padding: 0;
     }
+
     li:before {
       display: none;
     }
+
     a {
       display: block;
       width: 43px;
@@ -620,16 +665,19 @@ footer {
       background-repeat: no-repeat;
       @include transition(0.2s);
       @include border-radius(50%);
+
       &,
       &:hover,
       &:focus {
         text-decoration: none;
       }
     }
+
     a:hover {
       background-color: darken($primary-color, 3%);
     }
   }
+
   .copyright {
     text-align: center;
     font-size: 90%;
@@ -663,17 +711,21 @@ footer {
   a {
     display: inline-block;
   }
+
   img {
     max-width: 120px !important;
     margin: 10px 15px 10px 15px;
   }
+
   &.standard img {
     max-width: 100px !important;
   }
+
   img.platinum {
     max-width: 300px !important;
     max-height: 200px !important;
   }
+
   small {
     display: block;
     clear: both;
@@ -687,6 +739,7 @@ section.right-sidebar {
   .left-col {
     text-align: left;
   }
+
   .right-col {
     .event-details {
       text-align: center;
@@ -697,11 +750,13 @@ section.right-sidebar {
       width: 100%;
       max-width: 9999px;
       margin-top: 20px;
+
       h2,
       h3,
       h4 {
         margin-top: 0;
       }
+
       h2,
       h3,
       h4,
@@ -711,19 +766,23 @@ section.right-sidebar {
       table {
         text-align: left;
       }
+
       h2 span,
       h3 span,
       h4 span {
         display: block;
         font-size: 70%;
       }
+
       .btn {
         float: none;
         margin: 0 auto;
       }
     }
+
     .important-dates-right {
       margin-bottom: 30px;
+
       .imp-date {
         float: none;
         width: auto;
@@ -731,35 +790,43 @@ section.right-sidebar {
         border-bottom: 0;
         border-right-width: 7px;
         padding: 10px 15px 2px 15px;
+
         h3,
         p {
           font-size: 14px;
         }
+
         h3 {
           font-weight: 700;
           margin: 0;
+
           strong {
             font-size: 100%;
             display: inline-block;
           }
         }
+
         p {
           margin-top: 2px;
+
           strong {
             display: inline-block;
             font-weight: 400;
           }
+
           strong:after {
             content: '-';
             display: inline-block;
             margin: 0 6px;
           }
         }
+
         .ico-done {
           right: 15px;
           top: 16px;
         }
       }
+
       .imp-date:before,
       .imp-date:after {
         display: none;
@@ -773,10 +840,12 @@ section.full-width {
   .left-col {
     text-align: left;
   }
+
   .right-col {
     h3 {
       margin-bottom: 10px;
     }
+
     .event-details {
       text-align: center;
       background: $light-grey;
@@ -785,11 +854,13 @@ section.full-width {
       width: 100%;
       max-width: 9999px;
       margin-top: 30px;
+
       h2,
       h3,
       h4 {
         margin-top: 0;
       }
+
       h2,
       h3,
       h4,
@@ -799,12 +870,14 @@ section.full-width {
       table {
         text-align: left;
       }
+
       h2 span,
       h3 span,
       h4 span {
         display: block;
         font-size: 70%;
       }
+
       .btn {
         float: none;
         margin: 0 auto;
@@ -812,8 +885,10 @@ section.full-width {
       }
     }
   }
+
   .important-dates-right {
     margin-bottom: 30px;
+
     .imp-date {
       float: none;
       width: auto;
@@ -821,35 +896,43 @@ section.full-width {
       border-bottom: 0;
       border-right-width: 7px;
       padding: 10px 15px 2px 15px;
+
       h3,
       p {
         font-size: 14px;
       }
+
       h3 {
         font-weight: 700;
         margin: 0;
+
         strong {
           font-size: 100%;
           display: inline-block;
         }
       }
+
       p {
         margin-top: 2px;
+
         strong {
           display: inline-block;
           font-weight: 400;
         }
+
         strong:after {
           content: '-';
           display: inline-block;
           margin: 0 0 0 6px;
         }
       }
+
       .ico-done {
         right: 15px;
         top: 16px;
       }
     }
+
     .imp-date:before,
     .imp-date:after {
       display: none;
@@ -859,6 +942,7 @@ section.full-width {
 
 // Accordions
 .accordion {
+
   .panel,
   .panel-heading,
   .panel-body {
@@ -866,6 +950,7 @@ section.full-width {
     border: 0 !important;
     @include border-radius(0);
   }
+
   .panel-heading a,
   .panel-heading span.title {
     display: block;
@@ -874,12 +959,14 @@ section.full-width {
     font-weight: 700;
     background: $light-grey;
     color: $body-color;
+
     &:hover,
     &:visited,
     &:link,
     &:active {
       text-decoration: none;
     }
+
     &:after {
       content: '';
       display: block;
@@ -890,10 +977,12 @@ section.full-width {
       height: 52px;
       background-position: 0 -42px;
     }
+
     &.collapsed:after {
       background-position: -52px -42px;
     }
   }
+
   .panel-body {
     overflow: hidden;
     max-height: 0;
@@ -905,6 +994,7 @@ section.full-width {
     0,
     1));
   }
+
   .in .panel-body {
     max-height: 9999px;
     @include transition(max-height 1s ease-in-out);
@@ -946,11 +1036,13 @@ section.full-width {
 // Agenda
 .agenda-list {
   overflow: hidden;
+
   h3 {
     clear: both;
     margin-top: 0;
     margin-bottom: 5px;
   }
+
   .col,
   a.col {
     color: $body-color;
@@ -962,102 +1054,133 @@ section.full-width {
     padding: 40px 15px;
     position: relative;
     border-bottom: 5px solid $primary-color;
+
     .info {
       font-size: 18px;
       line-height: 1.3;
     }
+
     .area {
       position: absolute;
       top: 10px;
       left: 15px;
       right: 15px;
     }
+
     .speaker {
       position: absolute;
       bottom: 10px;
       left: 15px;
       right: 15px;
     }
+
     .twitter {
       display: none;
     }
+
     .website {
       display: none;
     }
+
     .abstract {
       display: none;
     }
+
     .bio {
       display: none;
     }
   }
+
   a.col:hover {
     color: #fff;
     text-decoration: none;
-  } // Border Colours
+  }
+
+  // Border Colours
   .col.aqua-room {
     border-color: $aqua-room;
   }
+
   a.col.aqua-room:hover {
     background: $aqua-room;
   }
+
   .col.blue-room {
     border-color: $blue-room;
   }
+
   a.col.blue-room:hover {
     background: $blue-room;
   }
+
   .col.green-room {
     border-color: $green-room;
   }
+
   a.col.green-room:hover {
     background: $green-room;
   }
+
   .col.orange-room {
     border-color: $orange-room;
   }
+
   a.col.orange-room:hover {
     background: $orange-room;
   }
+
   .col.purple-room {
     border-color: $purple-room;
   }
+
   a.col.purple-room:hover {
     background: $purple-room;
   }
+
   .col.red-room {
     border-color: $red-room;
   }
+
   a.col.red-room:hover {
     background: $red-room;
   }
+
   .col.foyer-room {
     border-color: $foyer-room;
   }
+
   a.col.foyer-room:hover {
     background: $foyer-room;
   }
+
   .col.yellow-room {
     border-color: $yellow-room;
   }
+
   a.col.yellow-room:hover {
     background: $yellow-room;
   }
+
   .col.keynote-room {
     border-color: $keynote-room;
   }
+
   a.col.keynote-room:hover {
     background: $keynote-room;
   }
+
   .col.locknote-room {
     border-color: $locknote-room;
   }
+
   a.col.locknote-room:hover {
     background: $locknote-room;
   }
+
   .col.afterparty-room {
     border-color: $afterparty-room;
   }
+
   a.col.afterparty-room:hover {
     background: $afterparty-room;
   }
@@ -1067,35 +1190,43 @@ section.full-width {
 .directions {
   margin-top: 20px;
   margin-bottom: 20px;
+
   .col {
     background: $primary-color;
     color: #fff;
     margin: 0 0 16px 0;
     width: 100%;
+
     .top {
       background: darken($primary-color, 10%);
       padding: 0;
       overflow: hidden;
+
       i {
         font-size: 300%;
         display: inline-block;
         margin-top: 20px;
       }
+
       h3 {
         margin: 10px 0 10px 0;
       }
     }
+
     .txt {
       padding: 15px;
       text-align: left;
+
       p {
         margin: 0;
       }
     }
+
     a {
       color: #fff;
       text-decoration: underline;
     }
+
     a:hover {
       color: #fff;
       text-decoration: none;
@@ -1107,6 +1238,7 @@ section.full-width {
 .sponsor {
   margin-top: 20px;
   margin-bottom: 20px;
+
   .col {
     background: $light-grey;
     margin: 0 0 16px 0;
@@ -1116,6 +1248,7 @@ section.full-width {
     0,
     0,
     0.2));
+
     h2 {
       margin-top: 10px;
       margin-bottom: 5px;
@@ -1128,13 +1261,16 @@ section.full-width {
   margin: 25px 0;
   padding-bottom: 15px;
   border-bottom: 1px solid $light-grey;
+
   h3 {
     margin: 0;
   }
+
   p.author {
     margin-top: 10px;
     font-weight: 700;
   }
+
   .blog-date {
     position: relative;
     z-index: 1;
@@ -1142,12 +1278,14 @@ section.full-width {
     background: $light-grey;
     padding: 20px 15px 10px 15px;
     line-height: 1.4;
+
     strong {
       display: block;
       font-size: 30px;
       line-height: 1;
     }
   }
+
   .blog-date:before,
   .blog-date:after {
     content: '';
@@ -1158,9 +1296,11 @@ section.full-width {
     position: absolute;
     top: -21px;
   }
+
   .blog-date:before {
     left: 12px;
   }
+
   .blog-date:after {
     right: 12px;
   }
@@ -1205,53 +1345,68 @@ section.full-width {
 
 .voting-control {
   z-index: 200;
+
   h3 {
     display: inline;
     padding-right: 20px;
   }
+
   .panel-heading {
     padding: 15px;
   }
+
   .btn {
     padding: 10px;
     margin-left: 0 !important;
   }
+
   .btn:nth-child(2) {
     border-left: 1px solid darken($agenda, 10%);
     border-right: 1px solid darken($agenda, 10%);
   }
+
   .btn:last-child {
     border: 0;
   }
+
   .btn:after {
     display: none;
   }
+
   &.form-inline .form-control {
     display: inline-block;
     width: auto;
   }
+
   input {
     font-size: 16px !important;
   }
+
   .panel-heading .alert {
     margin: 0;
   }
+
   .submit-block {
     float: right;
   }
+
   .filters {
     margin-top: 10px;
+
     >div {
       display: inline-block;
     }
   }
+
   .rrs__button+.rrs__options {
     min-width: 150px;
     font-size: 0.9em;
   }
+
   .rrs__options li:before {
     display: none;
   }
+
   .fa-caret-down {
     position: absolute;
     right: 1rem;
@@ -1259,32 +1414,40 @@ section.full-width {
     fill: #333;
     margin-right: -3px;
   }
+
   .rrs--options-visible .fa-caret-down {
     transform: rotate(180deg);
   }
+
   .rrs__multiselect-label {
     line-height: 1.2;
   }
+
   .rrs__option.rrs__option {
     .selected-marker {
       display: none;
     }
   }
+
   .rrs__option.rrs__option--selected {
     .selected-marker {
       display: inline;
     }
+
     .not-selected-marker {
       display: none;
     }
   }
+
   .rrs__option.rrs__option--next-selection {
     color: #333;
     background-color: lighten($primary-color, 70%);
   }
+
   .rrs__option.rrs__option--next-selection:hover {
     background-color: #f7f7f7;
   }
+
   .rrs__option:hover,
   .rrs__option.rrs__option--selected,
   .rrs--has-changed .rrs__label {
@@ -1304,19 +1467,24 @@ section.full-width {
       padding: 7px;
     }
   }
+
   .panel-heading a,
   .panel-heading span.title {
     padding: 13px 15px;
+
     &:after {
       display: none;
     }
   }
+
   .panel-default>.panel-heading .badge {
     background-color: #666;
   }
+
   .panel-body {
     margin-bottom: 10px;
   }
+
   .panel-heading {
     margin-top: 10px;
   }
@@ -1342,36 +1510,45 @@ section.full-width {
   .voting-control {
     margin: 0 -15px;
     @include border-radius(0);
+
     .form-control,
     label {
       font-size: 0.8em;
       font-weight: normal;
       padding: 0 5px;
     }
+
     .rrs__button {
       height: 32px;
       line-height: 32px;
     }
+
     .rrs__button+.rrs__options {
       top: 32px;
     }
+
     .fa-caret-down {
       top: 1rem;
     }
+
     .filters {
       margin-top: 5px;
       font-size: 12px;
     }
+
     &.form-inline .form-control {
       width: 80px;
     }
+
     h3 {
       padding-right: 10px;
     }
+
     .panel-body em,
     .panel-body br+br {
       display: none;
     }
+
     .panel-body,
     .panel-heading {
       padding: 5px;
@@ -1381,21 +1558,26 @@ section.full-width {
 
 @media (max-width: 400px) {
   .voting-control {
+
     .form-control,
     label {
       font-size: 0.7em;
     }
+
     .submit-block {
       display: inline;
     }
+
     .filters,
     .rrs__multiselect-label__badge {
       font-size: 10px;
     }
+
     .rrs__multiselect-label__badge {
       padding: 1px 3px;
       lineheight: 1;
     }
+
     .remove-when-small {
       display: none;
     }
@@ -1407,10 +1589,12 @@ section.full-width {
     &.form-inline .form-control {
       width: 60px;
     }
+
     .btn {
       padding-left: 5px;
       padding-right: 5px;
     }
+
     h3 {
       font-size: 14px;
       padding-right: 0;
@@ -1435,10 +1619,12 @@ section.full-width {
   height: 375px;
   position: relative;
   -webkit-filter: grayscale(100%);
+
   #map-view {
     height: 375px;
     z-index: 1;
   }
+
   #map-overlay {
     position: absolute;
     text-align: center;
@@ -1449,30 +1635,35 @@ section.full-width {
     left: 0;
     margin: auto;
     background: rgba(0, 0, 0, 0.75);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#cc000000', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#cc000000', GradientType=0);
     /* IE6-9 */
     color: #fff;
     z-index: 100;
   }
+
   #map-overlay h3,
   #map-overlay h4 {
     color: #fff;
     margin: 0;
   }
+
   #map-overlay h3 {
     font-size: 40px;
     font-weight: 900;
     margin-top: 140px;
   }
+
   #map-overlay h4 {
     font-size: 24px;
     font-weight: 300;
     font-style: oblique;
   }
+
   @media only screen and (max-width: 600px) {
     #map-overlay {
       padding: 0 2em;
     }
+
     #map-overlay h3 {
       margin-top: 100px;
       margin-bottom: 15px;
@@ -1502,10 +1693,14 @@ section.full-width {
   padding: 3px;
 }
 
-.pink {
+strong.room {
   background-color: $call-content;
-  color: #000;
+  color: #fff;
   padding: 3px;
+}
+
+small.room {
+  color: $call-content;
 }
 
 .orange {
@@ -1594,8 +1789,8 @@ tr td.highlight-session {
 .agenda-row tbody tr {}
 
 .agenda-row .time {
-  color: #888;
   width: 85px;
+  color: #737373;
 }
 
 // Video
@@ -1603,21 +1798,26 @@ tr td.highlight-session {
   width: 560px;
   height: 315px;
   position: relative;
+  vertical-align: top;
   display: inline-block;
+
   &:first-child {
     margin-right: 20px;
   }
+
   iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    display: inline-block;
   }
 }
 
 @media (max-width: 1199px) {
   .responsive-video:first-child {
+    margin-bottom: 10px;
     margin-right: 0;
   }
 }
@@ -1649,16 +1849,19 @@ tr td.highlight-session {
 }
 
 @media only screen and (min-width: 360px) {
+
   // Countdown
   .timer {
     span {
       font-size: 80%;
       margin: 0 10px;
     }
+
     strong {
       font-size: 300%;
     }
   }
+
   .event-details,
   .timer+hr {
     max-width: 405px;
@@ -1671,9 +1874,11 @@ tr td.highlight-session {
     margin-bottom: 10px;
     min-width: 100px;
   }
+
   .blog-intro {
     width: 100% !important;
   }
+
   #submit-votes.affix+.submitted-session {
     margin-top: 183px !important;
   }
@@ -1685,71 +1890,94 @@ tr td.highlight-session {
     padding: 6px 15px 5px 15px;
     font-size: 14px;
   }
+
   .btn-sm {
     padding: 5px 10px;
     font-size: 12px;
   }
+
   .btn:after {
     margin: 0 0 0 15px;
     font-size: 18px;
-  } // Header
+  }
+
+  // Header
   header {
     font-size: 25px;
-  } // Banner
+  }
+
+  // Banner
   .banner {
     height: 180px;
-  } // Intro
+  }
+
+  // Intro
   .intro {
     .container {
       padding: 25px;
     }
-  } // Countdown
+  }
+
+  // Countdown
   .timer {
     font-weight: $bold;
     margin: 30px 0;
+
     span {
       font-size: 90%;
       margin: 0 15px;
     }
+
     strong {
       font-size: 350%;
     }
   }
+
   .event-details,
   .timer+hr {
     max-width: 405px;
-  } // Strip of Photos
+  }
+
+  // Strip of Photos
   section.image-strip {
     width: 100%;
     max-width: 100%;
     height: 150px;
     white-space: nowrap;
+
     img {
       display: inline-block;
       height: 100%;
     }
+
     img:nth-child(3n),
     img:nth-child(4n) {
       height: 100%;
     }
-  } // Important Dates
+  }
+
+  // Important Dates
   .imp-date {
     float: left;
     width: 47%;
     margin-left: 1.5%;
     margin-right: 1.5%;
     margin-bottom: 0;
-  } // What Now? CTA's
+  }
+
+  // What Now? CTA's
   .what-now {
     .btn {
       display: inline-block;
       width: 200px;
       margin: 0 5px 15px 5px;
     }
+
     .btn.vote+span {
       display: block;
     }
   }
+
   #submit-votes.affix+.submitted-session {
     margin-top: 186px !important;
   }
@@ -1761,146 +1989,196 @@ tr td.highlight-session {
     padding: 7px 16px 6px 16px;
     font-size: 15px;
   }
+
   .btn-sm {
     padding: 5px 10px;
     font-size: 13px;
   }
+
   .btn:after {
     margin: 0 0 0 17px;
     font-size: 19px;
-  } // Modals
+  }
+
+  // Modals
   .modal-header,
   .modal-body,
   .modal-footer {
     padding: 18px;
-  } // Header
+  }
+
+  // Header
   header .logo {
     font-size: 30px;
     line-height: 100px;
-  } // Main Nav
+  }
+
+  // Main Nav
   nav.main {
     ul {
       text-align: center;
+
       li {
         display: inline-block;
+
         a {
           line-height: 52px;
           font-size: 14px;
           border: 0;
           padding: 0 15px;
         }
+
         a:after {
           display: none;
         }
       }
     }
-  } // Intro
+  }
+
+  // Intro
   .intro {
     .container {
       padding: 30px;
       margin-left: auto;
       margin-right: auto;
     }
-  } // Fader
+  }
+
+  // Fader
   .fader {
     height: 300px;
-  } // Banner
+  }
+
+  // Banner
   .banner {
     height: 190px;
-  } // Countdown
+  }
+
+  // Countdown
   .timer {
     margin: 40px 0;
+
     span {
       font-size: 100%;
       margin: 0 20px;
     }
+
     strong {
       font-size: 500%;
     }
   }
+
   .event-details,
   .timer+hr {
     width: 81%;
     max-width: 9999px;
-  } // Important Dates
+  }
+
+  // Important Dates
   .important-dates {
     padding-bottom: 30px;
   }
+
   .imp-date {
     width: 30.25%;
     margin-left: 1.5%;
     margin-right: 1.5%;
     margin-top: 35px;
-  } // Strip of Photos
+  }
+
+  // Strip of Photos
   section.image-strip {
     height: 200px;
-  } // Footer
+  }
+
+  // Footer
   footer {
     padding-bottom: 40px;
+
     nav.foot-nav {
       padding: 30px 0;
       text-align: center;
+
       li {
         display: inline-block;
         margin: 0;
         padding: 0 20px;
       }
     }
-  } // Next Event
+  }
+
+  // Next Event
   .event-details {
     padding: 30px 0;
+
     .btn {
       margin-top: 21px;
     }
-  } // What Now? CTA's
+  }
+
+  // What Now? CTA's
   .what-now {
     .btn {
       width: auto;
     }
+
     .btn.vote+span {
       display: none;
     }
-  } // Sponsors
+  }
+
+  // Sponsors
   .sponsors {
     img {
       max-width: 200px !important;
       max-height: 150px !important;
     }
+
     &.standard img {
       max-width: 120px !important;
       max-height: 80px !important;
     }
-  } // DDD By Night
+  }
+
+  // DDD By Night
   section.ddd-by-night {
     height: 300px;
+
     .content {
       img {
         margin-left: -30px;
         max-width: 275px !important;
       }
     }
-  } // Right Sidebar Page Type
+  }
+
+  // Right Sidebar Page Type
   section.right-sidebar {
     .right-col {
       .event-details {
         padding: 7px 15px;
         margin-top: 35px;
       }
+
       .important-dates-right {
         .imp-date {
           float: none;
           width: auto;
+
           h3,
           p {
             font-size: 15px;
           }
         }
+
         .imp-date:nth-child(odd) {
           margin-right: 0;
         }
       }
     }
-  } // Full Width Page Type
+  }
+
+  // Full Width Page Type
   section.full-width {
     .right-col {
       .event-details {
@@ -1911,44 +2189,59 @@ tr td.highlight-session {
         padding: 30px;
       }
     }
+
     .important-dates-right {
       float: right;
       width: 48%;
     }
-  } // Directions block and Sponsor page
+  }
+
+  // Directions block and Sponsor page
   .directions,
   .sponsor {
     margin-top: 30px;
     margin-bottom: 30px;
+
     .col {
       float: left;
       width: 49%;
       margin-right: 2%;
     }
+
     .col:nth-child(2n) {
       margin-right: 0;
     }
-  } // Sponsor Page
+  }
+
+  // Sponsor Page
   .sponsor {
     .col {
       padding: 20px 40px;
     }
-  } // Blog
+  }
+
+  // Blog
   .blog-list-post {
     margin: 60px 0 30px 0;
     padding-bottom: 30px;
+
     .inner {
       padding: 0 5px;
     }
+
     .blog-date {
       padding: 25px 15px 12px 15px;
       font-size: 14px;
+
       strong {
         font-size: 22px;
       }
     }
-  } // Agenda
+  }
+
+  // Agenda
   .agenda-list {
+
     .col,
     a.col {
       float: left;
@@ -1956,6 +2249,7 @@ tr td.highlight-session {
       margin: 0 2% 20px 0;
     }
   }
+
   #submit-votes.affix+.submitted-session {
     margin-top: 200px !important;
   }
@@ -1967,23 +2261,31 @@ tr td.highlight-session {
     padding: 8px 20px 7px 20px;
     font-size: 16px;
   }
+
   .btn-sm {
     padding: 7px 10px 5px 10px;
     font-size: 14px;
   }
+
   .btn:after {
     margin: 0 0 0 20px;
     font-size: 19px;
-  } // Modals
+  }
+
+  // Modals
   .modal-header,
   .modal-body,
   .modal-footer {
     padding: 22px;
-  } // Header
+  }
+
+  // Header
   header .logo {
     font-size: 35px;
     line-height: 134px;
-  } // Main Nav
+  }
+
+  // Main Nav
   nav.main {
     ul {
       li {
@@ -1993,59 +2295,79 @@ tr td.highlight-session {
         }
       }
     }
-  } // Countdown
+  }
+
+  // Countdown
   .timer {
     margin: 40px 0;
+
     span {
       font-size: 110%;
       margin: 0 25px;
     }
+
     strong {
       font-size: 600%;
     }
   }
+
   .event-details,
   .timer+hr {
     width: 81%;
-  } // Fader
+  }
+
+  // Fader
   .fader {
     height: 350px;
-  } // Banner
+  }
+
+  // Banner
   .banner {
     height: 195px;
-  } // Important Dates
+  }
+
+  // Important Dates
   .important-dates {
     padding-bottom: 40px;
   }
+
   .imp-date {
     margin-top: 53px;
     padding: 20px 20px 10px 20px;
+
     h3 {
       font-size: 22px;
+
       strong {
         font-size: 120%;
       }
     }
   }
+
   .imp-date:before,
   .imp-date:after {
     width: 40px;
     height: 58px;
     background: url('/static/images/cal-top.png') 0 0 no-repeat;
   }
+
   .imp-date:before {
     left: 27px;
   }
+
   .imp-date:after {
     right: 27px;
   }
+
   section.right-sidebar {
     .imp-date {
       .ico-done {
         @include transform(scale(0.9));
       }
     }
-  } // Date Done
+  }
+
+  // Date Done
   .ico-done {
     right: 20px;
     top: 35px;
@@ -2053,33 +2375,47 @@ tr td.highlight-session {
     height: 35px;
     line-height: 37px;
   }
+
   .ico-done:before {
     font-size: 22px;
-  } // Strip of Photos
+  }
+
+  // Strip of Photos
   section.image-strip {
     height: 250px;
-  } // Footer
+  }
+
+  // Footer
   footer {
     padding-bottom: 50px;
+
     nav.foot-nav {
       padding: 35px 0;
     }
-  } // Next Event
+  }
+
+  // Next Event
   .event-details {
     padding: 40px 0;
+
     .btn {
       margin-top: 25px;
     }
-  } // DDD By Night
+  }
+
+  // DDD By Night
   section.ddd-by-night {
     height: 350px;
+
     .content {
       img {
         margin-left: -30px;
         max-width: 100% !important;
       }
     }
-  } // Right Sidebar Page Type
+  }
+
+  // Right Sidebar Page Type
   section.right-sidebar {
     .right-col {
       .event-details {
@@ -2087,51 +2423,68 @@ tr td.highlight-session {
         margin-top: 40px;
       }
     }
-  } // Full Width Page Type
+  }
+
+  // Full Width Page Type
   section.full-width {
     .right-col {
       .event-details {
         margin-top: 49px;
+
         .btn {
           margin-top: 10px;
         }
       }
     }
-  } // Directions Block and Sponsor Page
+  }
+
+  // Directions Block and Sponsor Page
   .directions,
   .sponsor {
     margin-top: 35px;
     margin-bottom: 30px;
+
     .col,
     .col:nth-child(2n) {
       margin-right: 1.25%;
       width: 24%;
     }
+
     .col:last-child {
       margin-right: 0;
     }
-  } // Sponsor Page
+  }
+
+  // Sponsor Page
   .sponsor {
     .col {
       padding: 20px 20px;
+
       h2 {
         margin-top: 15px;
       }
     }
-  } // Blog
+  }
+
+  // Blog
   .blog-list-post {
     .inner {
       padding: 0 20px;
     }
+
     .blog-date {
       padding: 25px 15px 12px 15px;
       font-size: 15px;
+
       strong {
         font-size: 23px;
       }
     }
-  } // Agenda
+  }
+
+  // Agenda
   .agenda-list {
+
     .col,
     a.col {
       width: 23%;
@@ -2146,22 +2499,30 @@ tr td.highlight-session {
     padding: 10px 23px 8px 23px;
     font-size: 17px;
   }
+
   .btn-sm {
     padding: 7px 10px 5px 10px;
     font-size: 15px;
   }
+
   .btn:after {
     margin: 0 0 0 20px;
     font-size: 20px;
-  } // Modals
+  }
+
+  // Modals
   .modal-header,
   .modal-body,
   .modal-footer {
     padding: 25px;
-  } // Header
+  }
+
+  // Header
   header .logo {
     font-size: 40px;
-  } // Main Nav
+  }
+
+  // Main Nav
   nav.main {
     ul {
       li {
@@ -2171,27 +2532,38 @@ tr td.highlight-session {
         }
       }
     }
-  } // Fader
+  }
+
+  // Fader
   .fader {
     height: 398px;
-  } // Banner
+  }
+
+  // Banner
   .banner {
     height: 208px;
-  } // Important Dates
+  }
+
+  // Important Dates
   .important-dates {
     padding-bottom: 50px;
   }
+
   .imp-date {
     width: 23%;
     margin-left: 1%;
     margin-right: 1%;
+
     h3 {
       font-size: 22px;
+
       strong {
         font-size: 120%;
       }
     }
-  } // Date Done
+  }
+
+  // Date Done
   .ico-done {
     right: 20px;
     top: 37px;
@@ -2199,51 +2571,71 @@ tr td.highlight-session {
     height: 37px;
     line-height: 39px;
   }
+
   .ico-done:before {
     font-size: 23px;
-  } // Strip of Photos
+  }
+
+  // Strip of Photos
   section.image-strip {
     height: 300px;
-  } // Footer
+  }
+
+  // Footer
   footer {
     padding-bottom: 60px;
+
     nav.foot-nav {
       padding: 40px 0;
     }
+
     .copyright {
       font-size: 85%;
     }
-  } // Countdown
+  }
+
+  // Countdown
   .timer {
     span {
       font-size: 115%;
       margin: 0 30px;
     }
+
     strong {
       font-size: 650%;
     }
   }
+
   .event-details,
   .timer+hr {
     width: 81%;
-  } // Next Event
+  }
+
+  // Next Event
   .event-details {
     padding: 50px 0;
+
     .btn {
       margin-top: 30px;
     }
-  } // DDD By Night
+  }
+
+  // DDD By Night
   section.ddd-by-night {
     height: 390px;
-  } // Right Sidebar Page Type
+  }
+
+  // Right Sidebar Page Type
   section.right-sidebar {
     .right-col {
       .event-details {
         padding: 20px 25px;
         margin-top: 45px;
       }
+
       .important-dates-right {
         .imp-date {
+
           h3,
           p {
             font-size: 16px;
@@ -2251,18 +2643,23 @@ tr td.highlight-session {
         }
       }
     }
-  } // Full Width Page Type
+  }
+
+  // Full Width Page Type
   section.full-width {
     .right-col {
       .event-details {
         margin-top: 51px;
         height: 301px;
+
         .btn {
           margin-top: 0;
         }
       }
+
       .important-dates-right {
         .imp-date {
+
           h3,
           p {
             font-size: 16px;
@@ -2270,36 +2667,47 @@ tr td.highlight-session {
         }
       }
     }
-  } // Directions Block and Sponsor Page
+  }
+
+  // Directions Block and Sponsor Page
   .directions,
   .sponsor {
     margin-top: 50px;
     margin-bottom: 35px;
+
     .col,
     .col:nth-child(2n) {
       margin-right: 1.75%;
       width: 23.5%;
     }
+
     .col:last-child {
       margin-right: 0;
     }
-  } // Agenda
+  }
+
+  // Agenda
   .agenda-list {
+
     .col,
     a.col {
       padding: 55px 20px;
       margin: 0 2% 20px 0;
+
       .speaker,
       .area {
         left: 20px;
         right: 20px;
       }
+
       .area {
         top: 20px;
       }
+
       .speaker {
         bottom: 20px;
       }
+
       .info {
         font-size: 19px;
       }
@@ -2313,14 +2721,18 @@ tr td.highlight-session {
     padding: 12px 25px 10px 25px;
     font-size: 18px;
   }
+
   .btn-sm {
     padding: 7px 10px 5px 10px;
     font-size: 16px;
   }
+
   .btn:after {
     margin: 0 0 0 20px;
     font-size: 20px;
-  } // Main Nav
+  }
+
+  // Main Nav
   nav.main {
     ul {
       li {
@@ -2330,49 +2742,68 @@ tr td.highlight-session {
         }
       }
     }
-  } // Header
+  }
+
+  // Header
   header .logo {
     font-size: 45px;
-  } // Fader
+  }
+
+  // Fader
   .fader {
     .container {
       .intro {
         padding: 50px 70px;
       }
     }
-  } // Countdown
+  }
+
+  // Countdown
   .timer {
     span {
       font-size: 115%;
       margin: 0 30px;
     }
+
     strong {
       font-size: 650%;
     }
+
     margin: 60px 0;
   }
+
   .event-details,
   .timer+hr {
     width: 86%;
-  } // Next Event
+  }
+
+  // Next Event
   .event-details {
     padding: 60px 0;
+
     .btn {
       margin-top: 33px;
     }
-  } // Important Dates
+  }
+
+  // Important Dates
   .important-dates {
     padding-bottom: 50px;
   }
+
   .imp-date {
     margin-top: 60px;
+
     h3 {
       font-size: 24px;
+
       strong {
         font-size: 120%;
       }
     }
-  } // Date Done
+  }
+
+  // Date Done
   .ico-done {
     right: 20px;
     top: 40px;
@@ -2380,20 +2811,29 @@ tr td.highlight-session {
     height: 40px;
     line-height: 40px;
   }
+
   .ico-done:before {
     font-size: 24px;
-  } // Strip of Photos
+  }
+
+  // Strip of Photos
   section.image-strip {
     height: 370px;
-  } // Footer
+  }
+
+  // Footer
   footer {
     nav.foot-nav {
       padding: 45px 0;
     }
-  } // DDD By Night
+  }
+
+  // DDD By Night
   section.ddd-by-night {
     height: 424px;
-  } // Right Sidebar Page Type
+  }
+
+  // Right Sidebar Page Type
   section.right-sidebar {
     .right-col {
       .event-details {
@@ -2401,81 +2841,107 @@ tr td.highlight-session {
         margin-top: 50px;
       }
     }
-  } // Full Width Pagetype
+  }
+
+  // Full Width Pagetype
   section.full-width .important-dates-right .imp-date .ico-done {
     right: 15px;
     top: 20px;
-  } // Full Width Page Type
+  }
+
+  // Full Width Page Type
   section.full-width {
     .right-col {
       .event-details {
         margin-top: 51px;
         height: 360px;
         padding: 30px 35px;
+
         .btn {
           margin-top: 0;
         }
       }
+
       .important-dates-right .imp-date {
         padding: 18px 18px 8px 18px;
       }
     }
-  } // Directions Block and Sponsor Page
+  }
+
+  // Directions Block and Sponsor Page
   .directions,
   .sponsor {
     margin-top: 60px;
     margin-bottom: 40px;
+
     .col,
     .col:nth-child(2n) {
       margin-right: 2%;
       width: 23.5%;
+
       .top {
         i {
           font-size: 400%;
         }
+
         h3 {
           margin: 15px 0 10px 0;
         }
       }
     }
+
     .col:last-child {
       margin-right: 0;
     }
-  } // Sponsor Page
+  }
+
+  // Sponsor Page
   .sponsor {
     .col {
       padding: 20px 30px;
+
       h2 {
         margin-top: 20px;
       }
     }
-  } // Blog
+  }
+
+  // Blog
   .blog-list-post {
     margin: 60px 0 30px 0;
     padding-bottom: 30px;
+
     .inner {
       padding: 0 30px;
     }
+
     .blog-date {
       padding: 25px 17px 12px 17px;
     }
-  } // Agenda
+  }
+
+  // Agenda
   .agenda-list {
+
     .col,
     a.col {
       padding: 65px 25px;
       margin: 0 2% 20px 0;
+
       .speaker,
       .area {
         left: 25px;
         right: 25px;
       }
+
       .area {
         top: 22px;
       }
+
       .speaker {
         bottom: 22px;
       }
+
       .info {
         font-size: 20px;
       }

@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import * as React from 'react'
-import { Fragment, StatelessComponent } from 'react'
+import React, { Fragment, StatelessComponent } from 'react'
 import { Conference, Dates } from '../../config/types'
 import '../../styles/screen.scss'
 
@@ -43,8 +42,8 @@ const Meta: StatelessComponent<MetaArgs> = ({
       <meta property="og:description" content={pageDescription || conference.SiteDescription} />
       <meta name="twitter:description" content={(pageDescription || conference.SiteDescription).substring(0, 200)} />
       <meta name="author" content={conference.Organiser.Name} />
-      <meta property="og:image" content={pageImage || '/static/images/default-social-sharing-image.jpg'} />
-      <meta property="twitter:image" content={pageImage || '/static/images/default-social-sharing-image.jpg'} />
+      <meta property="og:image" content={pageImage || '/static/images/logo-2018_.png'} />
+      <meta property="twitter:image" content={pageImage || '/static/images/logo-2018_.png'} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content={conference.Name} />
       <meta name="twitter:creator" content={conference.Organiser.Name} />
@@ -68,7 +67,6 @@ const Meta: StatelessComponent<MetaArgs> = ({
       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" />
       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:700" />
       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Overpass+Mono:700" />
-      <link rel="stylesheet" href="/_next/static/style.css" />
       {instrumentationKey && (
         <script
           type="text/javascript"

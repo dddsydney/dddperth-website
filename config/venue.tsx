@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
-import * as React from 'react'
+import React from 'react'
+import { SafeLink } from '../components/global/safeLink'
 import { Venue } from './types'
 
 // tslint:disable:object-literal-sort-keys

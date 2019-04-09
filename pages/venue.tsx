@@ -1,6 +1,7 @@
 import GoogleMapReact from 'google-map-react'
 import Error from 'next/error'
-import * as React from 'react'
+import React from 'react'
+import { SafeLink } from '../components/global/safeLink'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import Conference from '../config/conference'
 import Page from '../layouts/main'
@@ -32,7 +33,7 @@ class VenuePage extends React.Component<WithPageMetadataProps> {
           <h1>Venue</h1>
           <p>
             {conference.Name} will be held at {conference.Venue.Name} at{' '}
-            <a
+            <SafeLink
               href={
                 'https://www.google.com.au/maps/place/' +
                 encodeURIComponent(conference.Venue.Name + ', ' + conference.Venue.Address)
@@ -40,7 +41,8 @@ class VenuePage extends React.Component<WithPageMetadataProps> {
               target="_blank"
             >
               {conference.Venue.Address}
-            </a>.
+            </SafeLink>
+            .
           </p>
         </div>
         <div id="map">
@@ -68,8 +70,8 @@ class VenuePage extends React.Component<WithPageMetadataProps> {
             />
           </div>
           <div id="map-overlay">
-            <h3>{conference.Venue.Name}</h3>
-            <h4>{conference.Venue.Address}</h4>
+            <h2>{conference.Venue.Name}</h2>
+            <h3>{conference.Venue.Address}</h3>
           </div>
         </div>
         <section className="right-sidebar" id="travelinfo">

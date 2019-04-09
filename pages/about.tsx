@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import * as React from 'react'
+import React from 'react'
+import { SafeLink } from '../components/global/safeLink'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import Page from '../layouts/withSidebar'
 
@@ -39,13 +40,19 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
           <a>15th July 2017 - 230 attendees</a>
         </Link>
       </li>
+      <li>
+        <Link href="/agenda/2018">
+          <a>4 August 2018 @ Perth Convention and Exhibition Centre - 470 attendees (510 tickets sold)</a>
+        </Link>
+      </li>
     </ul>
     <p>
       Developer! Developer! Developer! started in 2005 in the United Kingdom as a community conference organised by
       software developers for software developers.{' '}
-      <a href="https://en.wikipedia.org/wiki/Developer!_Developer!_Developer!" target="_blank">
+      <SafeLink href="https://en.wikipedia.org/wiki/Developer!_Developer!_Developer!" target="_blank">
         It's since spread all over the UK and Australia
-      </a>.
+      </SafeLink>
+      .
     </p>
     <p>DDD was set up with a number of key elements in mind, which hold true for all DDD conferences held worldwide:</p>
     <ul>
@@ -57,15 +64,15 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     <h2>Sister events</h2>
     <p>We have a number of sister events across Australia:</p>
     <p className="text-center">
-      <a href="https://dddmelbourne.com/" target="_blank">
+      <SafeLink href="https://dddmelbourne.com/" target="_blank">
         <img src="/static/images/logo-dddmelbourne.jpg" alt="DDD Melbourne logo" style={{ width: '200px' }} />
-      </a>{' '}
-      <a href="http://dddsydney.com.au/" target="_blank">
+      </SafeLink>{' '}
+      <SafeLink href="http://dddsydney.com.au/" target="_blank">
         <img src="/static/images/logo-dddsydney.png" alt="DDD Sydney logo" style={{ width: '200px' }} />
-      </a>{' '}
-      <a href="http://dddbrisbane.com/" target="_blank">
+      </SafeLink>{' '}
+      <SafeLink href="http://dddbrisbane.com/" target="_blank">
         <img src="/static/images/logo-dddbrisbane.png" alt="DDD Brisbane logo" style={{ width: '200px' }} />
-      </a>
+      </SafeLink>
     </p>
   </Page>
 ))

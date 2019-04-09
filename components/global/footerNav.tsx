@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import * as React from 'react'
-import { StatelessComponent } from 'react'
+import React, { StatelessComponent } from 'react'
 import { MenuItem } from '../../config/types'
+import { SafeLink } from './safeLink'
 
 interface FooterNavArgs {
   menu: MenuItem[]
@@ -18,14 +18,14 @@ const FooterNav: StatelessComponent<FooterNavArgs> = ({ menu }) => (
             </Link>
           )}
           {item.external && (
-            <a href={item.href} target="_blank">
+            <SafeLink href={item.href} target="_blank">
               <span aria-hidden="true">
                 {item.name}
                 &nbsp;
                 <i className="fa fa-external-link" />
               </span>
               <span className="sr-only">{item.name}, will open in a new window</span>
-            </a>
+            </SafeLink>
           )}
         </li>
       ))}

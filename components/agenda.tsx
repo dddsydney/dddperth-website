@@ -11,6 +11,8 @@ export interface SessionCellProps {
   isLocknote?: boolean
   isLunchnote?: boolean
   rowSpan?: number
+  sponsorName?: string
+  room?: string
 }
 
 export interface AgendaProps {
@@ -79,6 +81,7 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
     selectSession(session: DddSession) {
       this.setState({
         selectedSession: session,
+        selectedSessionSponsor: sponsor,
         showModal: true,
       })
     }
@@ -110,7 +113,12 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
             }
             rowSpan={props.rowSpan ? props.rowSpan : null}
             colSpan={props.isKeynote || props.isLocknote || props.isLunchnote ? numTracks : null}
-            onClick={() => onClick.bind(that)(session)}
+            onClick={() =>
+              onClick.bind(that)(
+                session,
+                !!props.sponsorName ? that.props.sponsors.find(s => s.name === props.sponsorName) : undefined,
+              )
+            }
           >
             {isLoading !== false && (
               <Fragment>
@@ -169,6 +177,27 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
                     showBio={true}
                     hideLevelAndFormat={false}
                   />
+                  {this.props.afterSessionDetails && this.props.afterSessionDetails(this.state.selectedSession)}
+                  {this.state.selectedSessionSponsor && (
+                    <Fragment>
+                      <hr />
+                      <p className="text-center">
+                        Sponsored by:
+                        <SafeLink
+                          href={this.state.selectedSessionSponsor.url}
+                          target="_blank"
+                          key={this.state.selectedSessionSponsor.name}
+                          title={this.state.selectedSessionSponsor.name}
+                        >
+                          <img
+                            src={this.state.selectedSessionSponsor.imageUrl}
+                            alt={this.state.selectedSessionSponsor.name}
+                            style={{ width: '200px' }}
+                          />
+                        </SafeLink>
+                      </p>
+                    </Fragment>
+                  )}
                 </Modal.Body>
               </Fragment>
             )}

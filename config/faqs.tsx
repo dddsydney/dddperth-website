@@ -282,7 +282,7 @@ export default function getFaqs(dates: Dates): FAQ[] {
             </a>
           </li>
           <li>
-            <a href="mailto:team@dddsyndey.com.au" target="_blank">
+            <a className="maillink" href={'mailto:' + Conference.ContactEmail}>
               How about you!
             </a>
           </li>

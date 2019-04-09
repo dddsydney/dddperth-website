@@ -74,5 +74,59 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
         <img src="/static/images/logo-dddbrisbane.png" alt="DDD Brisbane logo" style={{ width: '200px' }} />
       </SafeLink>
     </p>
+
+    <h2>Who's behind DDD Sydney?</h2>
+    <div className="committee-wrapper">
+      <h3>Aaron Powell</h3>
+      <img src="/static/images/committee/aaron.png" style={{ width: '200px' }} />
+      <p>
+        Aaron is a Developer Advocate at Microsoft and has spoken at all but 1 DDD Melbourne and the other DDD's around
+        the country. Since 2017 he's been involved in the organisation of DDD Sydney.
+      </p>
+    </div>
+
+    <div className="committee-wrapper">
+      <h3>Steve Godbold</h3>
+      <img src="/static/images/committee/steve.jpg" style={{ width: '200px' }} />
+      <p>
+        Steve heads up the services growth team for Telstra, which means he gets to play with things like mixed reality
+        and AI. When he's not at work Steve plays football, brews coffee and tends to his whisky collection.
+      </p>
+    </div>
+
+    <div className="committee-wrapper">
+      <h3>Sam Ki</h3>
+      <img src="/static/images/committee/sam.jpg" style={{ width: '200px' }} />
+      <p>TBD</p>
+    </div>
+
+    <div className="committee-wrapper">
+      <h3>Michelle Lo</h3>
+      <img src="/static/images/committee/michelle.jpg" style={{ width: '200px' }} />
+      <p>
+        Michelle is a junior software developer at ThoughtWorks. When she’s not debugging, she’s testing her physical
+        and mental limits through ballet and bouldering.
+      </p>
+    </div>
+
+    <div className="committee-wrapper">
+      <h3>Raphael Haddad</h3>
+      <img src="/static/images/committee/raph.jpg" style={{ width: '200px' }} />
+      <p>TBD</p>
+    </div>
+
+    <div className="committee-wrapper">
+      <h3>Mel Marshan</h3>
+      <img src="/static/images/committee/mel.jpg" style={{ width: '200px' }} />
+      <p>TBD</p>
+    </div>
+
+    <p>
+      We're always looking for passionate people to join the committee, are you interested? Then drop us an email{' '}
+      <a className="maillink" href={'mailto:' + props.pageMetadata.conference.ContactEmail}>
+        {props.pageMetadata.conference.ContactEmail}
+      </a>
+      .
+    </p>
   </Page>
 ))

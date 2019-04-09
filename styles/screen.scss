@@ -2959,3 +2959,26 @@ a.skip-to-content {
   color: white;
   text-decoration: none;
 }
+
+.committee-wrapper {
+  display: grid;
+  grid-template: 200px 1;
+  grid-gap: 10px;
+
+  margin-bottom: 10px;
+
+  h3 {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+
+  img {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  p {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}

@@ -138,7 +138,7 @@ const Conference: IConference = {
     Facebook: '',
     Flickr: '',
     GitHub: 'dddsydney',
-    MailingList: '',
+    MailingList: 'https://mailchi.mp/a016f18cb8a7/ddd-sydney-subscribers',
     Twitter: {
       Id: '',
       Name: 'dddsydney',

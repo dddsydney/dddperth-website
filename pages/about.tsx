@@ -94,11 +94,11 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
       </p>
     </div>
 
-    <div className="committee-wrapper">
+    {/* <div className="committee-wrapper">
       <h3>Sam Ki</h3>
       <img src="/static/images/committee/sam.jpg" style={{ width: '200px' }} />
       <p>TBD</p>
-    </div>
+    </div> */}
 
     <div className="committee-wrapper">
       <h3>Michelle Lo</h3>
@@ -109,17 +109,17 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
       </p>
     </div>
 
-    <div className="committee-wrapper">
+    {/* <div className="committee-wrapper">
       <h3>Raphael Haddad</h3>
       <img src="/static/images/committee/raph.jpg" style={{ width: '200px' }} />
       <p>TBD</p>
-    </div>
+    </div> */}
 
-    <div className="committee-wrapper">
+    {/* <div className="committee-wrapper">
       <h3>Mel Marshan</h3>
       <img src="/static/images/committee/mel.jpg" style={{ width: '200px' }} />
       <p>TBD</p>
-    </div>
+    </div> */}
 
     <p>
       We're always looking for passionate people to join the committee, are you interested? Then drop us an email{' '}

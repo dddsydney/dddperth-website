@@ -18,6 +18,12 @@ const getTitle = (title: string, conference: Conference, dates: Dates) =>
     !conference.HideDate && !dates.IsComplete ? ` | ${conference.Date.format('Do MMMM YYYY')}` : ''
   }`
 
+const dodgy = `!function (c, h, i, m, p) {
+  m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m,
+      p)
+}(document, 'script',
+  "https://chimpstatic.com/mcjs-connected/js/users/8d332794c365856d5fa995e7c/fbae76da53951b6f3e76ebb03.js");`
+
 const Meta: StatelessComponent<MetaArgs> = ({
   pageUrl,
   pageTitle,
@@ -82,6 +88,10 @@ const Meta: StatelessComponent<MetaArgs> = ({
           }}
         />
       )}
+
+      <script id="mcjs" dangerouslySetInnerHTML={{ __html: dodgy }}>
+        {}
+      </script>
     </Head>
   </Fragment>
 )

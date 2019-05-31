@@ -9,23 +9,23 @@ const tagLine = `${name} is an inclusive non-profit conference for the Sydney so
 
 const hideDate = false
 const isSoldOut = false
-const date = moment('2018-08-18T08:00')
+const date = moment('2019-09-21T08:00')
 const endDate = date.clone().add(12, 'h')
 const currentInstance = parseInt(date.format('YYYY'), 10)
 const firstInstance = 2016
-const registrationOpenFrom = moment('2018-04-30T08:00:00')
+const registrationOpenFrom = moment('2019-06-10T08:00:00')
 const registrationOpenUntil = hideDate
   ? null
   : date
-      .clone()
-      .add(-1, 'd')
-      .startOf('day')
-      .add(17, 'h')
-const presentationSubmissionsOpenFrom = moment('2018-04-30T08:00:00')
-const presentationSubmissionsOpenUntil = moment('2018-06-12T23:59:59')
-const votingOpenFrom = moment('2018-06-14T08:00:00')
-const votingOpenUntil = moment('2018-06-26T23:59:59')
-const agendaPublishedFrom = moment('2018-07-04T08:00:00')
+    .clone()
+    .add(-1, 'd')
+    .startOf('day')
+    .add(17, 'h')
+const presentationSubmissionsOpenFrom = moment('2019-06-10T08:00:00')
+const presentationSubmissionsOpenUntil = moment('2019-07-14T23:59:59')
+const votingOpenFrom = moment('2019-07-15T08:00:00')
+const votingOpenUntil = moment('2019-07-28T23:59:59')
+const agendaPublishedFrom = moment('2019-08-02T08:00:00')
 const feedbackOpenFrom = date.clone()
 const feedbackOpenUntil = endDate
 const importantDates = [
@@ -126,7 +126,7 @@ const Conference: IConference = {
 
   HideAfterpartyVenue: venue === null || venue.Afterparty === null,
   HideDate: hideDate,
-  HideSponsors: true,
+  HideSponsors: false,
   HideSponsorshipUpsell: false,
   HideVenue: venue === null,
 

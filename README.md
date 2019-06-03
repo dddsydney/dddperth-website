@@ -1,6 +1,6 @@
-# DDD Perth Website
+# DDD Sydney Website
 
-The DDD Perth website is deployed to https://dddperth.com and is built using [Next.js](https://github.com/zeit/next.js/).
+The DDD Sydney website is deployed to https://next.dddsydney.com.au/ and is built using [Next.js](https://github.com/zeit/next.js/).
 
 ## Getting started
 

@@ -1,7 +1,7 @@
 import moment from 'moment'
 import { orderBy } from '../components/utils/arraySort'
 import SponsorData from '../config/sponsors'
-import { Conference as IConference, ImportantDate, TicketsProvider } from './types'
+import { Conference as IConference, ImportantDate, TicketNumberWhileVoting, TicketsProvider } from './types'
 import venue from './venue'
 
 const name = 'DDD Sydney'
@@ -79,10 +79,6 @@ const Conference: IConference = {
   EmergencyContactName: 'Aaron Powell',
   EmergencyContactPhoneNumber: '0439 878 200',
   EndDate: endDate,
-  TicketsProviderAccountId: 'ddd-sydney',
-  TicketsProviderEventId: 'ddd-sydney-2019',
-  TicketsProviderId: TicketsProvider.Tito,
-  TicketsProviderFinancialAssistanceCode: '',
   FeedbackOpenFrom: feedbackOpenFrom,
   FeedbackOpenUntil: feedbackOpenUntil,
   FinishTime: '5:10pm',
@@ -117,7 +113,13 @@ const Conference: IConference = {
   SiteDescription: `${tagLine}.`,
   SponsorshipEmail: 'sponsors@dddsydney.com.au',
   TagLine: tagLine,
+
+  TicketNumberWhileVoting: TicketNumberWhileVoting.Optional,
   TicketPrice: '~$60',
+  TicketsProviderAccountId: 'ddd-sydney',
+  TicketsProviderEventId: 'ddd-sydney-2019',
+  TicketsProviderFinancialAssistanceCode: '',
+  TicketsProviderId: TicketsProvider.Tito,
 
   PresentationSubmissionsOpenFrom: presentationSubmissionsOpenFrom,
   PresentationSubmissionsOpenUntil: presentationSubmissionsOpenUntil,

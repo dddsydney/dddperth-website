@@ -3,6 +3,7 @@ import Link from 'next/link'
 import * as React from 'react'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import Page from '../layouts/withSidebar'
+import { SafeLink } from '../components/global/safeLink'
 
 class CFPPage extends React.Component<WithPageMetadataProps> {
   render() {

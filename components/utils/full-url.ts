@@ -1,8 +1,13 @@
 import * as http from 'http'
 
 export function getUrlFromNodeRequest(request: http.IncomingMessage) {
-  const secure = (request.connection as any).encrypted || request.headers['x-forwarded-proto'] === 'https'
-  return 'http' + (secure ? 's' : '') + '://' + request.headers.host + request.url
+  const secure =
+    (request.connection && (request.connection as any).encrypted) ||
+    (request.headers && request.headers['x-forwarded-proto'] === 'https') ||
+    false
+  return (
+    'http' + (secure ? 's' : '') + '://' + (request.headers ? request.headers.host : 'dddsydney.com.au') + request.url
+  )
 }
 
 export function getUrlFromWindow(window: Window) {

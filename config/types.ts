@@ -1,5 +1,6 @@
 import { Moment } from 'moment'
-import { DddSession } from '../components/dddAgendaPage'
+
+export type Types = 'conference' | 'voting' | 'tickets' | 'agenda' | 'content'
 
 export interface Conference {
   Name: string
@@ -12,8 +13,11 @@ export interface Conference {
   Goal: string
   GoogleAnalyticsId: string
   TicketPrice: string
-  EventbriteId: string
-  FinancialAssistanceEventbriteCode: string
+  ChildcarePrice: string
+  TicketsProviderId: TicketsProvider
+  TicketsProviderAccountId: string
+  TicketsProviderEventId: string
+  TicketsProviderFinancialAssistanceCode: string
   IsSoldOut: boolean
   HashTag: string
   SellingPoints: string[]
@@ -34,10 +38,10 @@ export interface Conference {
   AnonymousReportFormUrl: string
 
   AnonymousVoting: boolean
+  PreferentialVoting: boolean
+  TicketNumberWhileVoting: TicketNumberWhileVoting
   MinVotes: number
   MaxVotes: number
-  getSubmissionsUrl: string
-  submitVoteUrl: string
 
   Date: Moment
   EndDate: Moment
@@ -72,7 +76,18 @@ export interface Conference {
 
   Sponsors: Sponsor[]
 
-  Keynotes: DddSession[]
+  Keynotes: Session[]
+}
+
+export enum TicketsProvider {
+  Eventbrite,
+  Tito,
+}
+
+export enum TicketNumberWhileVoting {
+  None,
+  Required,
+  Optional,
 }
 
 export interface Venue {
@@ -93,7 +108,7 @@ export interface Venue {
 export interface ImportantDate {
   Description: string
   Date: Moment
-  Type: string
+  Type: Types
 }
 
 export interface Dates {

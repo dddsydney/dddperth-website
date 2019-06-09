@@ -1,7 +1,7 @@
 import moment from 'moment'
 import { orderBy } from '../components/utils/arraySort'
 import SponsorData from '../config/sponsors'
-import { Conference as IConference } from './types'
+import { Conference as IConference, ImportantDate, TicketsProvider } from './types'
 import venue from './venue'
 
 const name = 'DDD Sydney'
@@ -17,10 +17,10 @@ const registrationOpenFrom = moment('2019-06-10T08:00:00')
 const registrationOpenUntil = hideDate
   ? null
   : date
-    .clone()
-    .add(-1, 'd')
-    .startOf('day')
-    .add(17, 'h')
+      .clone()
+      .add(-1, 'd')
+      .startOf('day')
+      .add(17, 'h')
 const presentationSubmissionsOpenFrom = moment('2019-06-10T08:00:00')
 const presentationSubmissionsOpenUntil = moment('2019-07-14T23:59:59')
 const votingOpenFrom = moment('2019-07-15T08:00:00')
@@ -28,7 +28,7 @@ const votingOpenUntil = moment('2019-07-28T23:59:59')
 const agendaPublishedFrom = moment('2019-08-02T08:00:00')
 const feedbackOpenFrom = date.clone()
 const feedbackOpenUntil = endDate
-const importantDates = [
+const importantDates: ImportantDate[] = [
   {
     Date: presentationSubmissionsOpenFrom,
     Description: 'Call for presentations open',
@@ -79,10 +79,12 @@ const Conference: IConference = {
   EmergencyContactName: 'Aaron Powell',
   EmergencyContactPhoneNumber: '0439 878 200',
   EndDate: endDate,
-  EventbriteId: '44976613261',
+  TicketsProviderAccountId: 'ddd-sydney',
+  TicketsProviderEventId: 'ddd-sydney-2019',
+  TicketsProviderId: TicketsProvider.Tito,
+  TicketsProviderFinancialAssistanceCode: '',
   FeedbackOpenFrom: feedbackOpenFrom,
   FeedbackOpenUntil: feedbackOpenUntil,
-  FinancialAssistanceEventbriteCode: '',
   FinishTime: '5:10pm',
   Goal:
     "Our goal is to create an approachable event that appeals to the whole community, especially people that don't normally get to attend or speak at conferences.",
@@ -96,8 +98,8 @@ const Conference: IConference = {
 
   MaxVotes: 5,
   MinVotes: 1,
-  getSubmissionsUrl: 'https://api.dddsydney.com.au/v1/sessions/2018',
-  submitVoteUrl: 'https://api.dddsydney.com.au/v1/vote/2018',
+  // getSubmissionsUrl: 'https://api.dddsydney.com.au/v1/sessions/2018',
+  // submitVoteUrl: 'https://api.dddsydney.com.au/v1/vote/2018',
 
   Name: name,
   Organiser: {

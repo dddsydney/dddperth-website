@@ -109,11 +109,14 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
       </p>
     </div>
 
-    {/* <div className="committee-wrapper">
+    <div className="committee-wrapper">
       <h3>Raphael Haddad</h3>
       <img src="/static/images/committee/raph.jpg" style={{ width: '200px' }} />
-      <p>TBD</p>
-    </div> */}
+      <p>Raph is a Senior Consultant at Readify who's often found collaborating with his clients to build pragmatic
+         software. He enjoys sharing knowledge he's gained through blogging and public speaking and has been involved
+         with DDD Sydney since 2017. Raph will attempt to persuade you to have your coffee or tea black, he enjoys
+         lifting weights, travel, and reading up on ancient civilisations and cultures.</p>
+    </div>
 
     {/* <div className="committee-wrapper">
       <h3>Mel Marshan</h3>

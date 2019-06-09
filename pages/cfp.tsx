@@ -1,9 +1,9 @@
 import Error from 'next/error'
 import Link from 'next/link'
 import * as React from 'react'
+import { SafeLink } from '../components/global/safeLink'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import Page from '../layouts/withSidebar'
-import { SafeLink } from '../components/global/safeLink'
 
 class CFPPage extends React.Component<WithPageMetadataProps> {
   render() {

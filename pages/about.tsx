@@ -112,10 +112,25 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     <div className="committee-wrapper">
       <h3>Raphael Haddad</h3>
       <img src="/static/images/committee/raph.jpg" style={{ width: '200px' }} />
-      <p>Raph is a Senior Consultant at Readify who's often found collaborating with his clients to build pragmatic
-         software. He enjoys sharing knowledge he's gained through blogging and public speaking and has been involved
-         with DDD Sydney since 2017. Raph will attempt to persuade you to have your coffee or tea black, he enjoys
-         lifting weights, travel, and reading up on ancient civilisations and cultures.</p>
+      <p>
+        Raph is a Senior Consultant at Readify who's often found collaborating with his clients to build pragmatic
+        software. He enjoys sharing knowledge he's gained through blogging and public speaking and has been involved
+        with DDD Sydney since 2017. Raph will attempt to persuade you to have your coffee or tea black, he enjoys
+        lifting weights, travel, and reading up on ancient civilisations and cultures.
+      </p>
+    </div>
+
+    <div className="committee-wrapper">
+      <h3>Breana Bunce</h3>
+      <img src="/static/images/committee/breana.jpg" style={{ width: '200px' }} />
+      <p>
+        Breana is a Marketing Manager who has worked across a broad range of industries and specialises in digital
+        strategy. She has worked on a few of Australia's advertising firsts, especially when they have involved geeky
+        notions like "First RSS feed in a mobile ad unit" or "First Rich Media Mobile Ad". Her teams have also received
+        accolades like a Cyber Cannes Lion (Optus/Ricky Gervais) and been a MFA finalist (Optus/Shark Tank). When she’s
+        not nerding out on CX, she can be found building sandcastles with her son and talking about the future of
+        architecture with her husband.
+      </p>
     </div>
 
     {/* <div className="committee-wrapper">

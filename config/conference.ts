@@ -85,7 +85,7 @@ const Conference: IConference = {
   FinishTime: '5:10pm',
   Goal:
     "Our goal is to create an approachable event that appeals to the whole community, especially people that don't normally get to attend or speak at conferences.",
-  GoogleAnalyticsId: 'UA-60040308-1',
+  GoogleAnalyticsId: 'UA-98480529-1',
   Handbook: null,
   HashTag: 'dddsydney',
   Instance: currentInstance.toString(),

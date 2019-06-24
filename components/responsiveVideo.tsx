@@ -6,6 +6,9 @@ interface ResponsiveVideoArg {
 }
 
 const ResponsiveVideo: StatelessComponent<ResponsiveVideoArg> = ({ src, title }) => {
+  if (!src) {
+    return null
+  }
   return (
     <div className="responsive-video">
       <iframe

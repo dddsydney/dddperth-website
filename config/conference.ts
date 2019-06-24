@@ -165,16 +165,16 @@ const Conference: IConference = {
       Details: '1800 806 292',
     },
     EmergencyMedical: {
-      Details: 'RPA, 50 Missenden Rd, Camperdown NSW 2050',
-      MapUrl: 'https://goo.gl/maps/i2SDvLq3Sj22',
+      Details: '',
+      MapUrl: '',
     },
     NonEmergencyMedical: {
       Details: 'Broadway General Practice, Broadway Shopping Centre, M105, Level 1, Bay Street, Broadway NSW 2007',
       MapUrl: 'https://goo.gl/maps/epN85RpHomF2',
     },
     Police: {
-      Details: '1 Talfourd St, Glebe NSW 2037 ph: (02) 9552 8099',
-      MapUrl: 'https://goo.gl/maps/xrMWoMf1HaR2',
+      Details: '',
+      MapUrl: '',
     },
   },
 

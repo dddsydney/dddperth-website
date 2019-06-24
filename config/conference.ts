@@ -74,6 +74,7 @@ const Conference: IConference = {
   AnonymousReportFormUrl: '',
   AnonymousVoting: true,
   ContactEmail: 'team@dddsydney.com.au',
+  ChildcarePrice: '',
   Date: date,
   DoorsOpenTime: '8:10am',
   EmergencyContactName: 'Aaron Powell',
@@ -103,6 +104,7 @@ const Conference: IConference = {
     ShirtColour: 'black',
     Url: '',
   },
+  PreferentialVoting: false,
   PreviousInstance: (currentInstance - 1).toString(),
   PreviousInstances: [...Array(currentInstance - firstInstance).keys()].map((_, i) => (firstInstance + i).toString()),
   PreviouslySubmittedTopics:

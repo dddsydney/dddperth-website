@@ -121,6 +121,17 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     </div>
 
     <div className="committee-wrapper">
+      <h3>Mel Marshan</h3>
+      <img src="/static/images/committee/mel.jpg" style={{ width: '200px' }} />
+      <p>
+        Mel is a Business Development Consultant in the food industry and knows not much about IT. But with her husband
+        being Aaron she has been roped in to ensure a smoothly run event with great catering! Since 2017 she has been
+        involved in the organisation of DDD Sydney. She likes restaurant judging, socialising and being busy on a
+        million projects.
+      </p>
+    </div>
+
+    <div className="committee-wrapper">
       <h3>Breana Bunce</h3>
       <img src="/static/images/committee/breana.jpg" style={{ width: '200px' }} />
       <p>
@@ -132,12 +143,6 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
         architecture with her husband.
       </p>
     </div>
-
-    {/* <div className="committee-wrapper">
-      <h3>Mel Marshan</h3>
-      <img src="/static/images/committee/mel.jpg" style={{ width: '200px' }} />
-      <p>TBD</p>
-    </div> */}
 
     <p>
       We're always looking for passionate people to join the committee, are you interested? Then drop us an email{' '}

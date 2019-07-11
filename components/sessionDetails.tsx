@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Fragment } from 'react'
-import { DddSession } from './dddAgendaPage'
+import { DddSession_V1 } from './dddAgendaPage'
 
 interface SessionProps {
-  session: DddSession
+  session: DddSession_V1
   showPresenter: boolean
   hideTags: boolean
   hideLevelAndFormat: boolean

@@ -9,7 +9,8 @@ import { withCurrentDate, WithCurrentDateProps } from '../withCurrentDate'
 // https://dev.to/danhomola/react-higher-order-components-in-typescript-made-simple
 
 export interface AppConfig {
-  getAgendaUrl: string
+  getAgendaUrlv1: string
+  getAgendaUrlv2: string
   getSubmissionsUrl: string
   instrumentationKey: string
   submitVoteUrl: string
@@ -58,7 +59,8 @@ const withPageMetadata = <TOriginalProps extends {}>(
 
       const appConfig = context.req
         ? {
-            getAgendaUrl: process.env.GET_AGENDA_URL,
+            getAgendaUrlv1: process.env.GET_AGENDA_URL_V1,
+            getAgendaUrlv2: process.env.GET_AGENDA_URL_V2,
             getSubmissionsUrl: process.env.GET_SUBMISSIONS_URL,
             instrumentationKey: process.env.APPINSIGHTS_INSTRUMENTATIONKEY,
             submitVoteUrl: process.env.SUBMIT_VOTE_URL,

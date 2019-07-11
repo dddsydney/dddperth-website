@@ -3,7 +3,7 @@ import Error from 'next/error'
 import Link from 'next/link'
 import * as React from 'react'
 import uuid from 'uuid/v1'
-import { DddSession } from '../components/dddAgendaPage'
+import { DddSession_V1 } from '../components/dddAgendaPage'
 import { logEvent, logException } from '../components/global/analytics'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import dateTimeProvider from '../components/utils/dateTimeProvider'
@@ -13,11 +13,11 @@ import getConferenceDates from '../config/dates'
 import Page from '../layouts/main'
 
 interface VoteProps extends WithPageMetadataProps {
-  sessions?: DddSession[]
+  sessions?: DddSession_V1[]
 }
 
 interface VoteState {
-  sessions?: DddSession[]
+  sessions?: DddSession_V1[]
   isLoading: boolean
   isError: boolean
   startTime: string
@@ -39,7 +39,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
       isError: false,
       isLoading: true,
     })
-    fetch(this.props.pageMetadata.conference.getSubmissionsUrl)
+    fetch('http://192.168.0.180:7071/v2/sessions/2019')
       .then(response => {
         if (!response.ok) {
           throw response.statusText
@@ -49,7 +49,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
       .then(body =>
         this.setState({
           isLoading: false,
-          sessions: body as DddSession[],
+          sessions: body as DddSession_V1[],
         }),
       )
       .catch(error => {
@@ -68,7 +68,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
     return typeof window !== 'undefined'
   }
 
-  setSessions(sessions: DddSession[]) {
+  setSessions(sessions: DddSession_V1[]) {
     // if the we're rendering on the server or the client does not support local storage then just set session state
     if (!(this.isRunningInBrowser() && localStorage)) {
       this.setState({

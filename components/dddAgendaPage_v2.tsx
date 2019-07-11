@@ -7,17 +7,27 @@ import AllAgendas from './allAgendas'
 import { SafeLink } from './global/safeLink'
 import { WithPageMetadataProps } from './global/withPageMetadata'
 
-export interface DddSession_V1 {
-  SessionId: string
-  SessionTitle: string
+export interface Presenter {
+  FirstName: string
+  LastName: string
+  Bio: string
+  LinkedIn: string
+  Photo: string
+  PreferredPronoun: string
+  Tagline: string
+  Twitter: string
+  Url: string
+}
+
+export interface DddSession {
+  Presenters: Presenter[]
+  RecommendedAudience: string
   SessionAbstract: string
-  RecommendedAudience?: string
-  PresenterName: string
-  PresenterTwitterAlias?: string
-  PresenterWebsite?: string
-  PresenterBio: string
+  SessionId: string
   SessionLength: string
+  SessionTitle: string
   TrackType: string
+  Year: string
 }
 
 export interface SessionCellProps {
@@ -36,14 +46,14 @@ export interface AgendaPageParameters {
   numTracks: number
 }
 interface ExternalProps {
-  sessions?: DddSession_V1[]
+  sessions?: DddSession[]
 }
 interface AgendaState {
-  sessions: DddSession_V1[]
+  sessions: DddSession[]
   isError: boolean
   isLoading: boolean
   showModal: boolean
-  selectedSession: DddSession_V1
+  selectedSession: DddSession
 }
 
 const dddAgendaPage = <TOriginalProps extends {}>(

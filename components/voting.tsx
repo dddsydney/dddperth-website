@@ -6,7 +6,7 @@ import { getSessionId, logException } from '../components/global/analytics'
 import NonJumpingAffix from '../components/NonJumpingAffix'
 import SessionDetails from '../components/sessionDetails'
 import '../components/utils/arrayExtensions'
-import { DddSession } from './dddAgendaPage'
+import { DddSession_V1 } from './dddAgendaPage'
 import { logEvent } from './global/analytics'
 
 interface VotingState {
@@ -29,7 +29,7 @@ interface VotingState {
 
 interface VotingProps {
   anonymousVoting: boolean
-  sessions: DddSession[]
+  sessions: DddSession_V1[]
   submitVoteUrl: string
   maxVotes: number
   minVotes: number
@@ -42,12 +42,12 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     this.setState({
       flagged: [],
       formatFilters: [],
-      formats: (this.props.sessions as DddSession[])
+      formats: (this.props.sessions as DddSession_V1[])
         .map(s => s.SessionLength || '45 minutes')
         .unique()
         .sort(),
       levelFilters: [],
-      levels: (this.props.sessions as DddSession[])
+      levels: (this.props.sessions as DddSession_V1[])
         .map(s => s.TrackType || 'Developer')
         .unique()
         .sort(),
@@ -79,11 +79,11 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     this.setState({ show: whatToShow })
   }
 
-  isInShortlist(session: DddSession) {
+  isInShortlist(session: DddSession_V1) {
     return this.state.shortlist.includes(session.SessionId)
   }
 
-  toggleShortlist(session: DddSession) {
+  toggleShortlist(session: DddSession_V1) {
     logEvent('voting', this.isInShortlist(session) ? 'unshortlist' : 'shortlist', {
       id: this.props.voteId,
       sessionId: session.SessionId,
@@ -98,11 +98,11 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     )
   }
 
-  isFlagged(session: DddSession) {
+  isFlagged(session: DddSession_V1) {
     return this.state.flagged.includes(session.SessionId)
   }
 
-  toggleFlagged(session: DddSession) {
+  toggleFlagged(session: DddSession_V1) {
     logEvent('voting', this.isFlagged(session) ? 'unflag' : 'flag', {
       id: this.props.voteId,
       sessionId: session.SessionId,
@@ -117,11 +117,11 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     )
   }
 
-  isVotedFor(session: DddSession) {
+  isVotedFor(session: DddSession_V1) {
     return this.state.votes.includes(session.SessionId)
   }
 
-  toggleVote(session: DddSession) {
+  toggleVote(session: DddSession_V1) {
     logEvent('voting', this.isVotedFor(session) ? 'unvote' : 'vote', {
       id: this.props.voteId,
       sessionId: session.SessionId,

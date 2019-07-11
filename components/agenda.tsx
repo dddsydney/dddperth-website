@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch'
 import React from 'react'
 import { Fragment } from 'react'
 import { Modal } from 'react-bootstrap'
-import { DddSession } from './dddAgendaPage'
+import { DddSession } from './dddAgendaPage_v2'
 import SessionDetails from './sessionDetails'
 
 export interface SessionCellProps {
@@ -78,7 +78,7 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
       }
     }
 
-    selectSession(session: DddSession) {
+    selectSession(session: DddSession_V1) {
       this.setState({
         selectedSession: session,
         selectedSessionSponsor: sponsor,

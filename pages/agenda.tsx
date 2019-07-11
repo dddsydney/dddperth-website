@@ -2,7 +2,7 @@
 import * as React from 'react'
 import AllAgendas from '../components/allAgendas'
 import CurrentAgenda from '../components/currentAgenda'
-import { DddSession } from '../components/dddAgendaPage'
+import { DddSession } from '../components/dddAgendaPage_v2'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import Page from '../layouts/main'
 
@@ -37,7 +37,7 @@ class AgendaPage extends React.Component<AgendaPageProps> {
             <CurrentAgenda
               sessions={this.props.sessions}
               previousConferenceInstances={this.props.pageMetadata.conference.PreviousInstances}
-              sessionsUrl="https://api.dddsydney.com.au/v1/sessions/2018"
+              sessionsUrl="https://api.dddsydney.com.au/v2/sessions/2019"
             />
           )}
           {conference.Handbook && (

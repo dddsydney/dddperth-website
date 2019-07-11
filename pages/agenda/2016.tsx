@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
 import dddAgendaPage, { AgendaPageParameters, AgendaPageProps } from '../../components/dddAgendaPage'
-import { SafeLink } from '../../components/global/safeLink'
 import withPageMetadata from '../../components/global/withPageMetadata'
-import ResponsiveVideo from '../../components/responsiveVideo'
 import Sponsors from '../../components/sponsors'
 import From2016 from '../../config/2016'
 import { SponsorType } from '../../config/types'

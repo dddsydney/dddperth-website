@@ -95,10 +95,10 @@ const Conference: IConference = {
 
   MaxVotes: 5,
   MinVotes: 1,
-  // getSubmissionsUrl: 'https://api.dddsydney.com.au/v2/sessions/2019',
-  // submitVoteUrl: 'https://api.dddsydney.com.au/v2/vote/2019',
-  getSubmissionsUrl: 'http://192.168.0.180:7071/v2/sessions/2019',
-  submitVoteUrl: 'http://192.168.0.180:7071/v2/vote/2019',
+  getSubmissionsUrl: 'https://api.dddsydney.com.au/v2/sessions/2019',
+  submitVoteUrl: 'https://api.dddsydney.com.au/v2/vote/2019',
+  // getSubmissionsUrl: 'http://192.168.0.180:7071/v2/sessions/2019',
+  // submitVoteUrl: 'http://192.168.0.180:7071/v2/vote/2019',
 
   Name: name,
   Organiser: {

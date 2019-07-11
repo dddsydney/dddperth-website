@@ -236,54 +236,5 @@ export default function getFaqs(dates: Dates): FAQ[] {
     ),
   })
 
-  Faqs.push({
-    Question: 'Who are the organisers?',
-    AnswerWithoutParagraph: (
-      <Fragment>
-        <p>
-          {Conference.Name} is organised by SydDev Inc. a non-profit organisation set up to create inclusive events for
-          the NSW software community. {Conference.Name} {Conference.Instance} is organised by:
-        </p>
-        <ul>
-          <li>
-            <a href="https://twitter.com/slace" target="_blank">
-              Aaron Powell
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/stevegodbold" target="_blank">
-              Steve Godbold
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/RaphHaddadAus" target="_blank">
-              Raphael Haddad
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/samnevers" target="_blank">
-              Sam Ki
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/_michelleerica" target="_blank">
-              Michelle Lo
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/MelleeMoo" target="_blank">
-              Mel Marshan
-            </a>
-          </li>
-          <li>
-            <a className="maillink" href={'mailto:' + Conference.ContactEmail}>
-              How about you!
-            </a>
-          </li>
-        </ul>
-      </Fragment>
-    ),
-  })
-
   return Faqs
 }

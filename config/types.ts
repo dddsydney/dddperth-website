@@ -77,6 +77,9 @@ export interface Conference {
   Sponsors: Sponsor[]
 
   Keynotes: Session[]
+
+  submitVoteUrl: string
+  getSubmissionsUrl: string
 }
 
 export enum TicketsProvider {

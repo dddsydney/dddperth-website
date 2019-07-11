@@ -39,7 +39,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
       isError: false,
       isLoading: true,
     })
-    fetch('http://192.168.0.180:7071/v2/sessions/2019')
+    fetch(this.props.pageMetadata.conference.getSubmissionsUrl)
       .then(response => {
         if (!response.ok) {
           throw response.statusText
@@ -225,8 +225,8 @@ class VotePage extends React.Component<VoteProps, VoteState> {
                   We ideally want the people who are actually attending to be the ones that have the greatest influence
                   on the agenda and we also feel this is fairer to session submitters since it makes for a more level
                   playing field for social network reach; this year we've added an optional field for you to add in your
-                  Eventbrite ticket order # (from your confirmation email usually sent from: Ti.to
-                  &lt;orders@ti.to&gt;) if you've{' '}
+                  Eventbrite ticket order # (from your confirmation email usually sent from: Ti.to &lt;orders@ti.to&gt;)
+                  if you've{' '}
                   <Link href="/tickets">
                     <a>purchased a ticket</a>
                   </Link>{' '}

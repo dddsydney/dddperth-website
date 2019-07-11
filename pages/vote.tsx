@@ -3,7 +3,7 @@ import Error from 'next/error'
 import Link from 'next/link'
 import * as React from 'react'
 import uuid from 'uuid/v1'
-import { DddSession_V1 } from '../components/dddAgendaPage'
+import { DddSession } from '../components/dddAgendaPage_v2'
 import { logEvent, logException } from '../components/global/analytics'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import dateTimeProvider from '../components/utils/dateTimeProvider'
@@ -13,11 +13,11 @@ import getConferenceDates from '../config/dates'
 import Page from '../layouts/main'
 
 interface VoteProps extends WithPageMetadataProps {
-  sessions?: DddSession_V1[]
+  sessions?: DddSession[]
 }
 
 interface VoteState {
-  sessions?: DddSession_V1[]
+  sessions?: DddSession[]
   isLoading: boolean
   isError: boolean
   startTime: string
@@ -49,7 +49,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
       .then(body =>
         this.setState({
           isLoading: false,
-          sessions: body as DddSession_V1[],
+          sessions: body as DddSession[],
         }),
       )
       .catch(error => {
@@ -68,7 +68,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
     return typeof window !== 'undefined'
   }
 
-  setSessions(sessions: DddSession_V1[]) {
+  setSessions(sessions: DddSession[]) {
     // if the we're rendering on the server or the client does not support local storage then just set session state
     if (!(this.isRunningInBrowser() && localStorage)) {
       this.setState({
@@ -225,8 +225,8 @@ class VotePage extends React.Component<VoteProps, VoteState> {
                   We ideally want the people who are actually attending to be the ones that have the greatest influence
                   on the agenda and we also feel this is fairer to session submitters since it makes for a more level
                   playing field for social network reach; this year we've added an optional field for you to add in your
-                  Eventbrite ticket order # (from your confirmation email usually sent from: Eventbrite
-                  &lt;orders@eventbrite.com&gt;) if you've{' '}
+                  Eventbrite ticket order # (from your confirmation email usually sent from: Ti.to
+                  &lt;orders@ti.to&gt;) if you've{' '}
                   <Link href="/tickets">
                     <a>purchased a ticket</a>
                   </Link>{' '}
@@ -255,7 +255,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
             <br />
             Thanks!
             <br />
-            &lt;3 DDD Perth team
+            &lt;3 {this.props.pageMetadata.conference.Name}
           </p>
 
           {this.state.isLoading && <p>Loading sessions...</p>}

@@ -6,7 +6,7 @@ import { getSessionId, logException } from '../components/global/analytics'
 import NonJumpingAffix from '../components/NonJumpingAffix'
 import SessionDetails from '../components/sessionDetails'
 import '../components/utils/arrayExtensions'
-import { DddSession_V1 } from './dddAgendaPage'
+import { DddSession } from './dddAgendaPage_v2'
 import { logEvent } from './global/analytics'
 
 interface VotingState {
@@ -29,7 +29,7 @@ interface VotingState {
 
 interface VotingProps {
   anonymousVoting: boolean
-  sessions: DddSession_V1[]
+  sessions: DddSession[]
   submitVoteUrl: string
   maxVotes: number
   minVotes: number
@@ -42,12 +42,12 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     this.setState({
       flagged: [],
       formatFilters: [],
-      formats: (this.props.sessions as DddSession_V1[])
+      formats: (this.props.sessions as DddSession[])
         .map(s => s.SessionLength || '45 minutes')
         .unique()
         .sort(),
       levelFilters: [],
-      levels: (this.props.sessions as DddSession_V1[])
+      levels: (this.props.sessions as DddSession[])
         .map(s => s.TrackType || 'Developer')
         .unique()
         .sort(),
@@ -79,11 +79,11 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     this.setState({ show: whatToShow })
   }
 
-  isInShortlist(session: DddSession_V1) {
+  isInShortlist(session: DddSession) {
     return this.state.shortlist.includes(session.SessionId)
   }
 
-  toggleShortlist(session: DddSession_V1) {
+  toggleShortlist(session: DddSession) {
     logEvent('voting', this.isInShortlist(session) ? 'unshortlist' : 'shortlist', {
       id: this.props.voteId,
       sessionId: session.SessionId,
@@ -98,11 +98,11 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     )
   }
 
-  isFlagged(session: DddSession_V1) {
+  isFlagged(session: DddSession) {
     return this.state.flagged.includes(session.SessionId)
   }
 
-  toggleFlagged(session: DddSession_V1) {
+  toggleFlagged(session: DddSession) {
     logEvent('voting', this.isFlagged(session) ? 'unflag' : 'flag', {
       id: this.props.voteId,
       sessionId: session.SessionId,
@@ -117,11 +117,11 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
     )
   }
 
-  isVotedFor(session: DddSession_V1) {
+  isVotedFor(session: DddSession) {
     return this.state.votes.includes(session.SessionId)
   }
 
-  toggleVote(session: DddSession_V1) {
+  toggleVote(session: DddSession) {
     logEvent('voting', this.isVotedFor(session) ? 'unvote' : 'vote', {
       id: this.props.voteId,
       sessionId: session.SessionId,
@@ -324,47 +324,6 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
                   My votes ({this.state.votes.length})
                 </button>
               </div>
-              {this.state.show === 'all' && (
-                <React.Fragment>
-                  <div className="filters">
-                    <em>Filter by:</em>{' '}
-                    <ReactResponsiveSelect
-                      name="formatFilter"
-                      prefix="Format:"
-                      options={[{ value: null, text: 'All', markup: option('All') }].concat(
-                        this.state.formats.map(f => ({ value: f, text: f, markup: option(f) })),
-                      )}
-                      multiselect={true}
-                      caretIcon={<span className="fa fa-caret-down" />}
-                      onChange={selected => {
-                        const newFilter = selected.options.map(o => o.value).filter(o => o !== null)
-                        if (newFilter.length > 0) {
-                          logEvent('voting', 'formatFilter', { filter: newFilter.join(',') })
-                        }
-                        this.setState({ formatFilters: newFilter })
-                      }}
-                      selectedValues={this.state.formatFilters.length > 0 ? this.state.formatFilters : undefined}
-                    />
-                    <ReactResponsiveSelect
-                      name="levelsFilter"
-                      prefix="Level:"
-                      options={[{ value: null, text: 'All', markup: option('All') }].concat(
-                        this.state.levels.map(l => ({ value: l, text: l, markup: option(l) })),
-                      )}
-                      multiselect={true}
-                      caretIcon={<span className="fa fa-caret-down" />}
-                      onChange={selected => {
-                        const newFilter = selected.options.map(o => o.value).filter(o => o !== null)
-                        if (newFilter.length > 0) {
-                          logEvent('voting', 'levelFilter', { filter: newFilter.join(',') })
-                        }
-                        this.setState({ levelFilters: newFilter })
-                      }}
-                      selectedValues={this.state.levelFilters.length > 0 ? this.state.levelFilters : undefined}
-                    />
-                  </div>
-                </React.Fragment>
-              )}
             </Panel.Body>
           </Panel>
         </NonJumpingAffix>
@@ -384,7 +343,7 @@ export default class Voting extends React.PureComponent<VotingProps, VotingState
         )}
         <PanelGroup accordion={!this.state.expandAll} className="accordion" id="voting-interface">
           {visibleSessions.map((s, i) => (
-            <Panel eventKey={i} key={i} expanded={this.state.expandAll || null}>
+            <Panel eventKey={i} key={i} defaultExpanded={null} expanded={this.state.expandAll || null}>
               <Panel.Heading>
                 <Panel.Title toggle={!this.state.expandAll}>
                   <SpanIf condition={this.state.expandAll} className="title">

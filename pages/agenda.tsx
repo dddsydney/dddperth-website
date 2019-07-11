@@ -37,7 +37,7 @@ class AgendaPage extends React.Component<AgendaPageProps> {
             <CurrentAgenda
               sessions={this.props.sessions}
               previousConferenceInstances={this.props.pageMetadata.conference.PreviousInstances}
-              sessionsUrl="https://api.dddsydney.com.au/v2/sessions/2019"
+              sessionsUrl="https://dddsydneyapi.azurewebsites.net/v2/sessions/2019"
             />
           )}
           {conference.Handbook && (

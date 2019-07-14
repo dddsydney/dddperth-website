@@ -28,6 +28,7 @@ export interface DddSession {
   SessionTitle: string
   TrackType: string
   Year: string
+  Tags: string[]
 }
 
 export interface SessionCellProps {
@@ -122,7 +123,7 @@ const dddAgendaPage = <TOriginalProps extends {}>(
       }
     }
 
-    selectSession(session: DddSession_V1) {
+    selectSession(session: DddSession) {
       this.setState({
         selectedSession: session,
         showModal: true,

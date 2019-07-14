@@ -11,6 +11,7 @@ import Voting from '../components/voting'
 import Conference from '../config/conference'
 import getConferenceDates from '../config/dates'
 import Page from '../layouts/main'
+import { TicketNumberWhileVoting, TicketsProvider } from '../config/types';
 
 interface VoteProps extends WithPageMetadataProps {
   sessions?: DddSession[]
@@ -274,6 +275,11 @@ class VotePage extends React.Component<VoteProps, VoteState> {
               maxVotes={maxVotes}
               anonymousVoting={this.props.pageMetadata.conference.AnonymousVoting}
               submitVoteUrl={this.props.pageMetadata.conference.submitVoteUrl}
+              ticketNumberHandling={TicketNumberWhileVoting.Optional}
+              ticketsProvider={TicketsProvider.Tito}
+              conferenceName={this.props.pageMetadata.conference.Name}
+              preferentialVoting={this.props.pageMetadata.conference.PreferentialVoting}
+              conferenceInstance={this.props.pageMetadata.conference.Instance}
             />
           )}
         </div>

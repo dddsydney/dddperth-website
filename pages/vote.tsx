@@ -48,10 +48,7 @@ class VotePage extends React.Component<VoteProps, VoteState> {
         return response.json()
       })
       .then(body =>
-        this.setState({
-          isLoading: false,
-          sessions: body as DddSession[],
-        }),
+        this.setSessions(body),
       )
       .catch(error => {
         logException('Error when getting sessions', error, {

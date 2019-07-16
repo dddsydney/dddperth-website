@@ -8,8 +8,8 @@ import { SafeLink } from './global/safeLink'
 import { WithPageMetadataProps } from './global/withPageMetadata'
 
 export interface Presenter {
-  FirstName: string
-  LastName: string
+  firstName: string
+  lastName: string
   Bio: string
   LinkedIn: string
   Photo: string

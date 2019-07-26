@@ -13,6 +13,24 @@ const Sponsors: Sponsor[] = [
     type: SponsorType.Gold,
     url: 'https://readify.net',
   },
+  {
+    imageUrl: '/static/images/sponsors/2019-GitHub_Logo.png',
+    name: 'GitHub',
+    type: SponsorType.Gold,
+    url: 'https://github.com',
+  },
+  {
+    imageUrl: '/static/images/sponsors/2019-Microsoft-logo_rgb_c-gray.png',
+    name: 'Microsoft Cloud Advocates',
+    type: SponsorType.Silver,
+    url: 'https://developer.microsoft.com/en-us/advocates/index.html',
+  },
+  {
+    imageUrl: '/static/images/sponsors/2019-muses-tm-logo.png',
+    name: 'Muses Code JS',
+    type: SponsorType.Community,
+    url: 'https://musescodejs.org/sydney.html',
+  },
   // {
   //   imageUrl: '/static/images/sponsors/aspose.png',
   //   name: 'Aspose',

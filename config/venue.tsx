@@ -22,4 +22,4 @@ const venue: Venue = {
   Bus: <Fragment>There's plenty of buses that run down Paramatta Road and stop at UTS.</Fragment>,
 }
 
-export default null
+export default venue

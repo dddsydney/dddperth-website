@@ -9,9 +9,10 @@ interface SessionProps {
   hideTags: boolean
   hideLevelAndFormat: boolean
   showBio: boolean
+  redactName: boolean
 }
 
-const SessionDetails: React.StatelessComponent<SessionProps> = ({ session, showBio }) => {
+const SessionDetails: React.StatelessComponent<SessionProps> = ({ session, showBio, redactName }) => {
   let presenterNames = session.Presenters.map(presenter => [
     presenter.firstName,
     presenter.lastName,
@@ -20,7 +21,9 @@ const SessionDetails: React.StatelessComponent<SessionProps> = ({ session, showB
   return (
     <Fragment>
       <p className="preserve-whitespace" style={{ marginBottom: '10px' }}>
-        {presenterNames.reduce((abs, name) => abs.replace(name, '<redacted>'), session.SessionAbstract)}
+        {redactName
+          ? presenterNames.reduce((abs, name) => abs.replace(name, '<redacted>'), session.SessionAbstract)
+          : session.SessionAbstract}
       </p>
       <p style={{ margin: '10px 0 15px 0' }}>
         <span className="badge badge-primary">{session.TrackType}</span>{' '}
@@ -30,35 +33,42 @@ const SessionDetails: React.StatelessComponent<SessionProps> = ({ session, showB
         session.Presenters.map(p => (
           <p key={(p.firstName + ' ' + p.lastName).replace(/ /g, '-')}>
             <img
-              src={p.Photo || '/static/images/profile-image-blank.jpg'}
+              src={p.photo || '/static/images/profile-image-blank.jpg'}
               alt={p.firstName + ' ' + p.lastName + ' profile photo'}
               className="profile-photo"
             />
-            <em>{p.firstName + ' ' + p.lastName}</em>{' '}
-            {(p.Twitter || p.Url || p.LinkedIn) && (
+            <em>
+              {p.firstName + ' ' + p.lastName}
+              {p.tagline ? ` - ${p.tagline}` : ''}
+            </em>
+            <br />
+            {(p.twitter || p.url || p.linkedIn) && (
               <small>
                 (
-                {p.Twitter && (
+                {p.twitter && (
                   <React.Fragment>
                     <SafeLink
                       href={
                         'https://twitter.com/' +
-                        p.Twitter.replace(/https?\:\/\/(www\.)?twitter.com\//i, '').replace(/\?.+$/, '')
+                        p.twitter.replace(/https?\:\/\/(www\.)?twitter.com\//i, '').replace(/\?.+$/, '')
                       }
                       target="_blank"
                     >
-                      @{p.Twitter.replace(/https?\:\/\/(www\.)?twitter.com\//i, '').replace(/\?.+$/, '')}
+                      @{p.twitter.replace(/https?\:\/\/(www\.)?twitter.com\//i, '').replace(/\?.+$/, '')}
                     </SafeLink>
-                    {p.Url ? ' | ' : null}
+                    {p.url ? ' | ' : null}
                   </React.Fragment>
                 )}
-                {p.Url && (
-                  <SafeLink href={p.Url} target="_blank">
-                    {p.Url.replace(/https?\:\/\/(www\.)?/i, '')}
-                  </SafeLink>
+                {p.url && (
+                  <React.Fragment>
+                    <SafeLink href={p.url} target="_blank">
+                      {p.url.replace(/https?\:\/\/(www\.)?/i, '')}
+                    </SafeLink>
+                    {p.linkedIn ? ' | ' : null}
+                  </React.Fragment>
                 )}
-                {p.LinkedIn && (
-                  <SafeLink href={p.LinkedIn} target="_blank">
+                {p.linkedIn && (
+                  <SafeLink href={p.linkedIn} target="_blank">
                     LinkedIn
                   </SafeLink>
                 )}

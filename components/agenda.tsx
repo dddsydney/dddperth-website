@@ -78,10 +78,9 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
       }
     }
 
-    selectSession(session: DddSession_V1) {
+    selectSession(session: DddSession) {
       this.setState({
         selectedSession: session,
-        selectedSessionSponsor: sponsor,
         showModal: true,
       })
     }
@@ -113,12 +112,7 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
             }
             rowSpan={props.rowSpan ? props.rowSpan : null}
             colSpan={props.isKeynote || props.isLocknote || props.isLunchnote ? numTracks : null}
-            onClick={() =>
-              onClick.bind(that)(
-                session,
-                !!props.sponsorName ? that.props.sponsors.find(s => s.name === props.sponsorName) : undefined,
-              )
-            }
+            onClick={() => onClick.bind(that)(session)}
           >
             {isLoading !== false && (
               <Fragment>
@@ -133,24 +127,22 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
                 <em>Error loading this session</em>
               </Fragment>
             )}
-            {isLoading === false &&
-              isError === false &&
-              session && (
-                <Fragment>
-                  <strong>
-                    {props.isKeynote
-                      ? 'KEYNOTE - '
-                      : props.isLocknote
-                        ? 'LOCKNOTE - '
-                        : props.isLunchnote
-                          ? 'LUNCHNOTE - '
-                          : null}
-                    {session.PresenterName}
-                  </strong>
-                  <br />
-                  <em>{session.SessionTitle}</em>
-                </Fragment>
-              )}
+            {isLoading === false && isError === false && session && (
+              <Fragment>
+                <strong>
+                  {props.isKeynote
+                    ? 'KEYNOTE - '
+                    : props.isLocknote
+                    ? 'LOCKNOTE - '
+                    : props.isLunchnote
+                    ? 'LUNCHNOTE - '
+                    : null}
+                  {session.Presenters.map(p => `${p.firstName} ${p.lastName}`).join(', ')}
+                </strong>
+                <br />
+                <em>{session.SessionTitle}</em>
+              </Fragment>
+            )}
           </td>
         )
       }
@@ -176,28 +168,8 @@ const agenda = (WrappedComponent: React.ComponentType<AgendaProps>, externalProp
                     hideTags={false}
                     showBio={true}
                     hideLevelAndFormat={false}
+                    redactName={false}
                   />
-                  {this.props.afterSessionDetails && this.props.afterSessionDetails(this.state.selectedSession)}
-                  {this.state.selectedSessionSponsor && (
-                    <Fragment>
-                      <hr />
-                      <p className="text-center">
-                        Sponsored by:
-                        <SafeLink
-                          href={this.state.selectedSessionSponsor.url}
-                          target="_blank"
-                          key={this.state.selectedSessionSponsor.name}
-                          title={this.state.selectedSessionSponsor.name}
-                        >
-                          <img
-                            src={this.state.selectedSessionSponsor.imageUrl}
-                            alt={this.state.selectedSessionSponsor.name}
-                            style={{ width: '200px' }}
-                          />
-                        </SafeLink>
-                      </p>
-                    </Fragment>
-                  )}
                 </Modal.Body>
               </Fragment>
             )}

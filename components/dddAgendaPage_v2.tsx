@@ -11,12 +11,12 @@ export interface Presenter {
   firstName: string
   lastName: string
   Bio: string
-  LinkedIn: string
-  Photo: string
+  linkedIn: string
+  photo: string
   PreferredPronoun: string
-  Tagline: string
-  Twitter: string
-  Url: string
+  tagline: string
+  twitter: string
+  url: string
 }
 
 export interface DddSession {

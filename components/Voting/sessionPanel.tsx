@@ -110,6 +110,7 @@ export const SessionPanel: React.FC<SessionPanelProps> = ({
           hideTags={true}
           showBio={false}
           hideLevelAndFormat={false}
+          redactName={true}
         />
       </StyledDetails>
     </StyledPanel>

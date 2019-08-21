@@ -17,11 +17,12 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
     <ul>
       <li>Making the ticket price as low as possible ($60)</li>
       <li>Running the event on a Saturday</li>
-      <li>Allowing anyone to submit about any software industry related topic</li>
+      <li>Allowing anyone to submit a presentation</li>
       <li>Having a democratically chosen agenda</li>
       <li>Focussing on creating a safe and inclusive environment where everyone is welcome</li>
       <li>Having a track specifically for junior developers</li>
     </ul>
+    <p>If you have thoughts on how to make our conference more inclusive, please get in contact with us.</p>
     <p className="text-center">
       <img
         src="/static/images/logo.png"
@@ -29,16 +30,15 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
         style={{ width: '250px' }}
       />
     </p>
+    <h2>What does DDD stand for?</h2>
     <p>
-      DDD standards for Developer! Developer! Developer! and while it's heritage is a developer-focussed conference,{' '}
-      {props.pageMetadata.conference.Name} is not just for developers, but for all professionals in the software
-      industry.
+      {props.pageMetadata.conference.Name} started out its life as part of the Developer! Developer! Developer! series of events and while our heritage is as a developer-focussed conference, DDD Sydney is not just for developers, but for all professionals in the software industry. Our DDD now stands for Developer! Data! Design!
     </p>
     <p>{props.pageMetadata.conference.Name} has been held at the following dates:</p>
     <ul>
       <li>
-        <Link href="/agenda/2016">
-          <a>28th May 2016 - 200 attendees</a>
+        <Link href="/agenda/2018">
+          <a>18 August 2018 - 300 attendees (first time selling out!)</a>
         </Link>
       </li>
       <li>
@@ -47,22 +47,18 @@ export default withPageMetadata((props: WithPageMetadataProps) => (
         </Link>
       </li>
       <li>
-        <Link href="/agenda/2018">
-          <a>18 August 2018 - 300 attendees (first time selling out!)</a>
+        <Link href="/agenda/2016">
+          <a>28th May 2016 - 200 attendees</a>
         </Link>
       </li>
     </ul>
     <p>
-      Developer! Developer! Developer! started in 2005 in the United Kingdom as a community conference organised by
-      software developers for software developers.{' '}
-      <SafeLink href="https://en.wikipedia.org/wiki/Developer!_Developer!_Developer!" target="_blank">
-        It's since spread all over the UK and Australia
-      </SafeLink>
+    It all started in 2005 in the United Kingdom as a community conference organised by software developers for software developers. It's since spread all over the UK and Australia.
       .
     </p>
     <p>DDD was set up with a number of key elements in mind, which hold true for all DDD conferences held worldwide:</p>
     <ul>
-      <li>It is free / low cost</li>
+      <li>Events are free / low cost</li>
       <li>It is on a Saturday</li>
       <li>An open submissions process</li>
       <li>A democratically chosen agenda</li>

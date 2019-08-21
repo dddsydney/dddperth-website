@@ -11,6 +11,10 @@ export default function Menu(conference: Conference, dates: Dates) {
       name: 'About',
     },
     {
+      href: '/code-of-conduct',
+      name: 'CoC',
+    },
+    {
       href: '/sponsorship',
       name: 'Sponsorship',
     },

@@ -30,13 +30,16 @@ const Header: StatelessComponent<HeaderArgs> = ({ isHome, hideBanner, conference
           <div className="container">
             <p>
               {conference.TagLine}
-              {!conference.HideDate && !dates.IsComplete && ' & will be held on ' + dates.Display}.<br />
               <br />
-              {conference.Goal} See our{' '}
+              {conference.Goal}
+              <br />
+              Our{' '}
               <Link href="/code-of-conduct">
                 <a>Code of Conduct</a>
               </Link>
-              .
+              outlines the principles from which we operate, we are always looking for{' '}
+              <a href={`mailto:${conference.ContactEmail}`}>further feedback</a> on how to make our events more
+              inclusive.
             </p>
           </div>
         </section>

@@ -5,7 +5,7 @@ import { Conference as IConference, ImportantDate, TicketNumberWhileVoting, Tick
 import venue from './venue'
 
 const name = 'DDD Sydney'
-const tagLine = `${name} is an inclusive non-profit conference for the Sydney software community`
+const tagLine = `${name} is an inclusive non-profit conference for the Developer, Data and Design community`
 
 const hideDate = false
 const isSoldOut = false
@@ -84,7 +84,7 @@ const Conference: IConference = {
   FeedbackOpenUntil: feedbackOpenUntil,
   FinishTime: '5:10pm',
   Goal:
-    "Our goal is to create an approachable event that appeals to the whole community, especially people that don't normally get to attend or speak at conferences.",
+    "We are dedicated to making the technology industry in Australia more inclusive: giving minority groups a voice in the future of digital.",
   GoogleAnalyticsId: 'UA-98480529-1',
   Handbook: null,
   HashTag: 'dddsydney',

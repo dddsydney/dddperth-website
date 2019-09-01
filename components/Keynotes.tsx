@@ -14,27 +14,30 @@ export default ({ conference }: KeynotesProps) => (
         <div className="container">
           <h2>Keynote speakers</h2>
           {conference.Keynotes.map(keynote => (
-            <article id={keynote.Id} className="keynote" key={keynote.Title.replace(/ /g, '-')}>
-              <h3>{keynote.Title}</h3>
-              <img src={keynote.Presenters[0].ProfilePhotoUrl} alt={keynote.Presenters[0].Name} />
+            <article id={keynote.SessionId} className="keynote" key={keynote.SessionTitle.replace(/ /g, '-')}>
+              <h3>{keynote.SessionTitle}</h3>
+              <img
+                src={keynote.Presenters[0].photo}
+                alt={`${keynote.Presenters[0].firstName} ${keynote.Presenters[0].lastName}`}
+              />
               <h4>
-                {keynote.Presenters[0].Name}
+                {`${keynote.Presenters[0].firstName} ${keynote.Presenters[0].lastName}`}
                 <br />
-                <small>{keynote.Presenters[0].Tagline}</small>
-                {keynote.Presenters[0].TwitterHandle || keynote.Presenters[0].WebsiteUrl ? (
+                <small>{keynote.Presenters[0].tagline}</small>
+                {keynote.Presenters[0].twitter || keynote.Presenters[0].url ? (
                   <small>
                     <br />(
-                    {keynote.Presenters[0].TwitterHandle ? (
+                    {keynote.Presenters[0].twitter ? (
                       <React.Fragment>
-                        <SafeLink href={'https://twitter.com/' + keynote.Presenters[0].TwitterHandle} target="_blank">
-                          @{keynote.Presenters[0].TwitterHandle}
+                        <SafeLink href={'https://twitter.com/' + keynote.Presenters[0].twitter} target="_blank">
+                          @{keynote.Presenters[0].twitter}
                         </SafeLink>
-                        {keynote.Presenters[0].WebsiteUrl ? ' | ' : null}
+                        {keynote.Presenters[0].url ? ' | ' : null}
                       </React.Fragment>
                     ) : null}
-                    {keynote.Presenters[0].WebsiteUrl ? (
-                      <SafeLink href={keynote.Presenters[0].WebsiteUrl} target="_blank">
-                        {keynote.Presenters[0].WebsiteUrl}
+                    {keynote.Presenters[0].url ? (
+                      <SafeLink href={keynote.Presenters[0].url} target="_blank">
+                        {keynote.Presenters[0].url}
                       </SafeLink>
                     ) : null}
                     )
@@ -46,7 +49,8 @@ export default ({ conference }: KeynotesProps) => (
                 hideTags={false}
                 showPresenter={false}
                 hideLevelAndFormat={true}
-                showBio={true}
+                showBio={false}
+                redactName={false}
               />
             </article>
           ))}

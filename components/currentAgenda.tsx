@@ -61,10 +61,10 @@ const CurrentAgenda: StatelessComponent<AgendaProps> = ({ SessionCell }) => (
 
           <tr className="breadth-row">
             <td className="time">9:00</td>
-            {/* <SessionCell isKeynote={true} sessionId="23659be8-c93d-468c-8aff-f4cf5f9e07dd" /> */}
-            <td colSpan={4} className="keynote session">
+            <SessionCell isKeynote={true} sessionId="keynote" />
+            {/* <td colSpan={4} className="keynote session">
               Keynote
-            </td>
+            </td> */}
           </tr>
 
           {changeOverRow('09:45')}

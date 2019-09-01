@@ -3,7 +3,7 @@ import EventDetails from '../components/eventDetails'
 import withPageMetadata, { WithPageMetadataProps } from '../components/global/withPageMetadata'
 import ImageStrip from '../components/imageStrip'
 import ImportantDates from '../components/importantDates'
-// import Keynotes from '../components/Keynotes'
+import Keynotes from '../components/Keynotes'
 import MailingList from '../components/mailingList'
 import Sponsors from '../components/sponsors'
 import arrayShuffle from '../components/utils/arrayShuffle'
@@ -36,7 +36,7 @@ class Index extends React.Component<IndexProps & WithPageMetadataProps> {
           hideUpsell={conference.HideSponsorshipUpsell}
         />
         <ImportantDates conference={conference} actions={actions} currentDate={this.props.pageMetadata.currentDate} />
-        {/* <Keynotes conference={conference} /> */}
+        <Keynotes conference={conference} />
         <ImageStrip images={this.props.imageStrip} />
         <MailingList mailingList={conference.Socials.MailingList} />
       </Page>

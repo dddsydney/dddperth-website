@@ -11,9 +11,9 @@ export interface Presenter {
   firstName: string
   lastName: string
   Bio: string
-  linkedIn: string
+  linkedIn?: string
   photo: string
-  PreferredPronoun: string
+  PreferredPronoun?: string
   tagline: string
   twitter: string
   url: string

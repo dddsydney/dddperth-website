@@ -1,4 +1,5 @@
 import { Moment } from 'moment'
+import { DddSession } from '../components/dddAgendaPage_v2'
 
 export type Types = 'conference' | 'voting' | 'tickets' | 'agenda' | 'content'
 
@@ -76,7 +77,7 @@ export interface Conference {
 
   Sponsors: Sponsor[]
 
-  Keynotes: Session[]
+  Keynotes: DddSession[]
 
   submitVoteUrl: string
   getSubmissionsUrl: string

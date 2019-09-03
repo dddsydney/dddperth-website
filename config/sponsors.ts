@@ -21,8 +21,8 @@ const Sponsors: Sponsor[] = [
   },
   {
     imageUrl: '/static/images/sponsors/2019-Microsoft-logo_rgb_c-gray.png',
-    name: 'Microsoft Cloud Advocates',
-    type: SponsorType.Silver,
+    name: 'Microsoft Cloud Advocates & Microsoft Australia',
+    type: SponsorType.Gold,
     url: 'https://developer.microsoft.com/en-us/advocates/index.html',
   },
   {

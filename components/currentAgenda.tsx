@@ -168,9 +168,7 @@ const CurrentAgenda: StatelessComponent<AgendaProps> = ({ SessionCell }) => (
 
           <tr className="breadth-row">
             <td className="time">16:10</td>
-            <td colSpan={4} className="breadth">
-              Locknote
-            </td>
+            <SessionCell isKeynote={true} sessionId="locknote" />
           </tr>
 
           <tr className="breadth-row">

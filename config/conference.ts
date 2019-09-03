@@ -212,6 +212,34 @@ After finishing GeneralAssembly 4 years ago on web-development immersive 3-month
       TrackType: 'keynote',
       Year: '2019',
     },
+    {
+      SessionId: 'locknote',
+      SessionAbstract: `Have you ever felt like a fraud? Like you did not deserve the opportunities in front of you? Have you ever thought "why me, I should not be here"?
+
+Alternatively, have you seen a talented colleague not recognising their own achievements? A colleague hesitant to take on a new role?
+
+This is imposter syndrome; I encounter it constantly and fight against it in myself and others. I want you to unite with me in this battle; for yourself, your colleagues and friends.
+
+Join me as I share my experiences with imposter syndrome, how I have fought against it and how you can join the fight.`,
+      SessionTitle: 'Battles of an imposter',
+      Tags: ['locknote'],
+      RecommendedAudience: '',
+      SessionLength: '',
+      TrackType: 'locknote',
+      Year: '2019',
+      Presenters: [
+        {
+          Bio: `Melissa Houghton is a Senior Developer at Readify. She has a passion for technology, learning and giving back to the community. She is an organiser for DDD Perth and has previously been involved in other NFP organisations such as CoderDojo and Rotary Youth Leadership Camps. Originally from California, Melissa loves to travel, drink wine and learn new things.`,
+          firstName: 'Melissa',
+          lastName: 'Houghton',
+          photo: '/static/images/2019/melissa-locknote.jpg',
+          tagline:
+            'Senior Software Developer @Readify | Organiser @DDDPerth  conference | Traveller | Wine lover 🍷',
+          twitter: 'meliss_houghton',
+          url: '',
+        },
+      ],
+    },
   ],
 
   ConferenceFeedbackLink: '',

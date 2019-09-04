@@ -1,12 +1,12 @@
 import { Sponsor, SponsorType } from './types'
 
 const Sponsors: Sponsor[] = [
-  // {
-  //   imageUrl: '/static/images/sponsors/ndc-sydney.png',
-  //   name: 'NDC Sydney',
-  //   type: SponsorType.Silver,
-  //   url: 'https://ndcsydney.com',
-  // },
+  {
+    imageUrl: '/static/images/sponsors/2019-ndc-sydney.png',
+    name: 'NDC Sydney',
+    type: SponsorType.Silver,
+    url: 'https://ndcsydney.com',
+  },
   {
     imageUrl: '/static/images/sponsors/2019-readify.png',
     name: 'Readify, A Telstra Company',

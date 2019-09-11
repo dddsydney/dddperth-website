@@ -8,10 +8,10 @@ const Sponsors: Sponsor[] = [
     url: 'https://ndcsydney.com',
   },
   {
-    imageUrl: '/static/images/sponsors/2019-readify.png',
-    name: 'Readify, A Telstra Company',
+    imageUrl: '/static/images/sponsors/2019-telstra-purple-logo.png',
+    name: 'Telstra Purple',
     type: SponsorType.Gold,
-    url: 'https://readify.net',
+    url: 'https://www.telstra.com.au/purple',
   },
   {
     imageUrl: '/static/images/sponsors/2019-GitHub_Logo.png',

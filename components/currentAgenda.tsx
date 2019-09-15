@@ -106,14 +106,14 @@ const CurrentAgenda: StatelessComponent<AgendaProps> = ({ SessionCell }) => (
               11:50
             </td>
             <SessionCell sessionId="137608" />
-            <SessionCell sessionId="137659" />
+            <SessionCell sessionId="132220" />
             <SessionCell sessionId="137506" />
             <SessionCell sessionId="137305" />
           </tr>
 
           <tr>
             <SessionCell sessionId="137017" />
-            <SessionCell sessionId="132220" />
+            <SessionCell sessionId="137659" />
             <SessionCell sessionId="135759" />
             <SessionCell sessionId="136601" />
           </tr>
